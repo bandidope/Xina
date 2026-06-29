@@ -59,11 +59,11 @@ img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;b
 </head>
 <body>
 
-<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">100% ESTABLE 24/7 | ENTREGA INMEDIATA</p></header>
+<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Bots Caligráficos 100% ESTABLE 24/7</p></header>
 
 <div class="verificado">
   <b>✅ Vendedor Verificado Ica | +50 Bots Vendidos</b>
-  <p>Atención directa por WhatsApp. Respondo en menos de 5 min.</p>
+  <p>Todos nuestros bots incluyen 6 estilos de fuente caligráfica.</p>
 </div>
 
 <div class="container" id="app"></div>
@@ -81,95 +81,107 @@ const datos = {
   img: "https://files.evogb.win/BLG4n2.jpg",
   comandosImg: "https://files.evogb.win/eMe9xu.jpg",
   grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
-  productos: { // 5 PRODUCTOS NORMALES
-    "PERSONALIZADO": {
-      nombre: "Bot Personalizado",
-      precio: "S/ 16",
-      precioReal: "S/ 18",
-      sub: "Tu Bot, Tus Reglas",
-      ahorro: "🔥 Oferta Hoy: Ahorras S/ 2. Solo 2 cupos",
-      tag: "OFERTA",
-      incluye: "✅ Bot desde cero a tu gusto<br>✅ Comandos personalizados<br>✅ Nombre + Logo exclusivo<br>✅ Menú a tu estilo<br>✅ Instalación + Soporte 24/7"
-    },
-    "COMBO": {
-      nombre: "Combo Bot + Servidor",
-      precio: "S/ 22",
-      precioReal: "S/ 25",
-      sub: "X5 + Servidor 24/7",
-      ahorro: "🔥 Oferta Hoy: Ahorras S/ 3. Voy 3/5 cupos",
-      tag: "OFERTA",
-      incluye: "✅ Bot Personalizado A Tu Gusto<br>✅ Servidor ( Mensual 10 Soles )<br>✅ Comandos A Tu Gusto<br>✅ Diseño Personalizados<br>✅ Soporté 24/7<br>✅ Se Crea Comandos A Tu Gusto"
-    },
-    "X3": {nombre: "Grupo X3", precio: "S/ 10", sub: "Bot para 3 Grupos | 1 Solo Pago", ahorro: "Ahorras S/ 0", incluye: "✅ Bot completo<br>✅ Para 3 grupos de WhatsApp<br>✅ Todos los comandos incluidos<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
-    "X5": {nombre: "Grupo X5", precio: "S/ 15", sub: "Bot para 5 Grupos | 1 Solo Pago", ahorro: "🔥 Ahorras S/ 10 vs comprar 5 veces el X1", incluye: "✅ Mismo bot completo que el X1<br>✅ Para 5 grupos distintos<br>✅ Comandos:.menu.sticker.play.ia.frases<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
-    "SERVIDOR": {nombre: "Servidor 24/7", precio: "S/ 10", sub: "Hosting para tu Bot", ahorro: "", incluye: "✅ Bot siempre online 24/7<br>✅ Sin caídas ni lag<br>✅ Panel para reiniciar<br>✅ Te lo instalo todo yo<br>✅ Soporte 24/7"}
+
+  // LOS 6 ESTILOS QUE SE REPITEN PARA TODOS
+  estilos: {
+    "ELEG": {nombre: "Elegante", precioExtra: "S/ 0", desc: "Fuente estilo firma cursiva"},
+    "GOTH": {nombre: "Goth", precioExtra: "S/ 0", desc: "Fuente estilo gótico dark"},
+    "NEON": {nombre: "Neón", precioExtra: "S/ 0", desc: "Fuente estilo neón brillante"},
+    "BUBB": {nombre: "Burbuja", precioExtra: "S/ 0", desc: "Fuente estilo burbuja redonda"},
+    "DOUB": {nombre: "Doble", precioExtra: "S/ 0", desc: "Fuente doble línea pro"},
+    "ITAL": {nombre: "Italica", precioExtra: "S/ 0", desc: "Fuente itálica inclinada"},
   },
-  // 6 PRODUCTOS CALIGRAFICOS NUEVOS
-  caligraficos: {
-    "CALI1": {nombre: "Caligráfica Elegante", precio: "S/ 6", sub: "Fuente estilo firma cursiva", ahorro: "", incluye: "✅ Bot 1 Grupo<br>✅ Fuente Caligráfica Elegante<br>✅.menu en letra cursiva bonita<br>✅ Instalación + Soporte 24/7"},
-    "CALI2": {nombre: "Caligráfica Goth", precio: "S/ 6", sub: "Fuente estilo gótico dark", ahorro: "", incluye: "✅ Bot 1 Grupo<br>✅ Fuente Caligráfica Goth<br>✅.menu en letra gótica<br>✅ Instalación + Soporte 24/7"},
-    "CALI3": {nombre: "Caligráfica Neón", precio: "S/ 6", sub: "Fuente estilo neón brillante", ahorro: "", incluye: "✅ Bot 1 Grupo<br>✅ Fuente Caligráfica Neón<br>✅.menu con efecto neón<br>✅ Instalación + Soporte 24/7"},
-    "CALI4": {nombre: "Caligráfica Burbuja", precio: "S/ 6", sub: "Fuente estilo burbuja redonda", ahorro: "", incluye: "✅ Bot 1 Grupo<br>✅ Fuente Caligráfica Burbuja<br>✅.menu redondeado tierno<br>✅ Instalación + Soporte 24/7"},
-    "CALI5": {nombre: "Caligráfica Doble", precio: "S/ 6", sub: "Fuente doble línea pro", ahorro: "", incluye: "✅ Bot 1 Grupo<br>✅ Fuente Caligráfica Doble<br>✅.menu doble trazo<br>✅ Instalación + Soporte 24/7"},
-    "CALI6": {nombre: "Caligráfica Italica", precio: "S/ 6", sub: "Fuente itálica inclinada", ahorro: "", incluye: "✅ Bot 1 Grupo<br>✅ Fuente Caligráfica Itálica<br>✅.menu inclinado elegante<br>✅ Instalación + Soporte 24/7"},
+
+  // TODITO SE LLAMA CALIGRAFICOS + NOMBRE
+  productos: {
+    "CALI-X1": {
+      nombre: "Caligráficos Grupo x1", // TODITO ASI
+      precioBase: 6,
+      sub: "Bot para 1 Grupo | Elige 1 de 6 Estilos",
+      incluyeBase: "✅ Bot completo<br>✅ Para 1 grupo de WhatsApp<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7"
+    },
+    "CALI-X3": {
+      nombre: "Caligráficos Grupo x3", // TODITO ASI
+      precioBase: 10,
+      sub: "Bot para 3 Grupos | Elige 1 de 6 Estilos",
+      incluyeBase: "✅ Bot completo<br>✅ Para 3 grupos de WhatsApp<br>✅ Fuente Caligráfica en el.menu<br>✅ Todos los comandos incluidos<br>✅ Instalación + Soporte 24/7"
+    },
+    "CALI-X5": {
+      nombre: "Caligráficos Grupo x5", // TODITO ASI
+      precioBase: 15,
+      sub: "Bot para 5 Grupos | Elige 1 de 6 Estilos",
+      incluyeBase: "✅ Bot completo<br>✅ Para 5 grupos distintos<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia.frases<br>✅ Instalación + Soporte 24/7"
+    },
+    "CALI-SERVER": {
+      nombre: "Caligráficos Servidor 24/7", // TODITO ASI
+      precioBase: 10,
+      sub: "Hosting para tu Bot Caligráfico",
+      incluyeBase: "✅ Bot siempre online 24/7<br>✅ Fuente Caligráfica en el.menu<br>✅ Sin caídas ni lag<br>✅ Panel para reiniciar<br>✅ Soporte 24/7"
+    },
+    "CALI-PERSONAL": {
+      nombre: "Caligráficos Personalizado", // TODITO ASI
+      precioBase: 16,
+      precioReal: 18,
+      tag: "OFERTA",
+      ahorro: "🔥 Oferta Hoy: Ahorras S/ 2. Solo 2 cupos",
+      sub: "Tu Bot Caligráfico, Tus Reglas",
+      incluyeBase: "✅ Bot desde cero a tu gusto<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos personalizados<br>✅ Nombre + Logo exclusivo<br>✅ Instalación + Soporte 24/7"
+    }
   }
 };
 
 const app = document.getElementById('app');
 const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
-const id = params.get('id');
-const cat = params.get('cat'); // 'cali' para saber si viene de caligraficos
+const id = params.get('id'); // CALI-X1, CALI-X3 etc
+const estilo = params.get('estilo'); // ELEG, GOTH etc
 
-function renderCard(p, key, link){
-  const precioHtml = p.precioReal? `<span class="tachado">${p.precioReal}</span> ${p.precio}` : p.precio;
-  return `<div class="card" onclick="window.location.href='${link}'">
+function renderCardProd(p, key){
+  const precioHtml = p.precioReal? `<span class="tachado">S/ ${p.precioReal}</span> S/ ${p.precioBase}` : `S/ ${p.precioBase}`;
+  return `<div class="card" onclick="window.location.href='?page=estilos&id=${key}'">
     ${p.tag? `<div class="tag-oferta">${p.tag}</div>` : ''}
     <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-    <div class="precio">${precioHtml}</div>
-    ${p.ahorro? `<p class="ahorro">${p.ahorro}</p>` : ''}
-    <a class="btn" href="${link}" onclick="event.stopPropagation()">Ver Producto</a>
+    <div class="precio">${precioHtml} + Estilo</div>
+    <p class="ahorro">6 Estilos Caligráficos Incluidos</p>
+    <a class="btn" href="?page=estilos&id=${key}" onclick="event.stopPropagation()">Elegir Estilo</a>
+  </div>`;
+}
+
+function renderCardEstilo(e, key, prodId){
+  return `<div class="card" onclick="window.location.href='?page=producto&id=${prodId}&estilo=${key}'">
+    <div class="nombre">Caligráfica ${e.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
+    <div class="precio">${e.desc}</div>
+    <a class="btn" href="?page=producto&id=${prodId}&estilo=${key}" onclick="event.stopPropagation()">Elegir ${e.nombre}</a>
   </div>`;
 }
 
 function renderCatalogo(){
   let html = `<div class="oferta-box">
       <b>🔥 OFERTAS POR TIEMPO LIMITADO</b>
-      <p>Combo Bot + Servidor y Personalizado con descuento solo por cupos limitados</p>
+      <p>Todos son Caligráficos. Elige tu estilo al final.</p>
     </div>`;
   html += `<div class="top-btns">
       <a class="btn btn-morado" href="?page=comandos">🚀 Probar Bot</a>
     </div>`;
 
-  html += `<div class="titulo-seccion">⭐ Ofertas Destacadas</div>`;
-  html += renderCard(datos.productos["COMBO"], "COMBO", "?page=producto&id=COMBO");
-  html += renderCard(datos.productos["PERSONALIZADO"], "PERSONALIZADO", "?page=producto&id=PERSONALIZADO");
-
-  html += `<div class="titulo-seccion">📦 Todos los Bots</div>`;
-  html += renderCard(datos.productos["X5"], "X5", "?page=producto&id=X5");
-  html += renderCard(datos.productos["X3"], "X3", "?page=producto&id=X3");
-
-  // CARD CATEGORIA CALIGRAFICOS - AL TOCAR ABRE OTRA PAGINA CON 6
-  html += `<div class="card" onclick="window.location.href='?page=caligraficos'">
-    <div class="nombre">Caligráficos ☁️ <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-    <div class="precio">Desde S/ 6</div>
-    <p class="ahorro">6 Estilos de Fuente Disponibles</p>
-    <a class="btn" href="?page=caligraficos" onclick="event.stopPropagation()">Ver 6 Estilos</a>
-  </div>`;
-
-  html += renderCard(datos.productos["SERVIDOR"], "SERVIDOR", "?page=producto&id=SERVIDOR");
+  html += `<div class="titulo-seccion">☁️ Todos Caligráficos</div>`;
+  for(const key in datos.productos){
+    html += renderCardProd(datos.productos[key], key);
+  }
   app.innerHTML = html;
 }
 
-function renderCaligraficos(){ // PAGINA CON LOS 6 NUEVOS
+function renderEstilos(){ // PAGINA CON LOS 6 ESTILOS PARA EL PRODUCTO ELEGIDO
+  const p = datos.productos[id];
+  if(!p){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+
   let html = `<div class="box">
-    <h1>Caligráficos ☁️</h1>
-    <p class="sub">Elige 1 de los 6 estilos de fuente. 1 Grupo = S/ 6</p>
+    <h1>${p.nombre} ☁️</h1>
+    <p class="sub">Ahora elige 1 de los 6 estilos de fuente. Base: S/ ${p.precioBase}</p>
   </div>`;
 
-  for(const key in datos.caligraficos){
-    const p = datos.caligraficos[key];
-    html += renderCard(p, key, `?page=producto&id=${key}&cat=cali`); // cat=cali para saber de donde viene
+  for(const key in datos.estilos){
+    html += renderCardEstilo(datos.estilos[key], key, id);
   }
   html += `<a class="volver" href="?">← Volver a Tienda</a>`;
   app.innerHTML = html;
@@ -186,28 +198,30 @@ function renderComandos(){
 }
 
 function renderProducto(){
-  let p = datos.productos[id];
-  if(cat === 'cali') p = datos.caligraficos[id]; // SI ES CALI LO BUSCA ACA
-  if(!p){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+  const p = datos.productos[id];
+  const e = datos.estilos[estilo];
+  if(!p ||!e){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
 
-  const precioBigHtml = p.precioReal? `<span class="tachado">${p.precioReal}</span> ${p.precio}` : p.precio;
-  const volverLink = cat === 'cali'? '?page=caligraficos' : '?'; // SI VIENE DE CALI VUELVE A CALI
+  const precioFinal = p.precioBase; // Los estilos no cobran extra
+  const nombreCompleto = `${p.nombre} ${e.nombre}`; // Ej: Caligráficos Grupo x1 Elegante
+  const incluyeCompleto = `${p.incluyeBase}<br>✅ Estilo de Fuente: ${e.nombre} - ${e.desc}`;
 
-  app.innerHTML = `<div class="box"><h1>${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">${precioBigHtml}</h2>${p.ahorro? `<p class="ahorro">${p.ahorro}</p>` : ''}<div class="lista"><b>Qué incluye:</b><br>${p.incluye}</div><a class="btn" href="?page=pago&id=${id}${cat?`&cat=${cat}`:''}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(p.nombre)}" target="_blank">Tengo una Duda</a><a class="volver" href="${volverLink}">← Volver</a></div>`;
+  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">S/ ${precioFinal}</h2>${p.ahorro? `<p class="ahorro">${p.ahorro}</p>` : ''}<div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&id=${id}&estilo=${estilo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=estilos&id=${id}">← Elegir otro Estilo</a></div>`;
 }
 
 function renderPago(){
-  let p = datos.productos[id];
-  if(cat === 'cali') p = datos.caligraficos[id];
-  if(!p){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
-  const mensaje = encodeURIComponent(`Bro ya te deposité ✅\n\nMonto: ${p.nombre} ${p.precio}\nAcá está mi captura 📸`);
-  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${p.nombre} ${p.precio}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&id=${id}${cat?`&cat=${cat}`:''}">← Volver</a></div>`;
+  const p = datos.productos[id];
+  const e = datos.estilos[estilo];
+  if(!p ||!e){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+  const nombreCompleto = `${p.nombre} ${e.nombre}`;
+  const mensaje = encodeURIComponent(`Bro ya te deposité ✅\n\nMonto: ${nombreCompleto} S/ ${p.precioBase}\nAcá está mi captura 📸`);
+  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} S/ ${p.precioBase}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&id=${id}&estilo=${estilo}">← Volver</a></div>`;
 }
 
 if(page === 'producto') renderProducto();
 else if(page === 'pago') renderPago();
 else if(page === 'comandos') renderComandos();
-else if(page === 'caligraficos') renderCaligraficos(); // NUEVA PAGINA CON 6
+else if(page === 'estilos') renderEstilos(); // NUEVA PAGINA DE 6 ESTILOS
 else renderCatalogo();
 </script>
 </body>
