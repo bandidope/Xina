@@ -82,13 +82,24 @@ body.dark .card img{background:#1f1f1f}
 .cart-qty button{width:28px;height:28px;border:1px solid var(--border);background:0;color:var(--text);border-radius:4px;cursor:pointer;font-weight:700}
 .total-box{display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin:16px 0}
 
-  /* PAGO BOX */
 .pago-metodo{border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer}
 .pago-metodo.active{border-color:var(--red);background:#e6000008}
 body.dark .pago-metodo.active{background:#ff2a2a08}
 .pago-metodo h4{font-size:14px;margin-bottom:4px}
 .pago-metodo p{font-size:12px;color:var(--muted)}
 .qr{background:var(--bg);border:1px dashed var(--border);border-radius:8px;padding:20px;text-align:center;margin:12px 0;font-weight:700;font-size:13px}
+
+  /* SECCION REFERENCIA NUEVA */
+.features{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:40px;padding:40px 16px}
+.features-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.features-grid{grid-template-columns:1fr}}
+.feature{text-align:center}
+.feature-icon{font-size:32px;margin-bottom:12px}
+.feature h3{font-size:14px;font-weight:800;margin-bottom:6px}
+.feature p{font-size:12px;color:var(--muted);line-height:1.5}
+
+footer{background:var(--card);border-top:1px solid var(--border);padding:30px 16px;text-align:center;font-size:12px;color:var(--muted)}
 
 .galeria{position:relative;overflow:hidden;background:#000;border-radius:8px}
 .slides{display:flex;transition:.4s}.slides img{width:100%;flex-shrink:0;aspect-ratio:1/1;object-fit:cover}
@@ -140,6 +151,39 @@ body.dark .pago-metodo.active{background:#ff2a2a08}
 
     <div class="grid" id="productos"></div>
   </div>
+
+  <!-- SECCIÓN REFERENCIA / CONFIANZA -->
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3><!-- EDITAR AQUÍ --> Envío Rápido en Ica <!-- FIN EDITAR --></h3>
+        <p><!-- EDITAR AQUÍ --> Recibe en 24h si compras antes de las 2pm. Solo Ica ciudad. <!-- FIN EDITAR --></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💳</div>
+        <h3><!-- EDITAR AQUÍ --> Pago Seguro <!-- FIN EDITAR --></h3>
+        <p><!-- EDITAR AQUÍ --> Yape, Plin, Transferencia o Contraentrega. Tú eliges. <!-- FIN EDITAR --></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">↩️</div>
+        <h3><!-- EDITAR AQUÍ --> Cambios Fáciles <!-- FIN EDITAR --></h3>
+        <p><!-- EDITAR AQUÍ --> 7 días para cambio si no te queda. Sin preguntas. <!-- FIN EDITAR --></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✅</div>
+        <h3><!-- EDITAR AQUÍ --> +500 Clientes Felices <!-- FIN EDITAR --></h3>
+        <p><!-- EDITAR AQUÍ --> Tienda 100% peruana. Atendemos por WhatsApp al instante. <!-- FIN EDITAR --></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <!-- EDITAR AQUÍ -->
+    © 2026 Nubecita Dzn | RUC: 10XXXXXXXXX | Ica, Perú<br>
+    Términos y Condiciones | Política de Devoluciones | Contacto: 936 994 155
+    <!-- FIN EDITAR -->
+  </footer>
 </div>
 
 <!-- PRODUCTO -->
@@ -173,42 +217,21 @@ body.dark .pago-metodo.active{background:#ff2a2a08}
   </div>
 </div>
 
-<!-- PANTALLA METODOS DE PAGO NUEVA -->
+<!-- PANTALLA METODOS DE PAGO -->
 <div class="screen" id="pagoScreen">
   <header><div class="topbar"><span style="cursor:pointer;font-weight:700" onclick="show('catalogoScreen')">← Volver a la tienda</span></div></header>
   <div class="container" style="max-width:600px">
     <h1 style="margin-bottom:16px;font-size:20px">Métodos de Pago</h1>
-    
     <div class="box">
       <h3 style="margin-bottom:12px">Resumen del pedido</h3>
       <div id="resumenPedido"></div>
       <div class="total-box" style="border-top:1px solid var(--border);padding-top:12px;margin-top:12px"><span>Total:</span><span id="pagoTotal">S/ 0.00</span></div>
     </div>
-
     <h3 style="margin:16px 0 12px">Elige cómo pagar</h3>
-    
-    <div class="pago-metodo active" onclick="selectPago('yape')">
-      <h4>💜 Yape</h4>
-      <p>936 994 155 - Nubecita Dzn</p>
-      <div class="qr" id="qrYape">Escanea el QR en tu app Yape</div>
-    </div>
-
-    <div class="pago-metodo" onclick="selectPago('plin')">
-      <h4>💙 Plin</h4>
-      <p>936 994 155 - Nubecita Dzn</p>
-      <div class="qr" style="display:none" id="qrPlin">Escanea el QR en tu app Plin</div>
-    </div>
-
-    <div class="pago-metodo" onclick="selectPago('transf')">
-      <h4>🏦 Transferencia BCP/Interbank</h4>
-      <p>CCI: 002-936-994-155 - A nombre de Nubecita Dzn</p>
-    </div>
-
-    <div class="pago-metodo" onclick="selectPago('contra')">
-      <h4>📦 Contraentrega en Ica</h4>
-      <p>Pagas al recibir. Solo Ica ciudad.</p>
-    </div>
-
+    <div class="pago-metodo active" onclick="selectPago('yape')"><h4>💜 Yape</h4><p>936 994 155 - Nubecita Dzn</p><div class="qr" id="qrYape">Escanea el QR en tu app Yape</div></div>
+    <div class="pago-metodo" onclick="selectPago('plin')"><h4>💙 Plin</h4><p>936 994 155 - Nubecita Dzn</p><div class="qr" style="display:none" id="qrPlin">Escanea el QR en tu app Plin</div></div>
+    <div class="pago-metodo" onclick="selectPago('transf')"><h4>🏦 Transferencia BCP/Interbank</h4><p>CCI: 002-936-994-155 - A nombre de Nubecita Dzn</p></div>
+    <div class="pago-metodo" onclick="selectPago('contra')"><h4>📦 Contraentrega en Ica</h4><p>Pagas al recibir. Solo Ica ciudad.</p></div>
     <a href="#" id="wspBtn" target="_blank" class="btn ya-pague" style="margin-top:16px">Ya pagué ✅ Confirmar por WhatsApp</a>
     <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px">Te contactaremos en minutos para confirmar tu envío</p>
   </div>
@@ -312,7 +335,7 @@ function irAPago(){
     return `<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>${i.qty}x ${p.nom}</span><span>S/ ${(p.precio*i.qty).toFixed(2)}</span></div>`
   }).join('');
   document.getElementById('pagoTotal').textContent=`S/ ${total.toFixed(2)}`;
-  selectPago('yape'); // Default
+  selectPago('yape');
   show('pagoScreen');
 }
 
@@ -322,7 +345,6 @@ function selectPago(metodo){
   document.querySelectorAll('.pago-metodo')[['yape','plin','transf','contra'].indexOf(metodo)].classList.add('active');
   document.getElementById('qrYape').style.display=metodo==='yape'?'block':'none';
   document.getElementById('qrPlin').style.display=metodo==='plin'?'block':'none';
-  
   let total=carrito.reduce((a,b)=>a+b.qty*productos.find(p=>p.id===b.id).precio,0);
   const texto = carrito.map(i=>{const p=productos.find(x=>x.id===i.id);return `${i.qty}x ${p.nom} S/ ${p.precio.toFixed(2)}`}).join('\n');
   const msg = `Hola! Ya pagué por ${metodo.toUpperCase()} ✅\n\n${texto}\n\nTotal: S/ ${total.toFixed(2)}`;
