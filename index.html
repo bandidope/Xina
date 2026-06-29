@@ -3,98 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOW | Tienda</title>
+<title>Nubecita Dzn | Tienda</title>
 <style>
   :root{
-    --bg:#f5f5f5;--card:#fff;--text:#111;--muted:#555;--border:#eee;--accent:#111;
+    --bg:#d5ffff; --card:#fff; --text:#005954; --muted:#338b85;
+    --border:#9ce0db; --accent:#005954; --accent2:#5dc1b9;
   }
   body.dark{
-    --bg:#0f0f0f;--card:#1a1a1a;--text:#eee;--muted:#aaa;--border:#222;--accent:#fff;
+    --bg:#0f0f0f;--card:#1a1a1a;--text:#eee;--muted:#aaa;--border:#222;--accent:#fff;--accent2:#e53935;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);padding-bottom:80px;transition:.3s}
-  .screen{display:none;min-height:100vh}
-  .screen.active{display:block}
-  
-  header{background:var(--card);box-shadow:0 2px 6px #0001;position:sticky;top:0;z-index:10}
-  .topbar{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:12px 16px}
-  .logo{font-size:22px;font-weight:900}
-  .tools{display:flex;gap:12px;font-size:20px}
-  .icon-btn{background:0;border:0;color:var(--text);cursor:pointer;font-size:20px}
-  
-  .banner{background:#000;color:#fff;text-align:center;padding:40px 16px}
-  .container{max-width:1200px;margin:0 auto;padding:20px 16px}
-  
-  .buscador{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;font-size:15px;background:var(--card);color:var(--text)}
-  .filtros{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px}
-  .chip{white-space:nowrap;background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:20px;font-size:13px;cursor:pointer;color:var(--text)}
-  .chip.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
-  
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.screen{display:none;min-height:100vh}.screen.active{display:block}
+  header{background:var(--card);box-shadow:0 2px 6px #0001;position:sticky;top:0;z-index:10;border-bottom:3px solid var(--accent)}
+.topbar{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:12px 16px}
+.logo{font-size:22px;font-weight:900;letter-spacing:-0.5px;color:var(--accent)}
+.icon-btn{background:0;border:0;color:var(--accent);cursor:pointer;font-size:20px}
+.banner{background:var(--accent);color:#fff;text-align:center;padding:40px 16px}
+.container{max-width:1200px;margin:0 auto;padding:20px 16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
-  .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0001;position:relative}
-  .card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#eee}
-  .card-body{padding:12px}
-  .card h3{font-size:14px;font-weight:600;margin-bottom:6px}
-  .precio{font-size:16px;font-weight:800;margin-bottom:4px}
-  .precio del{font-size:12px;color:var(--muted);font-weight:500;margin-right:4px}
-  .btn{background:var(--accent);color:var(--bg);border:0;padding:12px;border-radius:10px;font-weight:800;width:100%;cursor:pointer;font-size:15px}
-  .btn:disabled{opacity:.5;cursor:not-allowed}
-  .tag{position:absolute;top:8px;left:8px;background:#e53935;color:#fff;font-size:11px;font-weight:800;padding:4px 8px;border-radius:6px}
-  .stock{font-size:12px;color:#25D366;font-weight:700;margin-bottom:8px}
-  .stock.low{color:#e53935}
-  .urgencia{font-size:12px;color:#e53935;font-weight:700}
-
-  /* GALERIA PRODUCTO */
-  .galeria{position:relative;overflow:hidden;background:#000}
-  .slides{display:flex;transition:.4s}
-  .slides img{width:100%;flex-shrink:0;aspect-ratio:1/1;object-fit:cover}
-  .dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
-  .dot{width:8px;height:8px;border-radius:50%;background:#fff5;border:1px solid #fff}
-  .dot.active{background:#fff}
-  
-  #productoScreen .body{padding:16px}
-  #productoScreen h1{font-size:22px;margin-bottom:8px}
-  #productoScreen .precio{font-size:26px;margin-bottom:8px}
-  .desc{color:var(--muted);line-height:1.5;margin-bottom:16px}
-  
-  .box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px}
-  .qr{background:var(--bg);border:1px dashed var(--border);border-radius:8px;padding:30px;text-align:center;margin:12px 0;font-weight:700}
-  .ya-pague{background:#25D366;color:#000;text-decoration:none;display:block;text-align:center}
-  
-  .wsp-float{position:fixed;right:16px;bottom:16px;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 4px 12px #0003;z-index:100}
-  .wsp-float svg{width:28px;height:28px;fill:#fff}
+.card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0059541a;border:1px solid var(--border);position:relative}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--bg)}
+.card-body{padding:12px}.card h3{font-size:14px;font-weight:600;margin-bottom:6px}
+.precio{font-size:16px;font-weight:800;margin-bottom:4px;color:var(--accent)}
+.precio del{font-size:12px;color:var(--muted);font-weight:500;margin-right:4px}
+.btn{background:var(--accent);color:#fff;border:0;padding:12px;border-radius:10px;font-weight:800;width:100%;cursor:pointer;font-size:15px;transition:.2s}
+.btn:active{transform:scale(.98);background:#00443f}
+.btn:disabled{opacity:.5;cursor:not-allowed;background:var(--muted)}
+.tag{position:absolute;top:8px;left:8px;background:var(--accent2);color:#fff;font-size:11px;font-weight:800;padding:4px 8px;border-radius:6px}
+.stock{font-size:12px;color:#25D366;font-weight:700;margin-bottom:8px}
+.stock.low{color:#e53935}.urgencia{font-size:12px;color:#e53935;font-weight:700}
+.galeria{position:relative;overflow:hidden;background:#000}
+.slides{display:flex;transition:.4s}.slides img{width:100%;flex-shrink:0;aspect-ratio:1/1;object-fit:cover}
+.dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#fff5;border:1px solid #fff}
+.dot.active{background:var(--accent2)}
+  #productoScreen.body{padding:16px}#productoScreen h1{font-size:22px;margin-bottom:8px}
+  #productoScreen.precio{font-size:26px;margin-bottom:8px}.desc{color:var(--muted);line-height:1.5;margin-bottom:16px}
+.box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px}
+.qr{background:var(--bg);border:2px dashed var(--accent);border-radius:8px;padding:30px;text-align:center;margin:12px 0;font-weight:700;color:var(--accent)}
+.ya-pague{background:#25D366;color:#000;text-decoration:none;display:block;text-align:center}
+.wsp-float{position:fixed;right:16px;bottom:16px;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 4px 12px #0059543a;z-index:100}
+.wsp-float svg{width:28px;height:28px;fill:#fff}
 </style>
 </head>
 <body>
 
-<!-- CATALOGO -->
 <div class="screen active" id="catalogoScreen">
-  <header>
-    <div class="topbar">
-      <div class="logo">NOW</div>
-      <div class="tools">
-        <button class="icon-btn" onclick="toggleDark()">🌙</button>
-      </div>
-    </div>
-  </header>
+  <header><div class="topbar"><div class="logo">Nubecita Dzn</div><div><button class="icon-btn" onclick="toggleDark()">🌙</button></div></div></header>
   <section class="banner"><h2>NUEVA COLECCIÓN</h2></section>
-  <div class="container">
-    <input class="buscador" id="search" placeholder="🔍 Buscar producto..." oninput="filtrar()">
-    <div class="filtros" id="filtros"></div>
-    <div class="grid" id="productos"></div>
-  </div>
+  <div class="container"><div class="grid" id="productos"></div></div>
 </div>
 
-<!-- PRODUCTO -->
 <div class="screen" id="productoScreen">
-  <header><div class="topbar"><span class="back" style="cursor:pointer;font-weight:700" onclick="show('catalogoScreen')">← Volver</span></div></header>
-  
-  <div class="galeria" id="galeria">
-    <div class="slides" id="slides"></div>
-    <div class="dots" id="dots"></div>
-  </div>
-
+  <header><div class="topbar"><span style="cursor:pointer;font-weight:700;color:var(--accent)" onclick="show('catalogoScreen')">← Volver</span></div></header>
+  <div class="galeria"><div class="slides" id="slides"></div><div class="dots" id="dots"></div></div>
   <div class="body">
     <h1 id="pNom"></h1>
     <div class="precio" id="pPrecio"></div>
@@ -105,107 +69,47 @@
   </div>
 </div>
 
-<!-- PAGO -->
 <div class="screen" id="pagoScreen">
-  <header><div class="topbar"><span class="back" style="cursor:pointer;font-weight:700" onclick="show('productoScreen')">← Volver</span></div></header>
-  <div class="container">
-    <h1 style="margin-bottom:16px;font-size:20px">Finalizar compra</h1>
-    <div class="box"><h3 id="pagoNom"></h3><div>Total: <b id="pagoTotal"></b></div></div>
-    <div class="box">
-      <h3>Paga por Yape / Plin</h3>
-      <div>Yape: 936 994 155</div>
-      <div>Nombre: Cristhofer Rojas</div>
-      <div class="qr">Escanea aquí<br>[TU QR]</div>
-    </div>
-    <a href="#" id="wspBtn" target="_blank" class="btn ya-pague">Ya pagué ✅ Ir a WhatsApp</a>
-  </div>
+  <header><div class="topbar"><span style="cursor:pointer;font-weight:700;color:var(--accent)" onclick="show('productoScreen')">← Volver</span></div></header>
+  <div class="container"><h1 style="margin-bottom:16px;font-size:20px">Finalizar compra</h1><div class="box"><h3 id="pagoNom"></h3><div>Total: <b id="pagoTotal"></b></div></div><div class="box"><h3>Paga por Yape</h3><div>936 994 155</div><div class="qr">Escanea aquí<br>[TU QR]</div></div><a href="#" id="wspBtn" target="_blank" class="btn ya-pague">Ya pagué ✅</a></div>
 </div>
 
-<a href="https://wa.me/51936994155?text=Hola%20consulta" target="_blank" class="wsp-float">
-  <svg viewBox="0 0 32 32"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2.1c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.2c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2.1-1.9-4.5-1.9-7 0-7.3 5.9-13.2 13.2-13.2S29.2 8.7 29.2 16 23.3 28.7 16 28.7z"/><path d="M23.8 19.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 .9-.2.1-.4.1-.7 0-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.7.1-.1.3-.3.4-.5.1-.2.2-.4.3-.5.1-.2.1-.3 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3 0-.1-.1-.3-.4-.5z"/></svg>
-</a>
+<a href="https://wa.me/51936994155?text=Hola%20Nubecita%20Dzn" target="_blank" class="wsp-float"><svg viewBox="0 0 32 32"><path d="M16.5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2.1c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16.5zm0 28.2c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2.1-1.9-4.5-1.9-7 0-7.3 5.9-13.2 13.2-13.2S29.2 8.7 29.2 16 23.3 28.7 16 28.7z"/><path d="M23.8 19.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1.9-.2.1-.4.1-.7 0-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.7.1-.1.3-.3.4-.5.1-.2.2-.4.3-.5.1-.2.1-.3 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3 0-.1-.1-.3-.4-.5z"/></svg></a>
 
 <script>
 const productos = [
-  {id:1, nom:"Top básico manga corta", precio:39.90, imgs:["https://via.placeholder.com/400/111/fff","https://via.placeholder.com/400/222/fff"], desc:"Algodón 100%. Tallas S M L XL.", cat:"Tops", stock:12, vistas:47},
-  {id:2, nom:"Vestido casual print", precio:63.90, precioOld:79.90, imgs:["https://via.placeholder.com/400/e91e63/fff","https://via.placeholder.com/400/f06292/fff"], desc:"Estampado floral. Talla única.", cat:"Vestidos", stock:3, vistas:83},
-  {id:3, nom:"Polera oversize negra", precio:89.90, imgs:["https://via.placeholder.com/400/000/fff","https://via.placeholder.com/400/333/fff"], desc:"Fleece grueso. Unisex.", cat:"Poleras", stock:8, vistas:29},
-  {id:4, nom:"Jean recto tiro alto", precio:99.90, imgs:["https://via.placeholder.com/400/1565c0/fff"], desc:"Denim rígido. Tallas 28-34.", cat:"Jeans", stock:0, vistas:112},
+  {id:1, nom:"Top básico manga corta", precio:39.90, imgs:["https://via.placeholder.com/400/005954/fff"], desc:"Algodón 100%. Tallas S M L XL.", stock:12},
+  {id:2, nom:"Vestido casual print", precio:63.90, precioOld:79.90, imgs:["https://via.placeholder.com/400/338b85/fff"], desc:"Estampado floral. Talla única.", stock:3},
+  {id:3, nom:"Polera oversize negra", precio:89.90, imgs:["https://via.placeholder.com/400/5dc1b9/fff"], desc:"Fleece grueso. Unisex.", stock:8},
+  {id:4, nom:"Jean recto tiro alto", precio:99.90, imgs:["https://via.placeholder.com/400/9ce0db/555"], desc:"Denim rígido. Tallas 28-34.", stock:0},
 ];
 
-let productoActual = null;
-let filtroCat = 'Todos';
-
-// MODO OSCURO
-function toggleDark(){
-  document.body.classList.toggle('dark');
-  localStorage.dark = document.body.classList.contains('dark');
-}
+let productoActual=null,contadorInterval=null;
+function toggleDark(){document.body.classList.toggle('dark');localStorage.dark=document.body.classList.contains('dark')}
 if(localStorage.dark==='true')document.body.classList.add('dark');
 
-// FILTROS
-const cats = ['Todos',...new Set(productos.map(p=>p.cat))];
-document.getElementById('filtros').innerHTML = cats.map(c=>`<div class="chip ${c==='Todos'?'active':''}" onclick="setCat('${c}')">${c}</div>`).join('');
-function setCat(c){filtroCat=c;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x.textContent===c));filtrar()}
-
-// RENDER
-function filtrar(){
-  const q = document.getElementById('search').value.toLowerCase();
-  const list = productos.filter(p=>(filtroCat==='Todos'||p.cat===filtroCat)&&p.nom.toLowerCase().includes(q));
-  document.getElementById('productos').innerHTML = list.map(p => `
-    <div class="card">
-      ${p.precioOld?'<div class="tag">OFERTA</div>':''}
-      <img src="${p.imgs[0]}" alt="${p.nom}">
-      <div class="card-body">
-        <h3>${p.nom}</h3>
-        <div class="precio">${p.precioOld?`<del>S/ ${p.precioOld.toFixed(2)}</del>`:''} S/ ${p.precio.toFixed(2)}</div>
-        <div class="stock ${p.stock<5?'low':''}">${p.stock>0?`Stock: ${p.stock}`:'Agotado'}</div>
-        <button class="btn" onclick="verProducto(${p.id})" ${p.stock===0?'disabled':''}>Ver</button>
-      </div>
-    </div>
-  `).join('') || '<div style="text-align:center;padding:40px;color:var(--muted)">No hay productos</div>';
-}
-
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
-
+function render(){document.getElementById('productos').innerHTML=productos.map(p=>`<div class="card">${p.precioOld?'<div class="tag">OFERTA</div>':''}<img src="${p.imgs[0]}"><div class="card-body"><h3>${p.nom}</h3><div class="precio">${p.precioOld?`<del>S/ ${p.precioOld.toFixed(2)}</del>`:''} S/ ${p.precio.toFixed(2)}</div><div class="stock ${p.stock<5?'low':''}">${p.stock>0?`Stock: ${p.stock}`:'Agotado'}</div><button class="btn" onclick="verProducto(${p.id})" ${p.stock===0?'disabled':''}>Ver</button></div></div>`).join('');}
+function show(id){if(contadorInterval)clearInterval(contadorInterval);document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
 function verProducto(id){
-  productoActual = productos.find(x=>x.id===id);
-  document.getElementById('pNom').textContent = productoActual.nom;
-  document.getElementById('pPrecio').textContent = `S/ ${productoActual.precio.toFixed(2)}`;
-  document.getElementById('pDesc').textContent = productoActual.desc;
-  document.getElementById('pStock').textContent = productoActual.stock>0?`En stock: ${productoActual.stock} unidades`:'Agotado';
-  document.getElementById('pUrgencia').textContent = productoActual.vistas>50?`🔥 ${productoActual.vistas} personas viendo esto ahora`:'';
-  document.getElementById('comprarBtn').disabled = productoActual.stock===0;
-  document.getElementById('comprarBtn').textContent = productoActual.stock>0?'Comprar ahora':'Agotado';
-  
-  // GALERIA
-  const slides = document.getElementById('slides');
-  slides.innerHTML = productoActual.imgs.map(img=>`<img src="${img}">`).join('');
-  slides.style.width = `${productoActual.imgs.length*100}%`;
-  document.getElementById('dots').innerHTML = productoActual.imgs.map((_,i)=>`<div class="dot ${i===0?'active':''}"></div>`).join('');
-  
+  productoActual=productos.find(x=>x.id===id);
+  document.getElementById('pNom').textContent=productoActual.nom;
+  document.getElementById('pPrecio').textContent=`S/ ${productoActual.precio.toFixed(2)}`;
+  document.getElementById('pDesc').textContent=productoActual.desc;
+  document.getElementById('pStock').textContent=productoActual.stock>0?`Stock: ${productoActual.stock}`:'Agotado';
+  document.getElementById('comprarBtn').disabled=productoActual.stock===0;
+  const slides=document.getElementById('slides');
+  slides.innerHTML=productoActual.imgs.map(img=>`<img src="${img}">`).join('');
   let index=0,startX=0;
   slides.ontouchstart=e=>startX=e.touches[0].clientX;
-  slides.ontouchend=e=>{
-    const dx=e.changedTouches[0].clientX-startX;
-    if(dx<-50&&index<productoActual.imgs.length-1)index++;
-    if(dx>50&&index>0)index--;
-    slides.style.transform=`translateX(-${index*100}%)`;
-    document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===index));
-  }
-
+  slides.ontouchend=e=>{const dx=e.changedTouches[0].clientX-startX;if(dx<-50&&index<productoActual.imgs.length-1)index++;if(dx>50&&index>0)index--;slides.style.transform=`translateX(-${index*100}%)`}
+  let vistas = 32 + Math.floor(Math.random()*60);
+  const el = document.getElementById('pUrgencia');
+  el.textContent = `🔥 ${vistas} personas viendo esto`;
+  contadorInterval = setInterval(()=>{vistas += Math.floor(Math.random()*5)-2;if(vistas<18)vistas=18; if(vistas>120)vistas=120;el.textContent = `🔥 ${vistas} personas viendo esto`},5000);
   show('productoScreen');
 }
-
-document.getElementById('comprarBtn').onclick = ()=>{
-  document.getElementById('pagoNom').textContent = productoActual.nom;
-  document.getElementById('pagoTotal').textContent = `S/ ${productoActual.precio.toFixed(2)}`;
-  const msg = encodeURIComponent(`Hola! Ya pagué ✅\n\n*Producto:* ${productoActual.nom}\n*Total:* S/ ${productoActual.precio.toFixed(2)}\n\nAdjunto captura.`);
-  document.getElementById('wspBtn').href = `https://wa.me/51936994155?text=${msg}`;
-  show('pagoScreen');
-}
-
-filtrar();
+document.getElementById('comprarBtn').onclick=()=>{document.getElementById('pagoNom').textContent=productoActual.nom;document.getElementById('pagoTotal').textContent=`S/ ${productoActual.precio.toFixed(2)}`;document.getElementById('wspBtn').href=`https://wa.me/51936994155?text=${encodeURIComponent(`Hola! Ya pagué ✅\n\n${productoActual.nom} S/ ${productoActual.precio.toFixed(2)}`)}`;show('pagoScreen')}
+render();
 </script>
 </body>
 </html>
