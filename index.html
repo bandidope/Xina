@@ -71,11 +71,11 @@ img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;b
 
 <script>
 const datos = {
-  whatsapp: "5491153317678", // <-- TU NUMERO ARGENTINA
-  mpAlias: "nubecita.dzn.mp", // <-- CAMBIA POR TU ALIAS MP
-  cbu: "0003100000", // <-- CAMBIA POR TU CBU
+  whatsapp: "5491153317678",
+  mpAlias: "nubecita.dzn.mp",
+  cbu: "0003100000",
   nombre: "Cristhofer Rojas",
-  img: "https://files.evogb.win/BLG4n2.jpg",
+  img: "https://files.evogb.win/BLG4n2.jpg", // Foto por defecto
   comandosImg: "https://files.evogb.win/eMe9xu.jpg",
   grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
 
@@ -84,10 +84,9 @@ const datos = {
       nombre: "Caligraficos",
       precioBase: 6000,
       sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
-      incluyeBase: "✅ El Mejor Diseño Para Tu Uso<br>✅ Fuente Caligráfica en el.menu<br>✅ Diseños Nubecita Dzn",
-      tipos: { // 6 ESTILOS
-        "Sim": {nombre: "Cali Simple", desc: "Un Diseño Lindo Pero Simple"},
-        "Obj": {nombre: "Cali + Obj", desc: "Un Diseño Básico Con Un Objeto De Tu Preferencia"},
+      tipos: {
+        "Sim": {nombre: "Cali Simple", desc: "Un Diseño Lindo Pero Simple", img: "https://files.evogb.win/Fte8Kn.jpg"},
+        "Obj": {nombre: "Cali + Obj", desc: "Un Diseño Básico Con Un Objeto De Tu Preferencia", img: "https://files.evogb.win/dKpc14.jpg"}, // <-- FOTO NUEVA
         "Tem": {nombre: "Cali Temático", desc: "Diseño Con Temática De Lo Que Gustes"},
         "Cur": {nombre: "Cali Curvo", desc: "Calígrafo Con Un Diseño En Curva"},
         "Let": {nombre: "Cali Letra", desc: "Diseño De 1 Letra Favorita Tuya"},
@@ -98,8 +97,7 @@ const datos = {
       nombre: "Plantillas",
       precioBase: 7000,
       sub: "Bot WhatsApp | Elige 1 de 8 Plantillas",
-      incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Plantilla de Menú Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
-      tipos: { // 8 PLANTILLAS
+      tipos: {
         "PRO": {nombre: "Pro", desc: "Plantilla estilo profesional clean"},
         "GAMER": {nombre: "Gamer", desc: "Plantilla estilo videojuego neón"},
         "MINIMAL": {nombre: "Minimal", desc: "Plantilla estilo minimalista blanco"},
@@ -114,8 +112,7 @@ const datos = {
       nombre: "Renovaciones",
       precioBase: 8000,
       sub: "Bot WhatsApp | Elige 1 de 3 Renovaciones",
-      incluyeBase: "✅ Renovación completa de tu Bot<br>✅ Diseño de Menú Renovado<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
-      tipos: { // 3 RENOVACIONES
+      tipos: {
         "V1": {nombre: "Renovación V1", desc: "Estilo renovado básico pro"},
         "V2": {nombre: "Renovación V2", desc: "Estilo renovado con efectos"},
         "V3": {nombre: "Renovación V3", desc: "Estilo renovado premium"},
@@ -125,8 +122,7 @@ const datos = {
       nombre: "Bots Mensuales",
       precioBase: 9000,
       sub: "Bot WhatsApp | Elige 1 de 4 Bots Mensuales",
-      incluyeBase: "✅ Bot completo por 30 días<br>✅ Estilo Mensual Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Soporte 24/7 todo el mes",
-      tipos: { // 4 MENSUALES
+      tipos: {
         "BASIC": {nombre: "Mensual Basic", desc: "Plan mensual básico 30 días"},
         "PLUS": {nombre: "Mensual Plus", desc: "Plan mensual con más comandos"},
         "PRO": {nombre: "Mensual Pro", desc: "Plan mensual profesional full"},
@@ -137,8 +133,7 @@ const datos = {
       nombre: "Bots Permanentes",
       precioBase: 15000,
       sub: "Bot WhatsApp | Elige 1 de 4 Bots Permanentes",
-      incluyeBase: "✅ Bot completo VITALICIO<br>✅ Estilo Permanente Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Soporte 24/7 de por vida",
-      tipos: { // 4 PERMANENTES
+      tipos: {
         "BASIC": {nombre: "Permanente Basic", desc: "Bot permanente básico vitalicio"},
         "PLUS": {nombre: "Permanente Plus", desc: "Bot permanente con más comandos"},
         "PRO": {nombre: "Permanente Pro", desc: "Bot permanente profesional full"},
@@ -151,10 +146,10 @@ const datos = {
 const app = document.getElementById('app');
 const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
-const id = params.get('id'); // CALI, PLANT, RENO, MENS, PERM
-const tipo = params.get('tipo'); // Sim, Obj, PRO, V1, BASIC etc
+const id = params.get('id');
+const tipo = params.get('tipo');
 
-function formatARS(n){return n.toLocaleString('es-AR')} // Formato $6.000
+function formatARS(n){return n.toLocaleString('es-AR')}
 
 function renderCardTipo(t, key, prodId){
   return `<div class="card" onclick="window.location.href='?page=producto&id=${prodId}&tipo=${key}'">
@@ -221,9 +216,10 @@ function renderProducto(){
   if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
 
   const nombreCompleto = `${p.nombre} ${t.nombre}`;
-  const incluyeCompleto = `${p.incluyeBase}<br>✅ Estilo: ${t.nombre} - ${t.desc}`;
+  const imgFinal = t.img || datos.img; // <-- USA LA FOTO DEL ESTILO SI TIENE
 
-  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">$ ${formatARS(p.precioBase)} ARS</h2><div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por MP.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
+  // <-- YA NO HAY "QUÉ INCLUYE" EN NINGUN PRODUCTO
+  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${imgFinal}" class="producto-img" alt="Demo"><h2 class="precio-big">$ ${formatARS(p.precioBase)} ARS</h2><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por MP.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
 }
 
 function renderPago(){
