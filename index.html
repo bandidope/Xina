@@ -27,10 +27,12 @@ header{padding:30px 20px;border-bottom:2px solid var(--boton);background:var(--m
 h1{color:var(--blanco);font-size:34px;letter-spacing:2px;text-shadow:0 0 12px var(--boton)}
 .slogan{color:var(--claro);margin-top:5px;font-size:14px}
 .container{max-width:500px;margin:auto;padding:20px}
+.titulo-seccion{font-size:18px;font-weight:bold;color:var(--blanco);margin:20px 0 10px;text-align:left;border-left:3px solid var(--boton);padding-left:10px}
 .card{background:var(--medio);border:1px solid var(--claro);border-radius:12px;padding:15px;margin:12px 0;text-align:left;transition:.2s;position:relative}
 .card:hover{transform:scale(1.02);box-shadow:0 0 15px var(--boton)}
 .tag-oferta{position:absolute;top:10px;right:10px;background:var(--rojo);color:#fff;font-size:11px;font-weight:bold;padding:4px 8px;border-radius:6px}
 .nombre{font-weight:bold;font-size:16px;display:flex;align-items:center;gap:8px;color:var(--blanco)}
+.subcategoria{font-size:12px;color:var(--claro);margin-top:2px;margin-bottom:6px} /* SUBCATEGORIA NUEVA */
 .precio{color:var(--blanco);font-size:18px;font-weight:bold;margin:6px 0}
 .badge-img{height:20px;width:auto;border-radius:4px;vertical-align:middle}
 .btn{display:block;background:var(--boton);color:var(--oscuro);padding:12px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:8px;text-align:center;transition:.2s}
@@ -81,28 +83,28 @@ const datos = {
   comandosImg: "https://files.evogb.win/eMe9xu.jpg",
   grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
   productos: {
-    "X1": {nombre: "Grupo X1", precio: "S/ 5", sub: "Bot para 1 Grupo | 1 Solo Pago", ahorro: "", incluye: "✅ Bot completo<br>✅ Para 1 grupo de WhatsApp<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
-    "X3": {nombre: "Grupo X3", precio: "S/ 10", sub: "Bot para 3 Grupos | 1 Solo Pago", ahorro: "Ahorras S/ 0", incluye: "✅ Bot completo<br>✅ Para 3 grupos de WhatsApp<br>✅ Todos los comandos incluidos<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
-    "X5": {nombre: "Grupo X5", precio: "S/ 15", sub: "Bot para 5 Grupos | 1 Solo Pago", ahorro: "🔥 Ahorras S/ 10 vs comprar 5 veces el X1", incluye: "✅ Mismo bot completo que el X1<br>✅ Para 5 grupos distintos<br>✅ Comandos:.menu.sticker.play.ia.frases<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
     "PERSONALIZADO": {
-      nombre: "Bot Personalizado",
+      nombre: "Bot Personalizado Caligráficos", // TODOS CALIGRAFICOS
       precio: "S/ 16",
       precioReal: "S/ 18",
-      sub: "Tu Bot, Tus Reglas",
+      sub: "Tu Bot, Tus Reglas | Fuente Caligráfica",
       ahorro: "🔥 Oferta Hoy: Ahorras S/ 2. Solo 2 cupos",
       tag: "OFERTA",
-      incluye: "✅ Bot desde cero a tu gusto<br>✅ Comandos personalizados<br>✅ Nombre + Logo exclusivo<br>✅ Menú a tu estilo<br>✅ Instalación + Soporte 24/7"
+      incluye: "✅ Bot desde cero a tu gusto<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos personalizados<br>✅ Nombre + Logo exclusivo<br>✅ Menú a tu estilo<br>✅ Instalación + Soporte 24/7"
     },
-    "SERVIDOR": {nombre: "Servidor 24/7", precio: "S/ 10", sub: "Hosting para tu Bot", ahorro: "", incluye: "✅ Bot siempre online 24/7<br>✅ Sin caídas ni lag<br>✅ Panel para reiniciar<br>✅ Te lo instalo todo yo<br>✅ Soporte 24/7"},
     "COMBO": {
-      nombre: "Combo Bot + Servidor",
+      nombre: "Combo Bot + Servidor Caligráficos", // TODOS CALIGRAFICOS
       precio: "S/ 22",
       precioReal: "S/ 25",
-      sub: "X5 + Servidor 24/7",
+      sub: "X5 + Servidor 24/7 | Fuente Caligráfica",
       ahorro: "🔥 Oferta Hoy: Ahorras S/ 3. Voy 3/5 cupos",
       tag: "OFERTA",
-      incluye: "✅ Bot Personalizado A Tu Gusto<br>✅ Servidor ( Mensual 10 Soles )<br>✅ Comandos A Tu Gusto<br>✅ Diseño Personalizados<br>✅ Soporté 24/7<br>✅ Se Crea Comandos A Tu Gusto"
-    }
+      incluye: "✅ Bot Personalizado A Tu Gusto<br>✅ Fuente Caligráfica en el.menu<br>✅ Servidor ( Mensual 10 Soles )<br>✅ Comandos A Tu Gusto<br>✅ Diseño Personalizados<br>✅ Soporté 24/7<br>✅ Se Crea Comandos A Tu Gusto"
+    },
+    "X1": {nombre: "Grupo X1 Caligráficos", precio: "S/ 5", sub: "Bot para 1 Grupo | Fuente Caligráfica", ahorro: "", incluye: "✅ Bot completo<br>✅ Para 1 grupo de WhatsApp<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
+    "X3": {nombre: "Grupo X3 Caligráficos", precio: "S/ 10", sub: "Bot para 3 Grupos | Fuente Caligráfica", ahorro: "Ahorras S/ 0", incluye: "✅ Bot completo<br>✅ Para 3 grupos de WhatsApp<br>✅ Fuente Caligráfica en el.menu<br>✅ Todos los comandos incluidos<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
+    "X5": {nombre: "Grupo X5 Caligráficos", precio: "S/ 15", sub: "Bot para 5 Grupos | Fuente Caligráfica", ahorro: "🔥 Ahorras S/ 10 vs comprar 5 veces el X1", incluye: "✅ Mismo bot completo que el X1<br>✅ Para 5 grupos distintos<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia.frases<br>✅ Logo Biselelado Nubecita Dzn ☁️<br>✅ Instalación + Soporte 24/7"},
+    "SERVIDOR": {nombre: "Servidor 24/7 Caligráficos", precio: "S/ 10", sub: "Hosting para tu Bot | Fuente Caligráfica", ahorro: "", incluye: "✅ Bot siempre online 24/7<br>✅ Fuente Caligráfica en el.menu<br>✅ Sin caídas ni lag<br>✅ Panel para reiniciar<br>✅ Te lo instalo todo yo<br>✅ Soporte 24/7"}
   }
 };
 
@@ -110,6 +112,18 @@ const app = document.getElementById('app');
 const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
 const id = params.get('id');
+
+function renderCard(p, key){
+  const precioHtml = p.precioReal? `<span class="tachado">${p.precioReal}</span> ${p.precio}` : p.precio;
+  return `<div class="card">
+    ${p.tag? `<div class="tag-oferta">${p.tag}</div>` : ''}
+    <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
+    <div class="subcategoria">Bot WhatsApp Caligráfico ☁️</div> <!-- SUBCATEGORIA -->
+    <div class="precio">${precioHtml}</div>
+    ${p.ahorro? `<p class="ahorro">${p.ahorro}</p>` : ''}
+    <a class="btn" href="?page=producto&id=${key}">Ver Producto</a>
+  </div>`;
+}
 
 function renderCatalogo(){
   let html = `<div class="oferta-box">
@@ -119,17 +133,17 @@ function renderCatalogo(){
   html += `<div class="top-btns">
       <a class="btn btn-morado" href="?page=comandos">🚀 Probar Bot</a>
     </div>`;
-  for(const key in datos.productos){
-    const p = datos.productos[key];
-    const precioHtml = p.precioReal? `<span class="tachado">${p.precioReal}</span> ${p.precio}` : p.precio;
-    html += `<div class="card">
-      ${p.tag? `<div class="tag-oferta">${p.tag}</div>` : ''}
-      <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-      <div class="precio">${precioHtml}</div>
-      ${p.ahorro? `<p class="ahorro">${p.ahorro}</p>` : ''}
-      <a class="btn" href="?page=producto&id=${key}">Ver Producto</a>
-    </div>`;
-  }
+  
+  html += `<div class="titulo-seccion">⭐ Ofertas Destacadas</div>`;
+  html += renderCard(datos.productos["COMBO"], "COMBO");
+  html += renderCard(datos.productos["PERSONALIZADO"], "PERSONALIZADO");
+  
+  html += `<div class="titulo-seccion">📦 Todos los Bots</div>`;
+  html += renderCard(datos.productos["X5"], "X5");
+  html += renderCard(datos.productos["X3"], "X3");
+  html += renderCard(datos.productos["X1"], "X1");
+  html += renderCard(datos.productos["SERVIDOR"], "SERVIDOR");
+  
   app.innerHTML = html;
 }
 
