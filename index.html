@@ -86,7 +86,7 @@ const datos = {
       sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
       tipos: {
         "Sim": {nombre: "Cali Simple", desc: "Un Diseño Lindo Pero Simple", img: "https://files.evogb.win/Fte8Kn.jpg"},
-        "Obj": {nombre: "Cali + Obj", desc: "Un Diseño Básico Con Un Objeto De Tu Preferencia", img: "https://files.evogb.win/dKpc14.jpg"}, // <-- FOTO NUEVA
+        "Obj": {nombre: "Cali + Obj", desc: "Un Diseño Básico Con Un Objeto De Tu Preferencia", img: "https://files.evogb.win/dKpc14.jpg"},
         "Tem": {nombre: "Cali Temático", desc: "Diseño Con Temática De Lo Que Gustes"},
         "Cur": {nombre: "Cali Curvo", desc: "Calígrafo Con Un Diseño En Curva"},
         "Let": {nombre: "Cali Letra", desc: "Diseño De 1 Letra Favorita Tuya"},
@@ -212,19 +212,18 @@ function renderComandos(){
 
 function renderProducto(){
   const p = datos.productos[id];
-  const t = p.tipos;
+  const t = p.tipos[tipo]; // <-- FIX: AGARRA SOLO EL ESTILO ELEGIDO
   if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
 
   const nombreCompleto = `${p.nombre} ${t.nombre}`;
-  const imgFinal = t.img || datos.img; // <-- USA LA FOTO DEL ESTILO SI TIENE
+  const imgFinal = t.img || datos.img; // <-- AHORA SÍ LEE LA FOTO DEL ESTILO
 
-  // <-- YA NO HAY "QUÉ INCLUYE" EN NINGUN PRODUCTO
   app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${imgFinal}" class="producto-img" alt="Demo"><h2 class="precio-big">$ ${formatARS(p.precioBase)} ARS</h2><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por MP.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
 }
 
 function renderPago(){
   const p = datos.productos[id];
-  const t = p.tipos;
+  const t = p.tipos[tipo]; // <-- FIX TAMBIEN ACA
   if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
   const nombreCompleto = `${p.nombre} ${t.nombre}`;
   const mensaje = encodeURIComponent(`Bro ya te transferí ✅\n\nMonto: ${nombreCompleto} $ ${formatARS(p.precioBase)} ARS\nAcá está mi captura 📸`);
