@@ -56,11 +56,11 @@ img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;b
 </head>
 <body>
 
-<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Bots Caligraficos 100% ESTABLE 24/7</p></header>
+<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Bots Personalizados 100% ESTABLE 24/7</p></header>
 
 <div class="verificado">
   <b>✅ Vendedor Verificado Ica | +50 Bots Vendidos</b>
-  <p>Elige 1 de los 6 estilos de fuente para tu bot.</p>
+  <p>Caligraficos: 6 | Plantillas: 8 | Renovaciones: 3 | Bots Mensuales: 4 | Bots Permanentes: 4</p>
 </div>
 
 <div class="container" id="app"></div>
@@ -79,68 +79,125 @@ const datos = {
   comandosImg: "https://files.evogb.win/eMe9xu.jpg",
   grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
 
-  // SOLO 1 PRODUCTO
-  producto: {
-    id: "CALI",
-    nombre: "Caligraficos", // SOLO ESTE NOMBRE
-    precioBase: 6,
-    sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
-    incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7"
-  },
-
-  // LOS 6 ESTILOS
-  estilos: {
-    "ELEG": {nombre: "Elegante", desc: "Fuente estilo firma cursiva"},
-    "GOTH": {nombre: "Goth", desc: "Fuente estilo gótico dark"},
-    "NEON": {nombre: "Neón", desc: "Fuente estilo neón brillante"},
-    "BUBB": {nombre: "Burbuja", desc: "Fuente estilo burbuja redonda"},
-    "DOUB": {nombre: "Doble", desc: "Fuente doble línea pro"},
-    "ITAL": {nombre: "Italica", desc: "Fuente itálica inclinada"},
+  productos: {
+    "CALI": {
+      nombre: "Caligraficos",
+      precioBase: 6,
+      sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
+      incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
+      tipos: { // 6 ESTILOS
+        "ELEG": {nombre: "Elegante", desc: "Fuente estilo firma cursiva"},
+        "GOTH": {nombre: "Goth", desc: "Fuente estilo gótico dark"},
+        "NEON": {nombre: "Neón", desc: "Fuente estilo neón brillante"},
+        "BUBB": {nombre: "Burbuja", desc: "Fuente estilo burbuja redonda"},
+        "DOUB": {nombre: "Doble", desc: "Fuente doble línea pro"},
+        "ITAL": {nombre: "Italica", desc: "Fuente itálica inclinada"},
+      }
+    },
+    "PLANT": {
+      nombre: "Plantillas",
+      precioBase: 7,
+      sub: "Bot WhatsApp | Elige 1 de 8 Plantillas",
+      incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Plantilla de Menú Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
+      tipos: { // 8 PLANTILLAS
+        "PRO": {nombre: "Pro", desc: "Plantilla estilo profesional clean"},
+        "GAMER": {nombre: "Gamer", desc: "Plantilla estilo videojuego neón"},
+        "MINIMAL": {nombre: "Minimal", desc: "Plantilla estilo minimalista blanco"},
+        "DARK": {nombre: "Dark", desc: "Plantilla estilo oscuro neon verde"},
+        "PIXEL": {nombre: "Pixel", desc: "Plantilla estilo pixel art retro"},
+        "LUXE": {nombre: "Luxe", desc: "Plantilla estilo lujo dorado"},
+        "ANIME": {nombre: "Anime", desc: "Plantilla estilo anime kawaii"},
+        "TECH": {nombre: "Tech", desc: "Plantilla estilo tecnología cyber"},
+      }
+    },
+    "RENO": {
+      nombre: "Renovaciones",
+      precioBase: 8,
+      sub: "Bot WhatsApp | Elige 1 de 3 Renovaciones",
+      incluyeBase: "✅ Renovación completa de tu Bot<br>✅ Diseño de Menú Renovado<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
+      tipos: { // 3 RENOVACIONES
+        "V1": {nombre: "Renovación V1", desc: "Estilo renovado básico pro"},
+        "V2": {nombre: "Renovación V2", desc: "Estilo renovado con efectos"},
+        "V3": {nombre: "Renovación V3", desc: "Estilo renovado premium"},
+      }
+    },
+    "MENS": {
+      nombre: "Bots Mensuales", // CAMBIADO
+      precioBase: 9,
+      sub: "Bot WhatsApp | Elige 1 de 4 Bots Mensuales", // CAMBIADO
+      incluyeBase: "✅ Bot completo por 30 días<br>✅ Estilo Mensual Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Soporte 24/7 todo el mes",
+      tipos: { // 4 MENSUALES
+        "BASIC": {nombre: "Mensual Basic", desc: "Plan mensual básico 30 días"},
+        "PLUS": {nombre: "Mensual Plus", desc: "Plan mensual con más comandos"},
+        "PRO": {nombre: "Mensual Pro", desc: "Plan mensual profesional full"},
+        "ELITE": {nombre: "Mensual Elite", desc: "Plan mensual elite vip"},
+      }
+    },
+    "PERM": {
+      nombre: "Bots Permanentes",
+      precioBase: 15,
+      sub: "Bot WhatsApp | Elige 1 de 4 Bots Permanentes",
+      incluyeBase: "✅ Bot completo VITALICIO<br>✅ Estilo Permanente Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Soporte 24/7 de por vida",
+      tipos: { // 4 PERMANENTES
+        "BASIC": {nombre: "Permanente Basic", desc: "Bot permanente básico vitalicio"},
+        "PLUS": {nombre: "Permanente Plus", desc: "Bot permanente con más comandos"},
+        "PRO": {nombre: "Permanente Pro", desc: "Bot permanente profesional full"},
+        "ELITE": {nombre: "Permanente Elite", desc: "Bot permanente elite vip"},
+      }
+    }
   }
 };
 
 const app = document.getElementById('app');
 const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
-const estilo = params.get('estilo'); // ELEG, GOTH etc
+const id = params.get('id'); // CALI, PLANT, RENO, MENS, PERM
+const tipo = params.get('tipo'); // ELEG, GOTH, PRO, V1, BASIC etc
 
-function renderCardEstilo(e, key){
-  return `<div class="card" onclick="window.location.href='?page=producto&estilo=${key}'">
-    <div class="nombre">Caligráfica ${e.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-    <div class="precio">${e.desc}</div>
-    <a class="btn" href="?page=producto&estilo=${key}" onclick="event.stopPropagation()">Elegir ${e.nombre}</a>
+function renderCardTipo(t, key, prodId){
+  return `<div class="card" onclick="window.location.href='?page=producto&id=${prodId}&tipo=${key}'">
+    <div class="nombre">${t.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
+    <div class="precio">${t.desc}</div>
+    <a class="btn" href="?page=producto&id=${prodId}&tipo=${key}" onclick="event.stopPropagation()">Elegir ${t.nombre}</a>
   </div>`;
 }
 
-function renderCatalogo(){ // SOLO 1 CARD
+function renderCatalogo(){
   let html = `<div class="oferta-box">
-      <b>🔥 BOT CALIGRAFICOS</b>
-      <p>El bot más vendido de Ica. Personaliza tu fuente.</p>
+      <b>🔥 BOT PERSONALIZADOS</b>
+      <p>Caligraficos: 6 | Plantillas: 8 | Renovaciones: 3 | Bots Mensuales: 4 | Bots Permanentes: 4</p>
     </div>`;
   html += `<div class="top-btns">
       <a class="btn btn-morado" href="?page=comandos">🚀 Probar Bot</a>
     </div>`;
 
-  html += `<div class="titulo-seccion">☁️ Producto Único</div>`;
+  html += `<div class="titulo-seccion">☁️ Elige tu Bot</div>`;
 
-  html += `<div class="card" onclick="window.location.href='?page=estilos'">
-    <div class="nombre">${datos.producto.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-    <div class="precio">S/ ${datos.producto.precioBase}</div>
-    <p class="sub">6 Estilos Caligráficos Disponibles</p>
-    <a class="btn" href="?page=estilos" onclick="event.stopPropagation()">Elegir Estilo</a>
-  </div>`;
-
+  for(const key in datos.productos){
+    const p = datos.productos[key];
+    const cantEstilos = Object.keys(p.tipos).length;
+    html += `<div class="card" onclick="window.location.href='?page=tipos&id=${key}'">
+      <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
+      <div class="precio">S/ ${p.precioBase}</div>
+      <p class="sub">${cantEstilos} Estilos Disponibles</p>
+      <a class="btn" href="?page=tipos&id=${key}" onclick="event.stopPropagation()">Ver Estilos</a>
+    </div>`;
+  }
   app.innerHTML = html;
 }
 
-function renderEstilos(){ // PAGINA CON LOS 6 ESTILOS
+function renderTipos(){
+  const p = datos.productos[id];
+  if(!p){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+
+  const cantEstilos = Object.keys(p.tipos).length;
   let html = `<div class="box">
-    <h1>${datos.producto.nombre} ☁️</h1>
-    <p class="sub">Elige 1 de los 6 estilos. Precio: S/ ${datos.producto.precioBase}</p>
+    <h1>${p.nombre} ☁️</h1>
+    <p class="sub">Elige 1 de los ${cantEstilos} estilos. Precio: S/ ${p.precioBase}</p>
   </div>`;
 
-  for(const key in datos.estilos){
-    html += renderCardEstilo(datos.estilos[key], key);
+  for(const key in p.tipos){
+    html += renderCardTipo(p.tipos[key], key, id);
   }
   html += `<a class="volver" href="?">← Volver a Tienda</a>`;
   app.innerHTML = html;
@@ -157,30 +214,30 @@ function renderComandos(){
 }
 
 function renderProducto(){
-  const e = datos.estilos[estilo];
-  const p = datos.producto;
-  if(!e){ app.innerHTML = `<div class="box"><h1>Estilo no encontrado</h1><a class="volver" href="?page=estilos">← Volver</a></div>`; return; }
+  const p = datos.productos[id];
+  const t = p.tipos;
+  if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
 
-  const nombreCompleto = `${p.nombre} ${e.nombre}`; // Ej: Caligraficos Elegante
-  const incluyeCompleto = `${p.incluyeBase}<br>✅ Estilo de Fuente: ${e.nombre} - ${e.desc}`;
+  const nombreCompleto = `${p.nombre} ${t.nombre}`;
+  const incluyeCompleto = `${p.incluyeBase}<br>✅ Estilo: ${t.nombre} - ${t.desc}`;
 
-  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">S/ ${p.precioBase}</h2><div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&estilo=${estilo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=estilos">← Elegir otro Estilo</a></div>`;
+  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">S/ ${p.precioBase}</h2><div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
 }
 
 function renderPago(){
-  const e = datos.estilos[estilo];
-  const p = datos.producto;
-  if(!e){ app.innerHTML = `<div class="box"><h1>Estilo no encontrado</h1><a class="volver" href="?page=estilos">← Volver</a></div>`; return; }
-  const nombreCompleto = `${p.nombre} ${e.nombre}`;
+  const p = datos.productos[id];
+  const t = p.tipos;
+  if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+  const nombreCompleto = `${p.nombre} ${t.nombre}`;
   const mensaje = encodeURIComponent(`Bro ya te deposité ✅\n\nMonto: ${nombreCompleto} S/ ${p.precioBase}\nAcá está mi captura 📸`);
-  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} S/ ${p.precioBase}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&estilo=${estilo}">← Volver</a></div>`;
+  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} S/ ${p.precioBase}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&id=${id}&tipo=${tipo}">← Volver</a></div>`;
 }
 
 if(page === 'producto') renderProducto();
 else if(page === 'pago') renderPago();
 else if(page === 'comandos') renderComandos();
-else if(page === 'estilos') renderEstilos(); // NUEVA PAGINA DE 6 ESTILOS
-else renderCatalogo(); // SOLO MUESTRA 1 CARD: CALIGRAFICOS
+else if(page === 'tipos') renderTipos();
+else renderCatalogo();
 </script>
 </body>
 </html>
