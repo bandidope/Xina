@@ -56,25 +56,25 @@ img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;b
 </head>
 <body>
 
-<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Bots Personalizados 100% ESTABLE 24/7</p></header>
+<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Lo Mejor De Lo Mejor ☁️</p></header>
 
 <div class="verificado">
-  <b>✅ Vendedor Verificado Ica | +50 Bots Vendidos</b>
+  <b>✅ Vendedor Verificado De Argentina | +50 Productos Vendidos </b>
   <p>Caligraficos: 6 | Plantillas: 8 | Renovaciones: 3 | Bots Mensuales: 4 | Bots Permanentes: 4</p>
 </div>
 
 <div class="container" id="app"></div>
 
-<footer class="footer">© 2026 Nubecita Dzn Online ☁️ | Ica, Perú<br>💳 Yape / Prex / BCP / WhatsApp: 936 994 155</footer>
+<footer class="footer">© 2026 Nubecita Dzn Online ☁️ | Buenos Aires, Argentina<br>💳 Mercado Pago / Prex / Diamantes / WhatsApp: +54 9 11 XXXX XXXX</footer>
 
-<a href="https://wa.me/51936994155" target="_blank" class="whatsapp-float">💬</a>
+<a href="https://wa.me/54911XXXXXXX" target="_blank" class="whatsapp-float">☁️</a>
 
 <script>
 const datos = {
-  whatsapp: "51936994155",
-  yape: "936 994 155",
-  nombre: "Cristhofer Rojas",
-  cci: "00238019628987806340",
+  whatsapp: "54911XXXXXXX", // <-- PONE TU NUMERO ARGENTINA ACA SIN ESPACIOS
+  mpAlias: "nubecita.dzn.mp", // <-- TU ALIAS DE MERCADO PAGO
+  cbu: "0003100000", // <-- TU CBU ARGENTINA
+  nombre: "Cristhofer Rojas", // <-- TU NOMBRE
   img: "https://files.evogb.win/BLG4n2.jpg",
   comandosImg: "https://files.evogb.win/eMe9xu.jpg",
   grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
@@ -82,7 +82,7 @@ const datos = {
   productos: {
     "CALI": {
       nombre: "Caligraficos",
-      precioBase: 6,
+      precioBase: 6000, // Precios en ARS. Le sumé 3 ceros
       sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
       incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
       tipos: { // 6 ESTILOS
@@ -96,7 +96,7 @@ const datos = {
     },
     "PLANT": {
       nombre: "Plantillas",
-      precioBase: 7,
+      precioBase: 7000,
       sub: "Bot WhatsApp | Elige 1 de 8 Plantillas",
       incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Plantilla de Menú Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
       tipos: { // 8 PLANTILLAS
@@ -112,7 +112,7 @@ const datos = {
     },
     "RENO": {
       nombre: "Renovaciones",
-      precioBase: 8,
+      precioBase: 8000,
       sub: "Bot WhatsApp | Elige 1 de 3 Renovaciones",
       incluyeBase: "✅ Renovación completa de tu Bot<br>✅ Diseño de Menú Renovado<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
       tipos: { // 3 RENOVACIONES
@@ -122,9 +122,9 @@ const datos = {
       }
     },
     "MENS": {
-      nombre: "Bots Mensuales", // CAMBIADO
-      precioBase: 9,
-      sub: "Bot WhatsApp | Elige 1 de 4 Bots Mensuales", // CAMBIADO
+      nombre: "Bots Mensuales",
+      precioBase: 9000,
+      sub: "Bot WhatsApp | Elige 1 de 4 Bots Mensuales",
       incluyeBase: "✅ Bot completo por 30 días<br>✅ Estilo Mensual Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Soporte 24/7 todo el mes",
       tipos: { // 4 MENSUALES
         "BASIC": {nombre: "Mensual Basic", desc: "Plan mensual básico 30 días"},
@@ -135,7 +135,7 @@ const datos = {
     },
     "PERM": {
       nombre: "Bots Permanentes",
-      precioBase: 15,
+      precioBase: 15000,
       sub: "Bot WhatsApp | Elige 1 de 4 Bots Permanentes",
       incluyeBase: "✅ Bot completo VITALICIO<br>✅ Estilo Permanente Premium<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Soporte 24/7 de por vida",
       tipos: { // 4 PERMANENTES
@@ -153,6 +153,8 @@ const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
 const id = params.get('id'); // CALI, PLANT, RENO, MENS, PERM
 const tipo = params.get('tipo'); // ELEG, GOTH, PRO, V1, BASIC etc
+
+function formatARS(n){return n.toLocaleString('es-AR')} // Formato $6.000
 
 function renderCardTipo(t, key, prodId){
   return `<div class="card" onclick="window.location.href='?page=producto&id=${prodId}&tipo=${key}'">
@@ -178,7 +180,7 @@ function renderCatalogo(){
     const cantEstilos = Object.keys(p.tipos).length;
     html += `<div class="card" onclick="window.location.href='?page=tipos&id=${key}'">
       <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-      <div class="precio">S/ ${p.precioBase}</div>
+      <div class="precio">$ ${formatARS(p.precioBase)} ARS</div>
       <p class="sub">${cantEstilos} Estilos Disponibles</p>
       <a class="btn" href="?page=tipos&id=${key}" onclick="event.stopPropagation()">Ver Estilos</a>
     </div>`;
@@ -193,7 +195,7 @@ function renderTipos(){
   const cantEstilos = Object.keys(p.tipos).length;
   let html = `<div class="box">
     <h1>${p.nombre} ☁️</h1>
-    <p class="sub">Elige 1 de los ${cantEstilos} estilos. Precio: S/ ${p.precioBase}</p>
+    <p class="sub">Elige 1 de los ${cantEstilos} estilos. Precio: $ ${formatARS(p.precioBase)} ARS</p>
   </div>`;
 
   for(const key in p.tipos){
@@ -221,7 +223,7 @@ function renderProducto(){
   const nombreCompleto = `${p.nombre} ${t.nombre}`;
   const incluyeCompleto = `${p.incluyeBase}<br>✅ Estilo: ${t.nombre} - ${t.desc}`;
 
-  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">S/ ${p.precioBase}</h2><div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
+  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">$ ${formatARS(p.precioBase)} ARS</h2><div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por MP.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
 }
 
 function renderPago(){
@@ -229,8 +231,8 @@ function renderPago(){
   const t = p.tipos;
   if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
   const nombreCompleto = `${p.nombre} ${t.nombre}`;
-  const mensaje = encodeURIComponent(`Bro ya te deposité ✅\n\nMonto: ${nombreCompleto} S/ ${p.precioBase}\nAcá está mi captura 📸`);
-  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} S/ ${p.precioBase}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&id=${id}&tipo=${tipo}">← Volver</a></div>`;
+  const mensaje = encodeURIComponent(`Bro ya te transferí ✅\n\nMonto: ${nombreCompleto} $ ${formatARS(p.precioBase)} ARS\nAcá está mi captura 📸`);
+  app.innerHTML = `<div class="box"><h1>Métodos de Pago Argentina</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} $ ${formatARS(p.precioBase)} ARS</div><div class="metodo"><b>1. Mercado Pago</b><div class="dato">Alias: ${datos.mpAlias}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Transferencia Bancaria</b><div class="dato">CBU: ${datos.cbu}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>3. Prex / Diamantes</b><div class="dato">Consultar por WhatsApp</div></div><div class="aviso">⚠️ Transferí el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Pagué</a><a class="volver" href="?page=producto&id=${id}&tipo=${tipo}">← Volver</a></div>`;
 }
 
 if(page === 'producto') renderProducto();
