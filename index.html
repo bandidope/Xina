@@ -22,7 +22,6 @@ body{color:var(--blanco);text-align:center;min-height:100vh;padding:0;background
 .oferta-box{background:rgba(93,193,185,0.15);border:1px solid var(--boton);border-radius:12px;padding:12px;margin-bottom:15px;text-align:center}
 .oferta-box b{color:var(--blanco);font-size:14px}
 .oferta-box p{color:var(--claro);font-size:12px;margin-top:4px}
-.tachado{color:var(--claro);text-decoration:line-through;font-size:20px;margin-right:8px;opacity:0.7}
 header{padding:30px 20px;border-bottom:2px solid var(--boton);background:var(--medio)}
 h1{color:var(--blanco);font-size:34px;letter-spacing:2px;text-shadow:0 0 12px var(--boton)}
 .slogan{color:var(--claro);margin-top:5px;font-size:14px}
@@ -30,7 +29,6 @@ h1{color:var(--blanco);font-size:34px;letter-spacing:2px;text-shadow:0 0 12px va
 .titulo-seccion{font-size:18px;font-weight:bold;color:var(--blanco);margin:20px 0 10px;text-align:left;border-left:3px solid var(--boton);padding-left:10px}
 .card{background:var(--medio);border:1px solid var(--claro);border-radius:12px;padding:15px;margin:12px 0;text-align:left;transition:.2s;position:relative;cursor:pointer}
 .card:hover{transform:scale(1.02);box-shadow:0 0 15px var(--boton)}
-.tag-oferta{position:absolute;top:10px;right:10px;background:var(--rojo);color:#fff;font-size:11px;font-weight:bold;padding:4px 8px;border-radius:6px}
 .nombre{font-weight:bold;font-size:16px;display:flex;align-items:center;gap:8px;color:var(--blanco)}
 .precio{color:var(--blanco);font-size:18px;font-weight:bold;margin:6px 0}
 .badge-img{height:20px;width:auto;border-radius:4px;vertical-align:middle}
@@ -43,7 +41,6 @@ h1{color:var(--blanco);font-size:34px;letter-spacing:2px;text-shadow:0 0 12px va
 .sub{color:var(--claro);font-size:14px;margin-bottom:15px}
 img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;border:1px solid var(--medio)}
 .precio-big{font-size:32px;color:var(--blanco);font-weight:bold;margin:15px 0}
-.ahorro{color:var(--claro);font-size:13px;margin-top:-10px;margin-bottom:15px;font-weight:bold}
 .lista{text-align:left;background:var(--oscuro);border-radius:10px;padding:12px;margin:15px 0;font-size:14px;line-height:1.6;color:var(--blanco)}
 .metodo{background:var(--medio);border:1px solid var(--claro);border-radius:10px;padding:15px;margin:12px 0;text-align:left}
 .metodo b{color:var(--blanco);font-size:16px}
@@ -59,11 +56,11 @@ img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;b
 </head>
 <body>
 
-<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Bots Caligráficos 100% ESTABLE 24/7</p></header>
+<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Bots Caligraficos 100% ESTABLE 24/7</p></header>
 
 <div class="verificado">
   <b>✅ Vendedor Verificado Ica | +50 Bots Vendidos</b>
-  <p>Todos nuestros bots incluyen 6 estilos de fuente caligráfica.</p>
+  <p>Elige 1 de los 6 estilos de fuente para tu bot.</p>
 </div>
 
 <div class="container" id="app"></div>
@@ -82,106 +79,68 @@ const datos = {
   comandosImg: "https://files.evogb.win/eMe9xu.jpg",
   grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
 
-  // LOS 6 ESTILOS QUE SE REPITEN PARA TODOS
-  estilos: {
-    "ELEG": {nombre: "Elegante", precioExtra: "S/ 0", desc: "Fuente estilo firma cursiva"},
-    "GOTH": {nombre: "Goth", precioExtra: "S/ 0", desc: "Fuente estilo gótico dark"},
-    "NEON": {nombre: "Neón", precioExtra: "S/ 0", desc: "Fuente estilo neón brillante"},
-    "BUBB": {nombre: "Burbuja", precioExtra: "S/ 0", desc: "Fuente estilo burbuja redonda"},
-    "DOUB": {nombre: "Doble", precioExtra: "S/ 0", desc: "Fuente doble línea pro"},
-    "ITAL": {nombre: "Italica", precioExtra: "S/ 0", desc: "Fuente itálica inclinada"},
+  // SOLO 1 PRODUCTO
+  producto: {
+    id: "CALI",
+    nombre: "Caligraficos", // SOLO ESTE NOMBRE
+    precioBase: 6,
+    sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
+    incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7"
   },
 
-  // TODITO SE LLAMA CALIGRAFICOS + NOMBRE
-  productos: {
-    "CALI-X1": {
-      nombre: "Caligráficos Grupo x1", // TODITO ASI
-      precioBase: 6,
-      sub: "Bot para 1 Grupo | Elige 1 de 6 Estilos",
-      incluyeBase: "✅ Bot completo<br>✅ Para 1 grupo de WhatsApp<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7"
-    },
-    "CALI-X3": {
-      nombre: "Caligráficos Grupo x3", // TODITO ASI
-      precioBase: 10,
-      sub: "Bot para 3 Grupos | Elige 1 de 6 Estilos",
-      incluyeBase: "✅ Bot completo<br>✅ Para 3 grupos de WhatsApp<br>✅ Fuente Caligráfica en el.menu<br>✅ Todos los comandos incluidos<br>✅ Instalación + Soporte 24/7"
-    },
-    "CALI-X5": {
-      nombre: "Caligráficos Grupo x5", // TODITO ASI
-      precioBase: 15,
-      sub: "Bot para 5 Grupos | Elige 1 de 6 Estilos",
-      incluyeBase: "✅ Bot completo<br>✅ Para 5 grupos distintos<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia.frases<br>✅ Instalación + Soporte 24/7"
-    },
-    "CALI-SERVER": {
-      nombre: "Caligráficos Servidor 24/7", // TODITO ASI
-      precioBase: 10,
-      sub: "Hosting para tu Bot Caligráfico",
-      incluyeBase: "✅ Bot siempre online 24/7<br>✅ Fuente Caligráfica en el.menu<br>✅ Sin caídas ni lag<br>✅ Panel para reiniciar<br>✅ Soporte 24/7"
-    },
-    "CALI-PERSONAL": {
-      nombre: "Caligráficos Personalizado", // TODITO ASI
-      precioBase: 16,
-      precioReal: 18,
-      tag: "OFERTA",
-      ahorro: "🔥 Oferta Hoy: Ahorras S/ 2. Solo 2 cupos",
-      sub: "Tu Bot Caligráfico, Tus Reglas",
-      incluyeBase: "✅ Bot desde cero a tu gusto<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos personalizados<br>✅ Nombre + Logo exclusivo<br>✅ Instalación + Soporte 24/7"
-    }
+  // LOS 6 ESTILOS
+  estilos: {
+    "ELEG": {nombre: "Elegante", desc: "Fuente estilo firma cursiva"},
+    "GOTH": {nombre: "Goth", desc: "Fuente estilo gótico dark"},
+    "NEON": {nombre: "Neón", desc: "Fuente estilo neón brillante"},
+    "BUBB": {nombre: "Burbuja", desc: "Fuente estilo burbuja redonda"},
+    "DOUB": {nombre: "Doble", desc: "Fuente doble línea pro"},
+    "ITAL": {nombre: "Italica", desc: "Fuente itálica inclinada"},
   }
 };
 
 const app = document.getElementById('app');
 const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
-const id = params.get('id'); // CALI-X1, CALI-X3 etc
 const estilo = params.get('estilo'); // ELEG, GOTH etc
 
-function renderCardProd(p, key){
-  const precioHtml = p.precioReal? `<span class="tachado">S/ ${p.precioReal}</span> S/ ${p.precioBase}` : `S/ ${p.precioBase}`;
-  return `<div class="card" onclick="window.location.href='?page=estilos&id=${key}'">
-    ${p.tag? `<div class="tag-oferta">${p.tag}</div>` : ''}
-    <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-    <div class="precio">${precioHtml} + Estilo</div>
-    <p class="ahorro">6 Estilos Caligráficos Incluidos</p>
-    <a class="btn" href="?page=estilos&id=${key}" onclick="event.stopPropagation()">Elegir Estilo</a>
-  </div>`;
-}
-
-function renderCardEstilo(e, key, prodId){
-  return `<div class="card" onclick="window.location.href='?page=producto&id=${prodId}&estilo=${key}'">
+function renderCardEstilo(e, key){
+  return `<div class="card" onclick="window.location.href='?page=producto&estilo=${key}'">
     <div class="nombre">Caligráfica ${e.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
     <div class="precio">${e.desc}</div>
-    <a class="btn" href="?page=producto&id=${prodId}&estilo=${key}" onclick="event.stopPropagation()">Elegir ${e.nombre}</a>
+    <a class="btn" href="?page=producto&estilo=${key}" onclick="event.stopPropagation()">Elegir ${e.nombre}</a>
   </div>`;
 }
 
-function renderCatalogo(){
+function renderCatalogo(){ // SOLO 1 CARD
   let html = `<div class="oferta-box">
-      <b>🔥 OFERTAS POR TIEMPO LIMITADO</b>
-      <p>Todos son Caligráficos. Elige tu estilo al final.</p>
+      <b>🔥 BOT CALIGRAFICOS</b>
+      <p>El bot más vendido de Ica. Personaliza tu fuente.</p>
     </div>`;
   html += `<div class="top-btns">
       <a class="btn btn-morado" href="?page=comandos">🚀 Probar Bot</a>
     </div>`;
 
-  html += `<div class="titulo-seccion">☁️ Todos Caligráficos</div>`;
-  for(const key in datos.productos){
-    html += renderCardProd(datos.productos[key], key);
-  }
+  html += `<div class="titulo-seccion">☁️ Producto Único</div>`;
+
+  html += `<div class="card" onclick="window.location.href='?page=estilos'">
+    <div class="nombre">${datos.producto.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
+    <div class="precio">S/ ${datos.producto.precioBase}</div>
+    <p class="sub">6 Estilos Caligráficos Disponibles</p>
+    <a class="btn" href="?page=estilos" onclick="event.stopPropagation()">Elegir Estilo</a>
+  </div>`;
+
   app.innerHTML = html;
 }
 
-function renderEstilos(){ // PAGINA CON LOS 6 ESTILOS PARA EL PRODUCTO ELEGIDO
-  const p = datos.productos[id];
-  if(!p){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
-
+function renderEstilos(){ // PAGINA CON LOS 6 ESTILOS
   let html = `<div class="box">
-    <h1>${p.nombre} ☁️</h1>
-    <p class="sub">Ahora elige 1 de los 6 estilos de fuente. Base: S/ ${p.precioBase}</p>
+    <h1>${datos.producto.nombre} ☁️</h1>
+    <p class="sub">Elige 1 de los 6 estilos. Precio: S/ ${datos.producto.precioBase}</p>
   </div>`;
 
   for(const key in datos.estilos){
-    html += renderCardEstilo(datos.estilos[key], key, id);
+    html += renderCardEstilo(datos.estilos[key], key);
   }
   html += `<a class="volver" href="?">← Volver a Tienda</a>`;
   app.innerHTML = html;
@@ -198,31 +157,30 @@ function renderComandos(){
 }
 
 function renderProducto(){
-  const p = datos.productos[id];
   const e = datos.estilos[estilo];
-  if(!p ||!e){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+  const p = datos.producto;
+  if(!e){ app.innerHTML = `<div class="box"><h1>Estilo no encontrado</h1><a class="volver" href="?page=estilos">← Volver</a></div>`; return; }
 
-  const precioFinal = p.precioBase; // Los estilos no cobran extra
-  const nombreCompleto = `${p.nombre} ${e.nombre}`; // Ej: Caligráficos Grupo x1 Elegante
+  const nombreCompleto = `${p.nombre} ${e.nombre}`; // Ej: Caligraficos Elegante
   const incluyeCompleto = `${p.incluyeBase}<br>✅ Estilo de Fuente: ${e.nombre} - ${e.desc}`;
 
-  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">S/ ${precioFinal}</h2>${p.ahorro? `<p class="ahorro">${p.ahorro}</p>` : ''}<div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&id=${id}&estilo=${estilo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=estilos&id=${id}">← Elegir otro Estilo</a></div>`;
+  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${datos.img}" class="producto-img" alt="Demo"><h2 class="precio-big">S/ ${p.precioBase}</h2><div class="lista"><b>Qué incluye:</b><br>${incluyeCompleto}</div><a class="btn" href="?page=pago&estilo=${estilo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por Yape.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=estilos">← Elegir otro Estilo</a></div>`;
 }
 
 function renderPago(){
-  const p = datos.productos[id];
   const e = datos.estilos[estilo];
-  if(!p ||!e){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
+  const p = datos.producto;
+  if(!e){ app.innerHTML = `<div class="box"><h1>Estilo no encontrado</h1><a class="volver" href="?page=estilos">← Volver</a></div>`; return; }
   const nombreCompleto = `${p.nombre} ${e.nombre}`;
   const mensaje = encodeURIComponent(`Bro ya te deposité ✅\n\nMonto: ${nombreCompleto} S/ ${p.precioBase}\nAcá está mi captura 📸`);
-  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} S/ ${p.precioBase}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&id=${id}&estilo=${estilo}">← Volver</a></div>`;
+  app.innerHTML = `<div class="box"><h1>Métodos de Pago</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} S/ ${p.precioBase}</div><div class="metodo"><b>1. Yape / Plin</b><div class="dato">${datos.yape}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Prex Perú</b><div class="dato">${datos.yape}</div></div><div class="metodo"><b>3. Transferencia BCP</b><div class="dato">${datos.cci}</div><div class="dato">A nombre de: ${datos.nombre}</div><div class="dato">Banco: BCP</div></div><div class="aviso">⚠️ Deposita el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Deposité</a><a class="volver" href="?page=producto&estilo=${estilo}">← Volver</a></div>`;
 }
 
 if(page === 'producto') renderProducto();
 else if(page === 'pago') renderPago();
 else if(page === 'comandos') renderComandos();
 else if(page === 'estilos') renderEstilos(); // NUEVA PAGINA DE 6 ESTILOS
-else renderCatalogo();
+else renderCatalogo(); // SOLO MUESTRA 1 CARD: CALIGRAFICOS
 </script>
 </body>
 </html>
