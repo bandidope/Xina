@@ -24,20 +24,10 @@
       margin-bottom: 16px;
     }
     .cat-titulo {
-      display: flex;
-      align-items: center;
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 12px;
       color: #bff;
-    }
-    .badge-img {
-      width: 20px;          /* Tamaño del GIF */
-      height: 20px;
-      object-fit: contain;  /* No se deforma */
-      border-radius: 50%;   /* Redonda */
-      margin-right: 8px;    /* Espacio al texto */
-      vertical-align: middle;
     }
     .producto {
       display: flex;
@@ -67,7 +57,7 @@
 </head>
 <body>
 
-  <h1>Nubecita Dzn ☁️</h1>
+  <h1>Nubecita Dzn</h1>
   <div id="catalogo"></div>
   <a class="btn-wsp" href="https://wa.me/5491153317678" target="_blank">Pedir por WhatsApp</a>
 
@@ -77,7 +67,6 @@
       mpAlias: "nubecita.dzn.mp",
       cbu: "0003100000",
       nombre: "Cristhofer Rojas",
-      img: "https://evogb.win/fBJ2A", // <-- TU GIF NUBE TRANSPARENTE ☁️
       comandosImg: "https://files.evogb.win/eMe9xu.jpg",
       grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
 
@@ -107,7 +96,6 @@
       cont.innerHTML += `
         <div class="categoria">
           <div class="cat-titulo">
-            <img class="badge-img" src="${datos.img}" alt="nube">
             ${cat.nombre}
           </div>
           ${cat.productos.map(p => `
