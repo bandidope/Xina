@@ -2,373 +2,180 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><!-- EDITAR AQUÍ --> Nubecita Dzn | Tienda <!-- FIN EDITAR --></title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Three Bot</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#ffffff;--card:#ffffff;--text:#1a1a1a;--muted:#666;--border:#e0e0e0;
-    --red:#e60000;--green:#007600;--header:#e60000
-  }
-  body.dark{
-    --bg:#0a0a0a;--card:#141414;--text:#f5f5f5;--muted:#b3b3b3;--border:#2a2a2a;
-    --red:#ff2a2a;--green:#22c55e;--header:#0a0a0a
-  }
-  *{box-sizing:border-box;margin:0;padding:0;font-family:Roboto,Arial,sans-serif}
-  body{background:var(--bg);color:var(--text);transition:.3s}
-.screen{display:none;min-height:100vh}.screen.active{display:block}
-
-  header{background:var(--header);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
-.topbar{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;color:#fff}
-.logo{font-size:26px;font-weight:900;letter-spacing:-1px;cursor:pointer;color:#fff}
-.buscador{flex:1;display:flex}
-.buscador input{flex:1;padding:10px 12px;border:0;border-radius:4px 0 0 4px;font-size:14px;outline:0;background:#fff;color:#111}
-body.dark .buscador input{background:#1f1f1f;color:#f5f5f5}
-.buscador button{background:#333;color:#fff;border:0;padding:0 20px;border-radius:0 4px 4px 0;cursor:pointer;font-weight:700}
-.top-icons{display:flex;gap:16px;align-items:center}
-.icon-btn{position:relative;background:0;border:0;color:#fff;cursor:pointer;font-size:22px}
-.cart-count{position:absolute;top:-6px;right:-8px;background:var(--green);color:#fff;font-size:10px;font-weight:800;border-radius:50%;width:18px;height:18px;display:grid;place-items:center}
-
-.subnav{background:var(--card);border-bottom:1px solid var(--border)}
-.subnav-inner{max-width:1200px;margin:0 auto;padding:0 16px;display:flex;gap:0;overflow-x:auto}
-.subnav button{background:0;border:0;padding:12px 16px;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:.2s}
-.subnav button.active{border-bottom-color:var(--red);color:var(--red)}
-.subnav button:not(.active):hover{color:var(--text)}
-
-.container{max-width:1200px;margin:0 auto;padding:20px 16px}
-.banner-wrap{position:relative;overflow:hidden;border-radius:8px;margin-bottom:20px}
-.banners{display:flex;transition:.5s}
-.banner{flex-shrink:0;width:100%;background:var(--card);border:1px solid var(--border);padding:24px;font-size:18px;font-weight:800;text-align:center}
-.banner-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
-.banner-dot{width:8px;height:8px;border-radius:50%;background:#fff5;border:1px solid #fff;cursor:pointer}
-.banner-dot.active{background:#fff}
-
-.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap}
-.select{background:var(--card);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-size:13px}
-
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-  @media(max-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
-  @media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-
-.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;cursor:pointer}
-.card:hover{box-shadow:0 4px 12px #0003}
-.card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f5f5f5}
-body.dark .card img{background:#1f1f1f}
-.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px}
-.fav{position:absolute;top:8px;right:8px;background:#fff;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;cursor:pointer;font-size:18px;border:0}
-.fav.active{color:var(--red)}
-.tag{background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:3px 6px;border-radius:4px}
-.tag.green{background:var(--green)}
-.card-body{padding:12px;font-size:12px}
-.marca{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-bottom:4px}
-.card h3{font-size:13px;font-weight:400;margin-bottom:8px;height:36px;overflow:hidden;line-height:1.4;color:var(--text)}
-.precio-wrap{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
-.precio{font-size:20px;font-weight:800;color:var(--text)}
-.precio del{font-size:13px;color:var(--muted);font-weight:400}
-.precio-desc{font-size:12px;color:var(--muted)}
-.btn{background:var(--red);color:#fff;border:0;padding:10px;border-radius:6px;font-weight:700;width:100%;cursor:pointer;font-size:14px;margin-top:8px}
-.btn:disabled{opacity:.5;cursor:not-allowed;background:var(--muted)}
-.stock{font-size:12px;color:var(--green); font-weight:700;margin:4px 0}
-.stock.low{color:var(--red)}.urgencia{font-size:11px;color:var(--red);font-weight:700}
-
-.modal{position:fixed;inset:0;background:#0007;display:none;z-index:50;align-items:flex-end}
+:root[data-theme="dark"]{--bg:#0a0a0f;--card:#0f172a;--text:#f1f5f9;--muted:#94a3b8;--cyan:#00e5ff;--border:#1e293b;--green:#25D366;--mp:#009ee5}
+:root[data-theme="light"]{--bg:#f1f5f9;--card:#ffffff;--text:#0f172a;--muted:#64748b;--cyan:#0891b2;--border:#cbd5e1;--green:#16a34a;--mp:#0077c2}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;padding-bottom:70px;transition:.3s}
+header{position:sticky;top:0;background:var(--bg);z-index:10;padding:14px 16px;border-bottom:1px solid var(--border)}
+.topbar{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:1.3rem}
+.top-actions{display:flex;gap:8px;align-items:center}
+.currency-btn{background:var(--card);border:1px solid var(--border);padding:8px 12px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.85rem;color:var(--cyan)}
+.theme-btn{background:var(--card);border:1px solid var(--border);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer}
+.tabs{display:flex;gap:18px;justify-content:flex-start;margin-top:14px;overflow-x:auto;padding-bottom:4px}
+.tab{color:var(--muted);font-weight:600;cursor:pointer;padding-bottom:8px;border-bottom:2px solid transparent;white-space:nowrap;font-size:.9rem}
+.tab.active{color:var(--cyan);border-color:var(--cyan)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s ease;cursor:pointer;opacity:0;animation:fadeIn.4s ease forwards}
+.card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--cyan);box-shadow:0 8px 25px rgba(0,229,255,.25)}
+.card:nth-child(1){animation-delay:.1s}.card:nth-child(2){animation-delay:.2s}.card:nth-child(3){animation-delay:.3s}.card:nth-child(4){animation-delay:.4s}.card:nth-child(5){animation-delay:.5s}.card:nth-child(6){animation-delay:.6s}.card:nth-child(7){animation-delay:.7s}.card:nth-child(8){animation-delay:.8s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card-img{height:140px;position:relative;overflow:hidden}
+.carousel-track{display:flex;height:100%;transition:transform.8s ease}
+.carousel-slide{min-width:100%;height:100%;background-size:cover;background-position:center}
+.tag{position:absolute;top:10px;left:10px;background:var(--cyan);color:#0a0a0f;font-size:.65rem;font-weight:800;padding:4px 10px;border-radius:6px;z-index:2}
+.card-body{padding:12px}
+.card-cat{font-size:.65rem;color:var(--muted);margin-bottom:4px}
+.card-title{font-size:.9rem;font-weight:700;margin-bottom:8px;min-height:38px}
+.card-price{font-size:1.1rem;font-weight:800;margin-bottom:4px;color:var(--cyan)}
+.card-price-sub{font-size:.7rem;color:var(--muted);margin-bottom:8px}
+.btn-contratar{width:100%;background:var(--cyan);color:#0a0a0f;border:0;padding:12px 8px;border-radius:10px;font-weight:800;cursor:pointer;font-size:.9rem}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:24px 16px}
+.feature{display:flex;gap:10px;align-items:flex-start;font-size:.85rem}
+.feature span{color:var(--muted)}
+footer{padding:20px;text-align:center;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border)}
+.wsp-float{position:fixed;bottom:16px;right:16px;width:54px;height:54px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,.4);cursor:pointer;z-index:50;text-decoration:none;font-size:1.8rem}
+.product-wrap{padding:16px;max-width:600px;margin:0 auto}
+.product-img{width:100%;height:240px;background-size:cover;background-position:center;border-radius:16px;margin-bottom:16px;border:1px solid var(--border)}
+.product-title{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+.product-price{font-size:2rem;font-weight:800;color:var(--cyan);margin-bottom:4px}
+.product-price-sub{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.product-desc{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:18px}
+.product-list{list-style:none;margin-bottom:24px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
+.product-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;display:flex;gap:8px}
+.product-list li:last-child{border:0}
+.product-list li b{color:var(--cyan);font-size:1.1rem}
+.btn-comprar{width:100%;background:var(--green);color:#fff;text-align:center;border:0;padding:16px;border-radius:12px;font-weight:800;cursor:pointer;font-size:1.05rem;margin-bottom:10px}
+.btn-volver-prod{width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);padding:16px;border-radius:12px;font-weight:800;cursor:pointer;font-size:1.05rem}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:99;padding:16px}
 .modal.active{display:flex}
-.modal-box{background:var(--card);width:100%;max-width:420px;margin-left:auto;height:100%;padding:20px;overflow-y:auto}
-.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:18px;font-weight:800}
-.cart-item{display:flex;gap:12px;border-bottom:1px solid var(--border);padding:12px 0}
-.cart-item img{width:70px;height:70px;object-fit:cover;border-radius:6px}
-.cart-item h4{font-size:13px;font-weight:400;margin-bottom:4px}
-.cart-qty{display:flex;align-items:center;gap:8px;margin-top:6px}
-.cart-qty button{width:28px;height:28px;border:1px solid var(--border);background:0;color:var(--text);border-radius:4px;cursor:pointer;font-weight:700}
-.total-box{display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin:16px 0}
-
-.pago-metodo{border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer}
-.pago-metodo.active{border-color:var(--red);background:#e6000008}
-body.dark .pago-metodo.active{background:#ff2a2a08}
-.pago-metodo h4{font-size:14px;margin-bottom:4px}
-.pago-metodo p{font-size:12px;color:var(--muted)}
-.qr{background:var(--bg);border:1px dashed var(--border);border-radius:8px;padding:20px;text-align:center;margin:12px 0;font-weight:700;font-size:13px}
-
-  /* SECCION REFERENCIA NUEVA */
-.features{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:40px;padding:40px 16px}
-.features-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-  @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){.features-grid{grid-template-columns:1fr}}
-.feature{text-align:center}
-.feature-icon{font-size:32px;margin-bottom:12px}
-.feature h3{font-size:14px;font-weight:800;margin-bottom:6px}
-.feature p{font-size:12px;color:var(--muted);line-height:1.5}
-
-footer{background:var(--card);border-top:1px solid var(--border);padding:30px 16px;text-align:center;font-size:12px;color:var(--muted)}
-
-.galeria{position:relative;overflow:hidden;background:#000;border-radius:8px}
-.slides{display:flex;transition:.4s}.slides img{width:100%;flex-shrink:0;aspect-ratio:1/1;object-fit:cover}
-.body{padding:16px}.body h1{font-size:24px;margin-bottom:8px;font-weight:400;color:var(--text)}
-.vendido{font-size:13px;color:var(--muted);margin-bottom:12px}
-.desc{color:var(--muted);line-height:1.5;margin:12px 0 16px;font-size:14px}
-.box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px}
-.ya-pague{background:#25D366;color:#000;text-decoration:none;display:block;text-align:center}
-.wsp-float{position:fixed;right:16px;bottom:16px;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 4px 12px #0003;z-index:100}
-.wsp-float svg{width:28px;height:28px;fill:#fff}
+.modal-box{background:var(--card);border:1px solid var(--cyan);border-radius:20px;width:100%;max-width:380px;box-shadow:0 8px 40px rgba(0,229,255,.2);animation:scaleIn.3s ease}
+@keyframes scaleIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--border)}
+.modal-header h3{font-size:1.2rem;font-weight:800}
+.x{background:rgba(255,255,255,.1);border:0;width:32px;height:32px;border-radius:50%;font-size:1.3rem;color:var(--muted);cursor:pointer}
+.amount{font-size:2.2rem;font-weight:800;color:var(--cyan);margin:16px 18px;text-align:center}
+.tc-info{font-size:.8rem;color:var(--muted);text-align:center;margin-bottom:12px;padding:0 18px}
+.payment-tabs{display:flex;gap:8px;margin:16px 0;justify-content:center;padding:0 18px}
+.payment-tab{padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;font-weight:700;font-size:.9rem;white-space:nowrap;flex:1;text-align:center}
+.payment-tab.active{background:var(--cyan);color:#0a0a0f;border-color:var(--cyan)}
+.payment-tab.mp.active{background:var(--mp);color:#fff;border-color:var(--mp)}
+.payment-content{padding:0 18px 18px}
+.copy-box{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.1);padding:12px 14px;border-radius:12px;margin:12px 0;font-size:.9rem;border:1px solid var(--border)}
+.copy-btn{padding:8px 16px;background:var(--cyan);border:0;border-radius:10px;color:#0a0a0f;font-weight:800;cursor:pointer;font-size:.85rem}
+.copy-btn.mp{background:var(--mp);color:#fff}
+.info-text{color:var(--muted);font-size:.8rem;text-align:center;margin:12px 0;line-height:1.5}
+.qr-box{display:flex;justify-content:center;margin:16px 0}
+.qr-box img{width:200px;height:200px;border-radius:12px;border:2px solid var(--border)}
+.btn-wsp{width:100%;background:var(--green);color:#fff;border:0;padding:14px;border-radius:12px;font-weight:800;cursor:pointer;font-size:.95rem;margin-top:12px}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--cyan);padding:10px 14px;border-radius:8px;opacity:0;transition:.2s;z-index:999;font-weight:600}
+.toast.show{opacity:1}
+.currency-item{padding:12px;border:1px solid var(--border);border-radius:12px;cursor:pointer;margin-bottom:8px;display:flex;justify-content:space-between}
+.currency-item.active{background:var(--cyan);color:#0a0a0f}
 </style>
 </head>
 <body>
+<header>
+<div class="topbar">
+<div class="logo">For Three Bot</div>
+<div class="top-actions">
+<button class="currency-btn" id="currencyBtn" onclick="openCurrency()">🌎 PEN</button>
+<button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+</div>
+</div>
+<div class="tabs" id="tabs"></div>
+</header>
+<div class="grid" id="productos">Cargando...</div>
+<div class="features">
+<div class="feature"><div>⚡</div><div><b>Entrega Inmediata</b><br><span>Por WhatsApp</span></div></div>
+<div class="feature"><div>💎</div><div><b>Diamantes + MP</b><br><span>2 métodos</span></div></div>
+<div class="feature"><div>🛠️</div><div><b>Soporte 24/7</b><br><span>Te ayudo</span></div></div>
+<div class="feature"><div>✅</div><div><b>+200 Clientes</b><br><span>En Perú</span></div></div>
+</div>
+<footer>© 2026 For Three Bot | WhatsApp: +51 936 994 155</footer>
 
-<!-- CATALOGO -->
-<div class="screen active" id="catalogoScreen">
-  <header>
-    <div class="topbar">
-      <div class="logo" onclick="resetFiltros()"><!-- EDITAR AQUÍ --> Nubecita Dzn <!-- FIN EDITAR --></div>
-      <div class="buscador"><input id="search" placeholder="Busca tu producto" oninput="filtrar()"><button onclick="filtrar()">Buscar</button></div>
-      <div class="top-icons">
-        <button class="icon-btn" onclick="toggleDark()" id="themeBtn">🌙</button>
-        <button class="icon-btn" onclick="abrirCarrito()">🛒<span class="cart-count" id="cartCount">0</span></button>
-      </div>
-    </div>
-  </header>
-  
-  <nav class="subnav"><div class="subnav-inner" id="subnav"></div></nav>
-
-  <div class="container">
-    <div class="banner-wrap">
-      <div class="banners" id="banners">
-        <div class="banner">NUEVA COLECCIÓN OTOÑO 2026</div>
-        <div class="banner" style="background:#e60000;color:#fff">HASTA -60% SOLO ESTA SEMANA</div>
-        <div class="banner" style="background:#003366;color:#fff">ENVÍO GRATIS EN ICA +S/ 99</div>
-      </div>
-      <div class="banner-dots" id="bannerDots"></div>
-    </div>
-
-    <div class="toolbar">
-      <div id="resultados">0 productos</div>
-      <select class="select" id="ordenar" onchange="filtrar()">
-        <option value="relevancia">Más relevantes</option>
-        <option value="precio-asc">Precio: Menor a Mayor</option>
-        <option value="precio-desc">Precio: Mayor a Menor</option>
-        <option value="descuento">Mayor % Descuento</option>
-      </select>
-    </div>
-
-    <div class="grid" id="productos"></div>
-  </div>
-
-  <!-- SECCIÓN REFERENCIA / CONFIANZA -->
-  <section class="features">
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon">🚚</div>
-        <h3><!-- EDITAR AQUÍ --> Envío Rápido en Ica <!-- FIN EDITAR --></h3>
-        <p><!-- EDITAR AQUÍ --> Recibe en 24h si compras antes de las 2pm. Solo Ica ciudad. <!-- FIN EDITAR --></p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">💳</div>
-        <h3><!-- EDITAR AQUÍ --> Pago Seguro <!-- FIN EDITAR --></h3>
-        <p><!-- EDITAR AQUÍ --> Yape, Plin, Transferencia o Contraentrega. Tú eliges. <!-- FIN EDITAR --></p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">↩️</div>
-        <h3><!-- EDITAR AQUÍ --> Cambios Fáciles <!-- FIN EDITAR --></h3>
-        <p><!-- EDITAR AQUÍ --> 7 días para cambio si no te queda. Sin preguntas. <!-- FIN EDITAR --></p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">✅</div>
-        <h3><!-- EDITAR AQUÍ --> +500 Clientes Felices <!-- FIN EDITAR --></h3>
-        <p><!-- EDITAR AQUÍ --> Tienda 100% peruana. Atendemos por WhatsApp al instante. <!-- FIN EDITAR --></p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <!-- EDITAR AQUÍ -->
-    © 2026 Nubecita Dzn | RUC: 10XXXXXXXXX | Ica, Perú<br>
-    Términos y Condiciones | Política de Devoluciones | Contacto: 936 994 155
-    <!-- FIN EDITAR -->
-  </footer>
+<div id="productScreen" class="screen" style="display:none">
+<header><div class="topbar"><button onclick="showTienda()" style="background:0;border:0;color:var(--text);font-size:1.2rem">←</button><div class="logo">Detalle</div><span></span></div></header>
+<div class="product-wrap" id="productDetail"></div>
 </div>
 
-<!-- PRODUCTO -->
-<div class="screen" id="productoScreen">
-  <header><div class="topbar"><span style="cursor:pointer;font-weight:700" onclick="show('catalogoScreen')">← Volver</span></div></header>
-  <div class="container" style="max-width:900px">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div class="galeria"><div class="slides" id="slides"></div></div>
-      <div class="body">
-        <div class="marca" id="pMarca"></div>
-        <h1 id="pNom"></h1>
-        <div class="vendido">Vendido por: Nubecita Dzn</div>
-        <div class="precio-wrap" id="pPrecio"></div>
-        <div class="precio-desc">Internet</div>
-        <div class="stock" id="pStock"></div>
-        <div class="urgencia" id="pUrgencia"></div>
-        <p class="desc" id="pDesc"></p>
-        <button class="btn" id="comprarBtn">Agregar al carrito</button>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="currencyModal" class="modal"><div class="modal-box" style="padding:16px">
+<h3>Elige tu moneda</h3>
+<div id="currencyList" style="margin-top:12px"></div>
+<button onclick="closeCurrency()" style="width:100%;margin-top:12px;padding:12px;background:var(--border);border:0;border-radius:12px;color:var(--text);font-weight:700;cursor:pointer">Cerrar</button>
+</div></div>
 
-<!-- CARRITO MODAL -->
-<div class="modal" id="cartModal" onclick="if(event.target.id==='cartModal')cerrarCarrito()">
-  <div class="modal-box">
-    <div class="modal-head"><span>Mi Carrito</span><span style="cursor:pointer" onclick="cerrarCarrito()">✕</span></div>
-    <div id="cartItems"></div>
-    <div class="total-box"><span>Total:</span><span id="cartTotal">S/ 0.00</span></div>
-    <button class="btn ya-pague" onclick="irAPago()">Pagar</button>
-  </div>
+<div id="pagoModal" class="modal"><div class="modal-box">
+<div class="modal-header"><h3>Checkout</h3><button class="x" onclick="cerrarPago()">×</button></div>
+<div class="amount" id="montoTotal">S/ 0.00</div>
+<div class="tc-info" id="tcInfo">TC del día: Cargando...</div>
+<div class="payment-tabs">
+<button class="payment-tab active" onclick="selectPayment('diamantes',event)">💎 Diamantes</button>
+<button class="payment-tab mp" onclick="selectPayment('mercadopago',event)">💙 Mercado Pago</button>
 </div>
-
-<!-- PANTALLA METODOS DE PAGO -->
-<div class="screen" id="pagoScreen">
-  <header><div class="topbar"><span style="cursor:pointer;font-weight:700" onclick="show('catalogoScreen')">← Volver a la tienda</span></div></header>
-  <div class="container" style="max-width:600px">
-    <h1 style="margin-bottom:16px;font-size:20px">Métodos de Pago</h1>
-    <div class="box">
-      <h3 style="margin-bottom:12px">Resumen del pedido</h3>
-      <div id="resumenPedido"></div>
-      <div class="total-box" style="border-top:1px solid var(--border);padding-top:12px;margin-top:12px"><span>Total:</span><span id="pagoTotal">S/ 0.00</span></div>
-    </div>
-    <h3 style="margin:16px 0 12px">Elige cómo pagar</h3>
-    <div class="pago-metodo active" onclick="selectPago('yape')"><h4>💜 Yape</h4><p>936 994 155 - Nubecita Dzn</p><div class="qr" id="qrYape">Escanea el QR en tu app Yape</div></div>
-    <div class="pago-metodo" onclick="selectPago('plin')"><h4>💙 Plin</h4><p>936 994 155 - Nubecita Dzn</p><div class="qr" style="display:none" id="qrPlin">Escanea el QR en tu app Plin</div></div>
-    <div class="pago-metodo" onclick="selectPago('transf')"><h4>🏦 Transferencia BCP/Interbank</h4><p>CCI: 002-936-994-155 - A nombre de Nubecita Dzn</p></div>
-    <div class="pago-metodo" onclick="selectPago('contra')"><h4>📦 Contraentrega en Ica</h4><p>Pagas al recibir. Solo Ica ciudad.</p></div>
-    <a href="#" id="wspBtn" target="_blank" class="btn ya-pague" style="margin-top:16px">Ya pagué ✅ Confirmar por WhatsApp</a>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px">Te contactaremos en minutos para confirmar tu envío</p>
-  </div>
+<div id="diamantesContent" class="payment-content">
+<div class="copy-box"><span><b>Usuario:</b> <span id="userDiam">tuusuario</span></span><button class="copy-btn" onclick="copyText('tuusuario')">Copiar</button></div>
+<p class="info-text">Envía diamantes a mi usuario. Luego manda captura por WhatsApp.</p>
 </div>
+<div id="mercadopagoContent" class="payment-content" style="display:none">
+<div class="qr-box"><img id="mpQR" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=MercadoPago" alt="QR MP"></div>
+<div class="copy-box"><span><b>Alias/CVU:</b> <span id="aliasMP">tu.alias.mp</span></span><button class="copy-btn mp" onclick="copyText('tu.alias.mp')">Copiar</button></div>
+<p class="info-text">Escanea el QR o paga al alias. Luego manda captura.</p>
+</div>
+<button id="wspBtn" class="btn-wsp">💬 Enviar Comprobante por WhatsApp</button>
+</div></div>
 
-<a href="https://wa.me/51936994155?text=Hola%20Nubecita%20Dzn" target="_blank" class="wsp-float"><svg viewBox="0 0 32 32"><path d="M16.5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2.1c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16.5zm0 28.2c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2.1-1.9-4.5-1.9-7 0-7.3 5.9-13.2 13.2-13.2S29.2 8.7 29.2 16 23.3 28.7 16 28.7z"/><path d="M23.8 19.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1.9-.2.1-.4.1-.7 0-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.7.1-.1.3-.3.4-.5.1-.2.2-.4.3-.5.1-.2.1-.3 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3 0-.1-.1-.3-.4-.5z"/></svg></a>
+<a class="wsp-float" href="https://wa.me/51936994155" target="_blank">💬</a>
+<div id="toast" class="toast"></div>
 
 <script>
-const productos = [
-  {id:1, nom:"Top básico manga corta Algodón 100% Tallas S M L XL", precio:39.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Algodón peinado. 1 unidad.", stock:12, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Moda Mujer"},
-  {id:2, nom:"Vestido casual print floral Talla única", precio:63.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Estampado floral. 1 unidad.", stock:3, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Moda Mujer"},
-  {id:3, nom:"Polera oversize negra Fleece grueso Unisex", precio:89.90, imgs:["https://via.placeholder.com/400"], desc:"Fleece 320gr. 1 unidad.", stock:8, marca:"NUBECITA DZN", llega:"", cat:"Moda Hombre"},
-  {id:4, nom:"Jean recto tiro alto Denim rígido Tallas 28-34", precio:99.90, imgs:["https://via.placeholder.com/400"], desc:"Denim rígido. 1 unidad.", stock:0, marca:"NUBECITA DZN", llega:"", cat:"Moda Mujer"},
-];
+// ================== ZONA EDITABLE 👇 CAMBIA SOLO ESTO ==================
+const NOMBRE_TIENDA = "For Three Bot";
+const NUMERO_WHATSAPP = "51936994155";
+const USUARIO_DIAMANTES = "tuusuario";
+const ALIAS_MERCADOPAGO = "tu.alias.mp";
+const TC_MANUAL = 3.70;
 
-let productoActual=null,contadorInterval=null,filtroCat='Todos';
-let carrito = JSON.parse(localStorage.getItem('cart')||'[]');
-let favoritos = JSON.parse(localStorage.getItem('fav')||'[]');
-let metodoPago = 'yape';
-
-const themeBtn = document.getElementById('themeBtn');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-function aplicarTema(esDark){document.body.classList.toggle('dark', esDark);themeBtn.textContent = esDark ? '☀️' : '🌙';}
-const temaGuardado = localStorage.getItem('dark');
-if(temaGuardado !== null){aplicarTema(temaGuardado === 'true');} else {aplicarTema(prefersDark.matches);}
-prefersDark.addEventListener('change', e => {if(localStorage.getItem('dark') === null){aplicarTema(e.matches);}});
-function toggleDark(){const esDark = !document.body.classList.contains('dark');aplicarTema(esDark);localStorage.setItem('dark', esDark);}
-
-let bannerIndex=0;
-const banners=document.getElementById('banners');
-const totalBanners=banners.children.length;
-document.getElementById('bannerDots').innerHTML=[...Array(totalBanners)].map((_,i)=>`<div class="banner-dot" onclick="goBanner(${i})"></div>`).join('');
-function goBanner(i){bannerIndex=i;banners.style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('.banner-dot').forEach((d,j)=>d.classList.toggle('active',j===i))}
-setInterval(()=>{bannerIndex=(bannerIndex+1)%totalBanners;goBanner(bannerIndex)},4000);
-goBanner(0);
-
-const cats=['Todos',...new Set(productos.map(p=>p.cat))];
-document.getElementById('subnav').innerHTML=cats.map(c=>`<button onclick="setCat('${c}')" id="cat-${c}">${c}</button>`).join('');
-setCat('Todos');
-
-function setCat(c){filtroCat=c;document.querySelectorAll('.subnav button').forEach(b=>b.classList.remove('active'));document.getElementById(`cat-${c}`).classList.add('active');filtrar();}
-function resetFiltros(){filtroCat='Todos';document.getElementById('search').value='';setCat('Todos')}
-
-function toggleFav(id,ev){ev.stopPropagation();favoritos = favoritos.includes(id)?favoritos.filter(x=>x!==id):[...favoritos,id];localStorage.fav=JSON.stringify(favoritos);filtrar();}
-
-function filtrar(){
-  const q=document.getElementById('search').value.toLowerCase();
-  const orden=document.getElementById('ordenar').value;
-  let list=productos.filter(p=>(filtroCat==='Todos'||p.cat===filtroCat)&&p.nom.toLowerCase().includes(q));
-  if(orden==='precio-asc')list.sort((a,b)=>a.precio-b.precio);
-  if(orden==='precio-desc')list.sort((a,b)=>b.precio-a.precio);
-  if(orden==='descuento')list.sort((a,b)=>(b.precioOld?1-b.precio/b.precioOld:0)-(a.precioOld?1-a.precio/a.precioOld:0));
-  document.getElementById('resultados').textContent=`${list.length} productos`;
-  document.getElementById('productos').innerHTML=list.map(p=>{
-    let descuento = p.precioOld? Math.round((1-p.precio/p.precioOld)*100) : 0;
-    return `<div class="card" onclick="verProducto(${p.id})">
-      <button class="fav ${favoritos.includes(p.id)?'active':''}" onclick="toggleFav(${p.id},event)">♥</button>
-      <div class="badges">${descuento?`<div class="tag">-${descuento}%</div>`:''}${p.llega?`<div class="tag green">${p.llega}</div>`:''}</div>
-      <img src="${p.imgs[0]}">
-      <div class="card-body">
-        <div class="marca">${p.marca}</div>
-        <h3>${p.nom}</h3>
-        <div class="precio-wrap"><div class="precio">${p.precioOld?`<del>S/ ${p.precioOld.toFixed(2)}</del>`:''} S/ ${p.precio.toFixed(2)}</div></div>
-        <div class="precio-desc">Internet</div>
-        <div class="stock ${p.stock<5?'low':''}">${p.stock>0?`Stock: ${p.stock}`:'Agotado'}</div>
-        <button class="btn" onclick="event.stopPropagation();addCart(${p.id})" ${p.stock===0?'disabled':''}>Agregar al carrito</button>
-      </div>
-    </div>`
-  }).join('')||'<div style="padding:40px">No hay productos</div>';
-  actualizarCarrito();
-}
-
-function addCart(id){const item = carrito.find(x=>x.id===id);if(item){item.qty++}else{carrito.push({id,qty:1})}localStorage.cart=JSON.stringify(carrito);actualizarCarrito();abrirCarrito();}
-function removeCart(id){carrito=carrito.filter(x=>x.id!==id);localStorage.cart=JSON.stringify(carrito);actualizarCarrito();}
-function changeQty(id,d){const item=carrito.find(x=>x.id===id);item.qty+=d;if(item.qty<=0)removeCart(id);localStorage.cart=JSON.stringify(carrito);actualizarCarrito();}
-function actualizarCarrito(){
-  const totalQty = carrito.reduce((a,b)=>a+b.qty,0);
-  document.getElementById('cartCount').textContent=totalQty;
-  let total=0;
-  document.getElementById('cartItems').innerHTML=carrito.map(i=>{
-    const p=productos.find(x=>x.id===i.id);
-    total+=p.precio*i.qty;
-    return `<div class="cart-item">
-      <img src="${p.imgs[0]}"><div style="flex:1">
-      <h4>${p.nom}</h4><b>S/ ${p.precio.toFixed(2)}</b>
-      <div class="cart-qty"><button onclick="changeQty(${i.id},-1)">-</button><span>${i.qty}</span><button onclick="changeQty(${i.id},1)">+</button><button style="margin-left:auto;color:var(--red)" onclick="removeCart(${i.id})">Eliminar</button></div>
-      </div></div>`
-  }).join('')||'<div style="text-align:center;padding:40px;color:var(--muted)">Carrito vacío</div>';
-  document.getElementById('cartTotal').textContent=`S/ ${total.toFixed(2)}`;
-}
-function abrirCarrito(){document.getElementById('cartModal').classList.add('active')}
-function cerrarCarrito(){document.getElementById('cartModal').classList.remove('active')}
-
-function irAPago(){
-  if(carrito.length===0)return;
-  cerrarCarrito();
-  let total=0;
-  document.getElementById('resumenPedido').innerHTML=carrito.map(i=>{
-    const p=productos.find(x=>x.id===i.id);
-    total+=p.precio*i.qty;
-    return `<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>${i.qty}x ${p.nom}</span><span>S/ ${(p.precio*i.qty).toFixed(2)}</span></div>`
-  }).join('');
-  document.getElementById('pagoTotal').textContent=`S/ ${total.toFixed(2)}`;
-  selectPago('yape');
-  show('pagoScreen');
-}
-
-function selectPago(metodo){
-  metodoPago=metodo;
-  document.querySelectorAll('.pago-metodo').forEach((el,i)=>el.classList.remove('active'));
-  document.querySelectorAll('.pago-metodo')[['yape','plin','transf','contra'].indexOf(metodo)].classList.add('active');
-  document.getElementById('qrYape').style.display=metodo==='yape'?'block':'none';
-  document.getElementById('qrPlin').style.display=metodo==='plin'?'block':'none';
-  let total=carrito.reduce((a,b)=>a+b.qty*productos.find(p=>p.id===b.id).precio,0);
-  const texto = carrito.map(i=>{const p=productos.find(x=>x.id===i.id);return `${i.qty}x ${p.nom} S/ ${p.precio.toFixed(2)}`}).join('\n');
-  const msg = `Hola! Ya pagué por ${metodo.toUpperCase()} ✅\n\n${texto}\n\nTotal: S/ ${total.toFixed(2)}`;
-  document.getElementById('wspBtn').href=`https://wa.me/51936994155?text=${encodeURIComponent(msg)}`;
-}
-
-function show(id){if(contadorInterval)clearInterval(contadorInterval);document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
-function verProducto(id){
-  productoActual=productos.find(x=>x.id===id);
-  document.getElementById('pMarca').textContent=productoActual.marca;
-  document.getElementById('pNom').textContent=productoActual.nom;
-  document.getElementById('pPrecio').innerHTML=`<div class="precio">${productoActual.precioOld?`<del>S/ ${productoActual.precioOld.toFixed(2)}</del>`:''} S/ ${productoActual.precio.toFixed(2)}</div>`;
-  document.getElementById('pDesc').textContent=productoActual.desc;
-  document.getElementById('pStock').textContent=productoActual.stock>0?`Disponible: ${productoActual.stock} unidades`:'Agotado';
-  document.getElementById('comprarBtn').disabled=productoActual.stock===0;
-  document.getElementById('comprarBtn').onclick=()=>addCart(id);
-  const slides=document.getElementById('slides');
-  slides.innerHTML=productoActual.imgs.map(img=>`<img src="${img}">`).join('');
-  let vistas = 32 + Math.floor(Math.random()*60);
-  const el = document.getElementById('pUrgencia');
-  el.textContent = `🔥 ${vistas} personas viendo esto`;
-  contadorInterval = setInterval(()=>{vistas += Math.floor(Math.random()*5)-2;if(vistas<18)vistas=18; if(vistas>120)vistas=120;el.textContent = `🔥 ${vistas} personas viendo esto`},5000);
-  show('productoScreen');
-}
-</script>
-</body>
-</html>
+// v47.8: Bots=6, Hosting=3, Cuentas=4, Servicios=4, Packs=8
+const CATEGORIAS = {
+  bots: {nom:"Bots",data:[
+    {id:1,nom:"Bot Para Grupos WhatsApp",precio:5,imgs:["https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Bot completo para grupos 24/7.",features:["Descargas YT, TikTok","Juegos: PPT, Trivia","IA ChatGPT","Panel Admin"]},
+    {id:2,nom:"Bot Personalizado VIP",precio:25,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Bot con tu marca y comandos.",features:["Nombre propio","Comandos custom","Hosting 1GB","Soporte VIP"]},
+    {id:3,nom:"Bot Antidelete",precio:8,imgs:["https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Guarda todo lo que borran.",features:["Antidelete 24/7","Ver estados","Auto sticker","Backup"]},
+    {id:4,nom:"Bot NSFW +18",precio:12,imgs:["https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Comandos +18 exclusivos.",features:["Pack IA","Videos NSFW","Stickers +18","Privado"]},
+    {id:5,nom:"Bot Economía",precio:15,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Sistema de dinero virtual.",features:["Monedas","Casino","Tienda","Rangos"]},
+    {id:6,nom:"Bot Todo en 1",precio:30,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Tiene todos los bots juntos.",features:["+200 Comandos","IA + Juegos","Admin","Premium"]}
+  ]},
+  hosting: {nom:"Hosting",data:[
+    {id:7,nom:"Hosting 1GB RAM",precio:10,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Para 1 bot pequeño.",features:["1GB RAM","10GB SSD","Panel","Backups"]},
+    {id:8,nom:"Hosting 4GB RAM",precio:25,imgs:["https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Para 3-4 bots.",features:["4GB RAM","40GB SSD","Panel Full","Prioritario"]},
+    {id:9,nom:"Hosting Ilimitado",precio:120,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Sin límites.",features:["16GB RAM","500GB SSD","Bots Ilimitados","VIP"]}
+  ]},
+  cuentas: {nom:"Cuentas",data:[
+    {id:10,nom:"Netflix Premium 1M",precio:15,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Cuenta Netflix 1 mes.",features:["4K UltraHD","4 Pantallas","Garantía","Entrega Ya"]},
+    {id:11,nom:"Spotify Premium 1M",precio:8,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Spotify sin anuncios.",features:["Sin Ads","Offline","Calidad Alta","1 Mes"]},
+    {id:12,nom:"Disney+ 1M",precio:12,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Disney+ Marvel Star Wars.",features:["4K","4 Perfiles","Estrenos","Garantía"]},
+    {id:13,nom:"Crunchyroll 1M",precio:10,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Anime sin cortes.",features:["1080p","Simulcast","Sin Ads","1 Mes"]}
+  ]},
+  servicios: {nom:"Servicios",data:[
+    {id:14,nom:"Crear Bot Desde 0",precio:50,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Te hago tu bot único.",features:["Diseño Custom","Comandos","Entrega 24h","Soporte"]},
+    {id:15,nom:"Configurar Bot",precio:20,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Configuro tu bot.",features:["Instalación","Comandos","Hosting","1 Mes Soporte"]},
+    {id:16,nom:"Reparar Bot",precio:15,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Arreglo tu bot caído.",features:["Diagnóstico","Fix 100%","24h","Garantía"]},
+    {id:17,nom:"Panel Pterodactyl",precio:30,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Instalo tu panel.",features:["Pterodactyl","Wings","Dominio","SSL"]}
+  ]},
+  packs: {nom:"Packs",data:[
+    {id:18,nom:"Pack Inicio Bot",precio:35,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Bot + Hosting 1GB.",features:["Bot Grupos","Hosting 1GB","1 Mes","Soporte"]},
+    {id:19,nom:"Pack Emprendedor",precio:65,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Bot VIP + Hosting 2GB.",features:["Bot VIP","Hosting 2GB","Logo","Web"]},
+    {id:20,nom:"Pack Agencia",precio:150,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Para revender bots.",features:["10 Bots","Hosting 8GB","Web Pro","Mentoría"]},
+    {id:21,nom:"Pack Streaming Full",precio:55,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Todas las cuentas 1M.",features:["Netflix+Spotify+Disney+Crunchy","Ahorra 70%","Garantía"]},
+    {id:22,nom:"Pack Gaming Pro",precio:45,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Cuentas gaming premium.",features:["FF Elite","COD CP","Roblox","Fortnite"]},
+    {id:23,nom:"Pack Servicios",precio:120,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Todo lo que necesitas.",features:["Web+Logo+Bot","Hosting 4GB","Soporte","Garantía"]},
+    {id:24,nom:"Pack VIP",precio:200,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Acceso total ilimitado.",features:["Todos los bots","VPS 8GB","Web Pro","Mentoría 24/7"]},
+    {id:25,nom:"Pack Reseller",precio:300,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Para vender al por mayor.",features:["50 Bots","Servidor Dedicado","Panel","Soporte VIP"]}
+  ]}
+};
+// ================== NO TOCAR ABAJO ==================
