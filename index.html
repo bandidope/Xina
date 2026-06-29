@@ -84,14 +84,14 @@ const datos = {
       nombre: "Caligraficos",
       precioBase: 6000,
       sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
-      incluyeBase: "✅ Bot completo para 1 Grupo<br>✅ Fuente Caligráfica en el.menu<br>✅ Comandos:.menu.sticker.play.ia<br>✅ Instalación + Soporte 24/7",
+      incluyeBase: "✅ El Mejor Diseño Para Tu Uso<br>✅ Fuente Caligráfica en el.menu<br>✅ Diseños Nubecita Dzn",
       tipos: { // 6 ESTILOS
-        "ELEG": {nombre: "Elegante", desc: "Fuente estilo firma cursiva"},
-        "GOTH": {nombre: "Goth", desc: "Fuente estilo gótico dark"},
-        "NEON": {nombre: "Neón", desc: "Fuente estilo neón brillante"},
-        "BUBB": {nombre: "Burbuja", desc: "Fuente estilo burbuja redonda"},
-        "DOUB": {nombre: "Doble", desc: "Fuente doble línea pro"},
-        "ITAL": {nombre: "Italica", desc: "Fuente itálica inclinada"},
+        "Sim": {nombre: "Cali Simple", desc: "Un Diseño Lindo Pero Simple"},
+        "Obj": {nombre: "Cali + Obj", desc: "Un Diseño Básico Con Un Objeto De Tu Preferencia"},
+        "Tem": {nombre: "Cali Temático", desc: "Diseño Con Temática De Lo Que Gustes"},
+        "Cur": {nombre: "Cali Curvo", desc: "Calígrafo Con Un Diseño En Curva"},
+        "Let": {nombre: "Cali Letra", desc: "Diseño De 1 Letra Favorita Tuya"},
+        "Pix": {nombre: "Cali Pixel", desc: "Diseño Pixelado Pero Bonito"},
       }
     },
     "PLANT": {
@@ -152,7 +152,7 @@ const app = document.getElementById('app');
 const params = new URLSearchParams(window.location.search);
 const page = params.get('page');
 const id = params.get('id'); // CALI, PLANT, RENO, MENS, PERM
-const tipo = params.get('tipo'); // ELEG, GOTH, PRO, V1, BASIC etc
+const tipo = params.get('tipo'); // Sim, Obj, PRO, V1, BASIC etc
 
 function formatARS(n){return n.toLocaleString('es-AR')} // Formato $6.000
 
