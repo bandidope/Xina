@@ -14,13 +14,20 @@
   /* HEADER RIPLEY */
   header{background:var(--red);position:sticky;top:0;z-index:10}
 .topbar{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;color:#fff}
-.logo{font-size:26px;font-weight:900;letter-spacing:-1px}
+.logo{font-size:26px;font-weight:900;letter-spacing:-1px;cursor:pointer}
 .buscador{flex:1;display:flex}
 .buscador input{flex:1;padding:10px 12px;border:0;border-radius:4px 0 0 4px;font-size:14px;outline:0}
 .buscador button{background:#333;color:#fff;border:0;padding:0 20px;border-radius:0 4px 4px 0;cursor:pointer;font-weight:700}
 .icon-btn{background:0;border:0;color:#fff;cursor:pointer;font-size:20px}
 
+  /* SUBNAV CATEGORIAS FUNCIONAL */
+.subnav{background:#fff;border-bottom:1px solid var(--border)}
+.subnav-inner{max-width:1200px;margin:0 auto;padding:0 16px;display:flex;gap:0;overflow-x:auto}
+.subnav button{background:0;border:0;padding:12px 16px;font-size:13px;font-weight:700;cursor:pointer;color:var(--text);border-bottom:3px solid transparent;white-space:nowrap}
+.subnav button.active{border-bottom-color:var(--red);color:var(--red)}
+
 .container{max-width:1200px;margin:0 auto;padding:20px 16px}
+.banner{background:#f5f5f5;border-radius:8px;padding:24px;margin-bottom:20px;font-size:18px;font-weight:800;text-align:center}
 
   /* GRID RIPLEY 5 COLUMNAS */
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
@@ -29,7 +36,7 @@
   @media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 
   /* CARD RIPLEY */
-.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;cursor:pointer}
 .card:hover{box-shadow:0 4px 12px #0001}
 .card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f5f5f5}
 .badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px}
@@ -68,12 +75,19 @@
 <div class="screen active" id="catalogoScreen">
   <header>
     <div class="topbar">
-      <div class="logo"><!-- EDITAR AQUÍ --> Nubecita Dzn <!-- FIN EDITAR --></div>
-      <div class="buscador"><input id="search" placeholder="<!-- EDITAR AQUÍ --> Busca tu producto <!-- FIN EDITAR -->" oninput="filtrar()"><button><!-- EDITAR AQUÍ --> Buscar <!-- FIN EDITAR --></button></div>
+      <div class="logo" onclick="resetFiltros()"><!-- EDITAR AQUÍ --> Nubecita Dzn <!-- FIN EDITAR --></div>
+      <div class="buscador"><input id="search" placeholder="<!-- EDITAR AQUÍ --> Busca tu producto <!-- FIN EDITAR -->" oninput="filtrar()"><button onclick="filtrar()"><!-- EDITAR AQUÍ --> Buscar <!-- FIN EDITAR --></button></div>
       <button class="icon-btn" onclick="toggleDark()">🌙</button>
     </div>
   </header>
-  <div class="container"><div class="grid" id="productos"></div></div>
+  
+  <!-- BOTONES CATEGORIAS FUNCIONALES -->
+  <nav class="subnav"><div class="subnav-inner" id="subnav"></div></nav>
+
+  <div class="container">
+    <div class="banner"><!-- EDITAR AQUÍ --> NUEVA COLECCIÓN NUBECITA DZN <!-- FIN EDITAR --></div>
+    <div class="grid" id="productos"></div>
+  </div>
 </div>
 
 <!-- PRODUCTO -->
@@ -83,7 +97,7 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
       <div class="galeria"><div class="slides" id="slides"></div><div class="dots" id="dots"></div></div>
       <div class="body">
-        <div class="marca"><!-- EDITAR AQUÍ --> NUBECITA DZN <!-- FIN EDITAR --></div>
+        <div class="marca" id="pMarca"></div>
         <h1 id="pNom"></h1>
         <div class="vendido"><!-- EDITAR AQUÍ --> Vendido por: Nubecita Dzn <!-- FIN EDITAR --></div>
         <div class="precio-wrap" id="pPrecio"></div>
@@ -113,10 +127,11 @@
 */
 const productos = [
   // precioOld = precio tachado. Borra precioOld si no hay oferta
-  {id:1, nom:"Top básico manga corta Algodón 100% Tallas S M L XL", precio:39.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Algodón peinado. 1 unidad.", stock:12, marca:"NUBECITA DZN", llega:"Llega mañana"},
-  {id:2, nom:"Vestido casual print floral Talla única", precio:63.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Estampado floral. 1 unidad.", stock:3, marca:"NUBECITA DZN", llega:"Llega mañana"},
-  {id:3, nom:"Polera oversize negra Fleece grueso Unisex", precio:89.90, imgs:["https://via.placeholder.com/400"], desc:"Fleece 320gr. 1 unidad.", stock:8, marca:"NUBECITA DZN", llega:""},
-  {id:4, nom:"Jean recto tiro alto Denim rígido Tallas 28-34", precio:99.90, imgs:["https://via.placeholder.com/400"], desc:"Denim rígido. 1 unidad.", stock:0, marca:"NUBECITA DZN", llega:""},
+  {id:1, nom:"Top básico manga corta Algodón 100% Tallas S M L XL", precio:39.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Algodón peinado. 1 unidad.", stock:12, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Moda Mujer"},
+  {id:2, nom:"Vestido casual print floral Talla única", precio:63.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Estampado floral. 1 unidad.", stock:3, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Moda Mujer"},
+  {id:3, nom:"Polera oversize negra Fleece grueso Unisex", precio:89.90, imgs:["https://via.placeholder.com/400"], desc:"Fleece 320gr. 1 unidad.", stock:8, marca:"NUBECITA DZN", llega:"", cat:"Moda Hombre"},
+  {id:4, nom:"Jean recto tiro alto Denim rígido Tallas 28-34", precio:99.90, imgs:["https://via.placeholder.com/400"], desc:"Denim rígido. 1 unidad.", stock:0, marca:"NUBECITA DZN", llega:"", cat:"Moda Mujer"},
+  {id:5, nom:"Zapatilla urbana blanca Talla 38-42", precio:129.90, precioOld:159.90, imgs:["https://via.placeholder.com/400"], desc:"Cuero sintético. 1 par.", stock:5, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Calzado"},
 ];
 /*
 
@@ -124,16 +139,30 @@ const productos = [
 
 */
 
-let productoActual=null,contadorInterval=null;
+let productoActual=null,contadorInterval=null,filtroCat='Todos';
+
 function toggleDark(){document.body.classList.toggle('dark');localStorage.dark=document.body.classList.contains('dark')}
 if(localStorage.dark==='true')document.body.classList.add('dark');
 
+// RENDER BOTONES CATEGORIAS FUNCIONALES
+const cats=['Todos',...new Set(productos.map(p=>p.cat))];
+document.getElementById('subnav').innerHTML=cats.map(c=>`<button onclick="setCat('${c}')" id="cat-${c}">${c}</button>`).join('');
+setCat('Todos');
+
+function setCat(c){
+  filtroCat=c;
+  document.querySelectorAll('.subnav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`cat-${c}`).classList.add('active');
+  filtrar();
+}
+function resetFiltros(){filtroCat='Todos';document.getElementById('search').value='';setCat('Todos')}
+
 function filtrar(){
   const q=document.getElementById('search').value.toLowerCase();
-  const list=productos.filter(p=>p.nom.toLowerCase().includes(q));
+  const list=productos.filter(p=>(filtroCat==='Todos'||p.cat===filtroCat)&&p.nom.toLowerCase().includes(q));
   document.getElementById('productos').innerHTML=list.map(p=>{
     let descuento = p.precioOld? Math.round((1-p.precio/p.precioOld)*100) : 0;
-    return `<div class="card">
+    return `<div class="card" onclick="verProducto(${p.id})">
       <div class="badges">
         ${descuento?`<div class="tag">-${descuento}%</div>`:''}
         ${p.llega?`<div class="tag green">${p.llega}</div>`:''}
@@ -147,15 +176,17 @@ function filtrar(){
         </div>
         <div class="precio-desc">Internet</div>
         <div class="stock ${p.stock<5?'low':''}">${p.stock>0?`Stock: ${p.stock}`:'Agotado'}</div>
-        <button class="btn" onclick="verProducto(${p.id})" ${p.stock===0?'disabled':''}>Agregar al carrito</button>
+        <button class="btn" onclick="event.stopPropagation();verProducto(${p.id})" ${p.stock===0?'disabled':''}>Agregar al carrito</button>
       </div>
     </div>`
   }).join('')||'<div style="padding:40px">No hay productos</div>';
 }
+
 function show(id){if(contadorInterval)clearInterval(contadorInterval);document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+
 function verProducto(id){
   productoActual=productos.find(x=>x.id===id);
-  document.querySelector('#productoScreen.marca').textContent=productoActual.marca;
+  document.getElementById('pMarca').textContent=productoActual.marca;
   document.getElementById('pNom').textContent=productoActual.nom;
   document.getElementById('pPrecio').innerHTML=`<div class="precio">${productoActual.precioOld?`<del>S/ ${productoActual.precioOld.toFixed(2)}</del>`:''} S/ ${productoActual.precio.toFixed(2)}</div>`;
   document.getElementById('pDesc').textContent=productoActual.desc;
@@ -172,8 +203,13 @@ function verProducto(id){
   contadorInterval = setInterval(()=>{vistas += Math.floor(Math.random()*5)-2;if(vistas<18)vistas=18; if(vistas>120)vistas=120;el.textContent = `🔥 ${vistas} personas viendo esto`},5000);
   show('productoScreen');
 }
-document.getElementById('comprarBtn').onclick=()=>{document.getElementById('pagoNom').textContent=productoActual.nom;document.getElementById('pagoTotal').textContent=`S/ ${productoActual.precio.toFixed(2)}`;document.getElementById('wspBtn').href=`<!-- EDITAR AQUÍ --> https://wa.me/51936994155?text=${encodeURIComponent(`Hola! Ya pagué ✅\n\n${productoActual.nom} S/ ${productoActual.precio.toFixed(2)}`)} <!-- FIN EDITAR -->`;show('pagoScreen')}
-filtrar();
+
+document.getElementById('comprarBtn').onclick=()=>{
+  document.getElementById('pagoNom').textContent=productoActual.nom;
+  document.getElementById('pagoTotal').textContent=`S/ ${productoActual.precio.toFixed(2)}`;
+  document.getElementById('wspBtn').href=`<!-- EDITAR AQUÍ --> https://wa.me/51936994155?text=${encodeURIComponent(`Hola! Ya pagué ✅\n\n${productoActual.nom} S/ ${productoActual.precio.toFixed(2)}`)} <!-- FIN EDITAR -->`;
+  show('pagoScreen');
+}
 </script>
 </body>
 </html>
