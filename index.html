@@ -5,46 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><!-- EDITAR AQUÍ --> Nubecita Dzn | Tienda <!-- FIN EDITAR --></title>
 <style>
-  :root{--bg:#fff;--card:#fff;--text:#333;--muted:#666;--border:#e0e0e0;--red:#e60000;--green:#007600}
-  body.dark{--bg:#0f0f0f;--card:#1a1a1a;--text:#eee;--muted:#aaa;--border:#333;--red:#ff2a2a;--green:#1db954}
+  :root{
+    --bg:#ffffff;--card:#ffffff;--text:#1a1a1a;--muted:#666;--border:#e0e0e0;
+    --red:#e60000;--green:#007600;--header:#e60000
+  }
+  body.dark{
+    --bg:#0a0a0a;--card:#141414;--text:#f5f5f5;--muted:#b3b3b3;--border:#2a2a2a;
+    --red:#ff2a2a;--green:#22c55e;--header:#0a0a0a
+  }
   *{box-sizing:border-box;margin:0;padding:0;font-family:Roboto,Arial,sans-serif}
-  body{background:var(--bg);color:var(--text)}
+  body{background:var(--bg);color:var(--text);transition:.3s}
 .screen{display:none;min-height:100vh}.screen.active{display:block}
 
-  /* HEADER RIPLEY */
-  header{background:var(--red);position:sticky;top:0;z-index:10}
+  header{background:var(--header);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
 .topbar{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;color:#fff}
-.logo{font-size:26px;font-weight:900;letter-spacing:-1px;cursor:pointer}
+.logo{font-size:26px;font-weight:900;letter-spacing:-1px;cursor:pointer;color:#fff}
 .buscador{flex:1;display:flex}
-.buscador input{flex:1;padding:10px 12px;border:0;border-radius:4px 0 0 4px;font-size:14px;outline:0}
+.buscador input{flex:1;padding:10px 12px;border:0;border-radius:4px 0 0 4px;font-size:14px;outline:0;background:#fff;color:#111}
+body.dark .buscador input{background:#1f1f1f;color:#f5f5f5}
 .buscador button{background:#333;color:#fff;border:0;padding:0 20px;border-radius:0 4px 4px 0;cursor:pointer;font-weight:700}
 .icon-btn{background:0;border:0;color:#fff;cursor:pointer;font-size:20px}
 
-  /* SUBNAV CATEGORIAS FUNCIONAL */
-.subnav{background:#fff;border-bottom:1px solid var(--border)}
+.subnav{background:var(--card);border-bottom:1px solid var(--border)}
 .subnav-inner{max-width:1200px;margin:0 auto;padding:0 16px;display:flex;gap:0;overflow-x:auto}
-.subnav button{background:0;border:0;padding:12px 16px;font-size:13px;font-weight:700;cursor:pointer;color:var(--text);border-bottom:3px solid transparent;white-space:nowrap}
+.subnav button{
+  background:0;border:0;padding:12px 16px;font-size:13px;font-weight:700;cursor:pointer;
+  color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:.2s
+}
 .subnav button.active{border-bottom-color:var(--red);color:var(--red)}
+.subnav button:not(.active):hover{color:var(--text)}
 
 .container{max-width:1200px;margin:0 auto;padding:20px 16px}
-.banner{background:#f5f5f5;border-radius:8px;padding:24px;margin-bottom:20px;font-size:18px;font-weight:800;text-align:center}
+.banner{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;margin-bottom:20px;font-size:18px;font-weight:800;text-align:center}
 
-  /* GRID RIPLEY 5 COLUMNAS */
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
   @media(max-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
   @media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 
-  /* CARD RIPLEY */
 .card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;cursor:pointer}
-.card:hover{box-shadow:0 4px 12px #0001}
+.card:hover{box-shadow:0 4px 12px #0003}
 .card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f5f5f5}
+body.dark .card img{background:#1f1f1f}
 .badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px}
 .tag{background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:3px 6px;border-radius:4px}
 .tag.green{background:var(--green)}
 .card-body{padding:12px;font-size:12px}
 .marca{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-bottom:4px}
-.card h3{font-size:13px;font-weight:400;margin-bottom:8px;height:36px;overflow:hidden;line-height:1.4}
+.card h3{font-size:13px;font-weight:400;margin-bottom:8px;height:36px;overflow:hidden;line-height:1.4;color:var(--text)}
 .precio-wrap{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
 .precio{font-size:20px;font-weight:800;color:var(--text)}
 .precio del{font-size:13px;color:var(--muted);font-weight:400}
@@ -59,7 +67,7 @@
 .dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
 .dot{width:8px;height:8px;border-radius:50%;background:#fff5;border:1px solid #fff}
 .dot.active{background:#fff}
-.body{padding:16px}.body h1{font-size:24px;margin-bottom:8px;font-weight:400}
+.body{padding:16px}.body h1{font-size:24px;margin-bottom:8px;font-weight:400;color:var(--text)}
 .vendido{font-size:13px;color:var(--muted);margin-bottom:12px}
 .desc{color:var(--muted);line-height:1.5;margin:12px 0 16px;font-size:14px}
 .box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px}
@@ -77,11 +85,10 @@
     <div class="topbar">
       <div class="logo" onclick="resetFiltros()"><!-- EDITAR AQUÍ --> Nubecita Dzn <!-- FIN EDITAR --></div>
       <div class="buscador"><input id="search" placeholder="<!-- EDITAR AQUÍ --> Busca tu producto <!-- FIN EDITAR -->" oninput="filtrar()"><button onclick="filtrar()"><!-- EDITAR AQUÍ --> Buscar <!-- FIN EDITAR --></button></div>
-      <button class="icon-btn" onclick="toggleDark()">🌙</button>
+      <button class="icon-btn" id="themeBtn" onclick="toggleDark()">🌙</button>
     </div>
   </header>
   
-  <!-- BOTONES CATEGORIAS FUNCIONALES -->
   <nav class="subnav"><div class="subnav-inner" id="subnav"></div></nav>
 
   <div class="container">
@@ -121,12 +128,11 @@
 
 <script>
 /*
-
+==============================
 === SOLO EDITA ESTA PARTE ===
-
+==============================
 */
 const productos = [
-  // precioOld = precio tachado. Borra precioOld si no hay oferta
   {id:1, nom:"Top básico manga corta Algodón 100% Tallas S M L XL", precio:39.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Algodón peinado. 1 unidad.", stock:12, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Moda Mujer"},
   {id:2, nom:"Vestido casual print floral Talla única", precio:63.90, precioOld:79.90, imgs:["https://via.placeholder.com/400"], desc:"Estampado floral. 1 unidad.", stock:3, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Moda Mujer"},
   {id:3, nom:"Polera oversize negra Fleece grueso Unisex", precio:89.90, imgs:["https://via.placeholder.com/400"], desc:"Fleece 320gr. 1 unidad.", stock:8, marca:"NUBECITA DZN", llega:"", cat:"Moda Hombre"},
@@ -134,17 +140,42 @@ const productos = [
   {id:5, nom:"Zapatilla urbana blanca Talla 38-42", precio:129.90, precioOld:159.90, imgs:["https://via.placeholder.com/400"], desc:"Cuero sintético. 1 par.", stock:5, marca:"NUBECITA DZN", llega:"Llega mañana", cat:"Calzado"},
 ];
 /*
-
+==============================
 === NO TOQUES NADA DEBAJO ===
-
+==============================
 */
 
 let productoActual=null,contadorInterval=null,filtroCat='Todos';
+const themeBtn = document.getElementById('themeBtn');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-function toggleDark(){document.body.classList.toggle('dark');localStorage.dark=document.body.classList.contains('dark')}
-if(localStorage.dark==='true')document.body.classList.add('dark');
+// 1. DETECTA AUTOMÁTICO AL CARGAR
+function aplicarTema(esDark){
+  document.body.classList.toggle('dark', esDark);
+  themeBtn.textContent = esDark ? '☀️' : '🌙';
+}
 
-// RENDER BOTONES CATEGORIAS FUNCIONALES
+// Si guardaste manual, usa eso. Si no, usa el del sistema
+const temaGuardado = localStorage.getItem('dark');
+if(temaGuardado !== null){
+  aplicarTema(temaGuardado === 'true');
+} else {
+  aplicarTema(prefersDark.matches);
+}
+
+// 2. ESCUCHA SI CAMBIAS EL TEMA DEL CEL
+prefersDark.addEventListener('change', e => {
+  if(localStorage.getItem('dark') === null){ // Solo si no elegiste manual
+    aplicarTema(e.matches);
+  }
+});
+
+function toggleDark(){
+  const esDark = !document.body.classList.contains('dark');
+  aplicarTema(esDark);
+  localStorage.setItem('dark', esDark); // Guarda tu elección
+}
+
 const cats=['Todos',...new Set(productos.map(p=>p.cat))];
 document.getElementById('subnav').innerHTML=cats.map(c=>`<button onclick="setCat('${c}')" id="cat-${c}">${c}</button>`).join('');
 setCat('Todos');
