@@ -3,142 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOW | Tienda Online</title>
+<title>NOW | Tienda</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f5f5;color:#111}
+  .screen{display:none;min-height:100vh}
+  .screen.active{display:block}
   
-  header{
-    background:#fff;
-    box-shadow:0 2px 6px #0001;
-    position:sticky;top:0;z-index:20;
-  }
-  .topbar{
-    display:flex;align-items:center;justify-content:space-between;
-    max-width:1200px;margin:0 auto;padding:12px 16px;
-  }
-  .logo{font-size:22px;font-weight:900;letter-spacing:-1px}
-  .icons{display:flex;gap:16px;font-size:20px}
-
-  .banner{
-    background:#000;
-    color:#fff;
-    text-align:center;
-    padding:40px 16px;
-  }
-  .banner h2{font-size:28px;font-weight:800;margin-bottom:8px}
-  .banner p{opacity:.8}
-
+  header{background:#fff;box-shadow:0 2px 6px #0001;position:sticky;top:0;z-index:10}
+  .topbar{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:12px 16px}
+  .logo{font-size:22px;font-weight:900}
+  .back{font-weight:700;cursor:pointer}
+  
+  .banner{background:#000;color:#fff;text-align:center;padding:40px 16px}
   .container{max-width:1200px;margin:0 auto;padding:20px 16px}
-  .seccion-titulo{font-size:20px;font-weight:800;margin:20px 0 12px}
-
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-  }
+  
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
-  @media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
+  .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0001}
+  .card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#eee}
+  .card-body{padding:12px}
+  .card h3{font-size:14px;font-weight:600;margin-bottom:6px}
+  .precio{font-size:16px;font-weight:800;margin-bottom:8px}
+  .btn{background:#111;color:#fff;border:0;padding:12px;border-radius:10px;font-weight:800;width:100%;cursor:pointer;font-size:15px}
+  .btn.wsp{background:#25D366;color:#000}
 
-  .card{
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 2px 8px #0000d;
-    display:flex;flex-direction:column;
-  }
-  .card img{
-    width:100%;aspect-ratio:1/1;object-fit:cover;background:#eee;
-  }
-  .card-body{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
-  .card h3{font-size:14px;font-weight:600;line-height:1.3;flex:1}
-  .precio{font-size:16px;font-weight:800}
-  .precio del{font-size:12px;color:#888;font-weight:500;margin-right:4px}
-  .btn{
-    background:#111;color:#fff;border:0;padding:10px;border-radius:8px;
-    font-weight:700;font-size:14px;margin-top:6px;cursor:pointer;
-  }
-  .tag{
-    position:absolute;background:#e53935;color:#fff;font-size:11px;
-    font-weight:800;padding:4px 8px;border-radius:6px;margin:8px;
-  }
-  .card-wrap{position:relative}
+  /* Producto */
+  #productoScreen img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  #productoScreen .body{padding:16px}
+  #productoScreen h1{font-size:22px;margin-bottom:8px}
+  #productoScreen .precio{font-size:26px;margin-bottom:12px}
+  #productoScreen .desc{color:#555;line-height:1.5;margin-bottom:20px}
 
-  footer{
-    background:#111;color:#aaa;text-align:center;
-    padding:30px 16px;margin-top:30px;font-size:13px
-  }
+  /* Pago */
+  .box{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px;margin-bottom:16px}
+  .qr{background:#fafafa;border:1px dashed #ccc;border-radius:8px;padding:30px;text-align:center;margin:12px 0;font-weight:700}
+  .ya-pague{background:#25D366;color:#000;text-decoration:none;display:block;text-align:center}
 </style>
 </head>
 <body>
 
-  <header>
-    <div class="topbar">
-      <div class="logo">NOW</div>
-      <div class="icons">🔍 ❤️ 🛒</div>
-    </div>
-  </header>
+<!-- PANTALLA 1: CATALOGO -->
+<div class="screen active" id="catalogoScreen">
+  <header><div class="topbar"><div class="logo">NOW</div></div></header>
+  <section class="banner"><h2>NUEVA COLECCIÓN</h2></section>
+  <div class="container"><div class="grid" id="productos"></div></div>
+</div>
 
-  <section class="banner">
-    <h2>NUEVA COLECCIÓN</h2>
-    <p>Moda juvenil con las últimas tendencias</p>
-  </section>
+<!-- PANTALLA 2: PRODUCTO -->
+<div class="screen" id="productoScreen">
+  <header><div class="topbar"><span class="back" onclick="show('catalogoScreen')">← Volver</span></div></header>
+  <img id="pImg" src="" alt="">
+  <div class="body">
+    <h1 id="pNom"></h1>
+    <div class="precio" id="pPrecio"></div>
+    <p class="desc" id="pDesc"></p>
+    <button class="btn" onclick="irPago()">Comprar ahora</button>
+  </div>
+</div>
 
+<!-- PANTALLA 3: PAGO -->
+<div class="screen" id="pagoScreen">
+  <header><div class="topbar"><span class="back" onclick="show('productoScreen')">← Volver</span></div></header>
   <div class="container">
-    <div class="seccion-titulo">Lo más vendido</div>
+    <h1 style="margin-bottom:16px;font-size:20px">Finalizar compra</h1>
     
-    <div class="grid">
-      <div class="card-wrap">
-        <div class="card">
-          <img src="https://via.placeholder.com/400" alt="Producto">
-          <div class="card-body">
-            <h3>Top básico manga corta</h3>
-            <div class="precio">S/ 39.90</div>
-            <button class="btn">Agregar</button>
-          </div>
-        </div>
-      </div>
+    <div class="box">
+      <h3 id="pagoNom"></h3>
+      <div>Total a pagar: <b id="pagoTotal"></b></div>
+    </div>
 
-      <div class="card-wrap">
-        <div class="tag">-20%</div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400" alt="Producto">
-          <div class="card-body">
-            <h3>Vestido casual print</h3>
-            <div class="precio"><del>S/ 79.90</del> S/ 63.90</div>
-            <button class="btn">Agregar</button>
-          </div>
-        </div>
-      </div>
+    <div class="box">
+      <h3>Paga por Yape / Plin / BCP</h3>
+      <div>Yape: 936 994 155</div>
+      <div>Nombre: Cristhofer Rojas</div>
+      <div class="qr">Escanea aquí<br>[TU QR]</div>
+    </div>
 
-      <div class="card-wrap">
-        <div class="card">
-          <img src="https://via.placeholder.com/400" alt="Producto">
-          <div class="card-body">
-            <h3>Polera oversize negra</h3>
-            <div class="precio">S/ 89.90</div>
-            <button class="btn">Agregar</button>
-          </div>
-        </div>
-      </div>
+    <a href="#" id="wspBtn" target="_blank" class="btn ya-pague">Ya pagué ✅ Ir a WhatsApp</a>
+    <button class="btn" style="background:#ccc;color:#111;margin-top:8px" onclick="show('catalogoScreen')">Cancelar</button>
+  </div>
+</div>
 
-      <div class="card-wrap">
-        <div class="card">
-          <img src="https://via.placeholder.com/400" alt="Producto">
-          <div class="card-body">
-            <h3>Jean recto tiro alto</h3>
-            <div class="precio">S/ 99.90</div>
-            <button class="btn">Agregar</button>
-          </div>
-        </div>
-      </div>
+<script>
+const productos = [
+  {id:1, nom:"Top básico manga corta", precio:39.90, img:"https://via.placeholder.com/400x400", desc:"Algodón 100%. Tallas S M L XL. Envío a todo Perú."},
+  {id:2, nom:"Vestido casual print", precio:63.90, img:"https://via.placeholder.com/400x400", desc:"Estampado floral. Talla única. Tela fresquita para verano."},
+  {id:3, nom:"Polera oversize negra", precio:89.90, img:"https://via.placeholder.com/400x400", desc:"Fleece grueso. Unisex. Comodidad máxima."},
+  {id:4, nom:"Jean recto tiro alto", precio:99.90, img:"https://via.placeholder.com/400x400", desc:"Denim rígido. Tallas 28-34. No destiñe."},
+];
+
+let productoActual = null;
+
+// Render catálogo
+document.getElementById('productos').innerHTML = productos.map(p => `
+  <div class="card">
+    <img src="${p.img}" alt="${p.nom}">
+    <div class="card-body">
+      <h3>${p.nom}</h3>
+      <div class="precio">S/ ${p.precio.toFixed(2)}</div>
+      <button class="btn" onclick="verProducto(${p.id})">Ver</button>
     </div>
   </div>
+`).join('');
 
-  <footer>
-    © 2026 NOW Tienda Online | Todos los derechos reservados<br>
-    Av. Ferrocarril 1035, Huancayo | WhatsApp: 936 994 155
-  </footer>
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
 
+function verProducto(id){
+  productoActual = productos.find(x=>x.id===id);
+  document.getElementById('pImg').src = productoActual.img;
+  document.getElementById('pNom').textContent = productoActual.nom;
+  document.getElementById('pPrecio').textContent = `S/ ${productoActual.precio.toFixed(2)}`;
+  document.getElementById('pDesc').textContent = productoActual.desc;
+  show('productoScreen');
+}
+
+function irPago(){
+  document.getElementById('pagoNom').textContent = productoActual.nom;
+  document.getElementById('pagoTotal').textContent = `S/ ${productoActual.precio.toFixed(2)}`;
+  
+  const msg = encodeURIComponent(
+    `Hola! Ya pagué ✅\n\n*Producto:* ${productoActual.nom}\n*Total:* S/ ${productoActual.precio.toFixed(2)}\n\nAdjunto captura del pago.`
+  );
+  document.getElementById('wspBtn').href = `https://wa.me/51936994155?text=${msg}`;
+  
+  show('pagoScreen');
+}
+</script>
 </body>
 </html>
