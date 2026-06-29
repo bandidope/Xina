@@ -20,10 +20,8 @@ header{position:sticky;top:0;background:var(--bg);z-index:10;padding:14px 16px;b
 .tab{color:var(--muted);font-weight:600;cursor:pointer;padding-bottom:8px;border-bottom:2px solid transparent;white-space:nowrap;font-size:.9rem}
 .tab.active{color:var(--cyan);border-color:var(--cyan)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s ease;cursor:pointer;opacity:0;animation:fadeIn.4s ease forwards}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s ease;cursor:pointer}
 .card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--cyan);box-shadow:0 8px 25px rgba(0,229,255,.25)}
-.card:nth-child(1){animation-delay:.1s}.card:nth-child(2){animation-delay:.2s}.card:nth-child(3){animation-delay:.3s}.card:nth-child(4){animation-delay:.4s}.card:nth-child(5){animation-delay:.5s}.card:nth-child(6){animation-delay:.6s}.card:nth-child(7){animation-delay:.7s}.card:nth-child(8){animation-delay:.8s}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .card-img{height:140px;position:relative;overflow:hidden}
 .carousel-track{display:flex;height:100%;transition:transform.8s ease}
 .carousel-slide{min-width:100%;height:100%;background-size:cover;background-position:center}
@@ -39,11 +37,14 @@ header{position:sticky;top:0;background:var(--bg);z-index:10;padding:14px 16px;b
 .feature span{color:var(--muted)}
 footer{padding:20px;text-align:center;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border)}
 .wsp-float{position:fixed;bottom:16px;right:16px;width:54px;height:54px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,.4);cursor:pointer;z-index:50;text-decoration:none;font-size:1.8rem}
+.screen{display:none}
+.screen.active{display:block}
 .product-wrap{padding:16px;max-width:600px;margin:0 auto}
 .product-img{width:100%;height:240px;background-size:cover;background-position:center;border-radius:16px;margin-bottom:16px;border:1px solid var(--border)}
 .product-title{font-size:1.6rem;font-weight:800;margin-bottom:8px}
 .product-price{font-size:2rem;font-weight:800;color:var(--cyan);margin-bottom:4px}
 .product-price-sub{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.product-desc-title{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--cyan)}
 .product-desc{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:18px}
 .product-list{list-style:none;margin-bottom:24px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
 .product-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;display:flex;gap:8px}
@@ -53,29 +54,20 @@ footer{padding:20px;text-align:center;font-size:.8rem;color:var(--muted);border-
 .btn-volver-prod{width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);padding:16px;border-radius:12px;font-weight:800;cursor:pointer;font-size:1.05rem}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:99;padding:16px}
 .modal.active{display:flex}
-.modal-box{background:var(--card);border:1px solid var(--cyan);border-radius:20px;width:100%;max-width:380px;box-shadow:0 8px 40px rgba(0,229,255,.2);animation:scaleIn.3s ease}
-@keyframes scaleIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--border)}
-.modal-header h3{font-size:1.2rem;font-weight:800}
-.x{background:rgba(255,255,255,.1);border:0;width:32px;height:32px;border-radius:50%;font-size:1.3rem;color:var(--muted);cursor:pointer}
+.modal-box{background:var(--card);border:1px solid var(--cyan);border-radius:20px;width:100%;max-width:380px}
 .amount{font-size:2.2rem;font-weight:800;color:var(--cyan);margin:16px 18px;text-align:center}
-.tc-info{font-size:.8rem;color:var(--muted);text-align:center;margin-bottom:12px;padding:0 18px}
-.payment-tabs{display:flex;gap:8px;margin:16px 0;justify-content:center;padding:0 18px}
-.payment-tab{padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;font-weight:700;font-size:.9rem;white-space:nowrap;flex:1;text-align:center}
+.payment-tabs{display:flex;gap:8px;margin:16px 0;padding:0 18px}
+.payment-tab{flex:1;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;font-weight:700;font-size:.9rem;text-align:center}
 .payment-tab.active{background:var(--cyan);color:#0a0a0f;border-color:var(--cyan)}
 .payment-tab.mp.active{background:var(--mp);color:#fff;border-color:var(--mp)}
-.payment-content{padding:0 18px 18px}
 .copy-box{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.1);padding:12px 14px;border-radius:12px;margin:12px 0;font-size:.9rem;border:1px solid var(--border)}
 .copy-btn{padding:8px 16px;background:var(--cyan);border:0;border-radius:10px;color:#0a0a0f;font-weight:800;cursor:pointer;font-size:.85rem}
 .copy-btn.mp{background:var(--mp);color:#fff}
-.info-text{color:var(--muted);font-size:.8rem;text-align:center;margin:12px 0;line-height:1.5}
 .qr-box{display:flex;justify-content:center;margin:16px 0}
 .qr-box img{width:200px;height:200px;border-radius:12px;border:2px solid var(--border)}
-.btn-wsp{width:100%;background:var(--green);color:#fff;border:0;padding:14px;border-radius:12px;font-weight:800;cursor:pointer;font-size:.95rem;margin-top:12px}
-.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--cyan);padding:10px 14px;border-radius:8px;opacity:0;transition:.2s;z-index:999;font-weight:600}
-.toast.show{opacity:1}
-.currency-item{padding:12px;border:1px solid var(--border);border-radius:12px;cursor:pointer;margin-bottom:8px;display:flex;justify-content:space-between}
-.currency-item.active{background:var(--cyan);color:#0a0a0f}
+.btn-wsp{width:100%;background:var(--green);color:#fff;border:0;padding:14px;border-radius:12px;font-weight:800;cursor:pointer;font-size:.95rem;margin:0 18px 18px}
+.x{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.1);border:0;width:32px;height:32px;border-radius:50%;font-size:1.3rem;color:var(--muted);cursor:pointer}
+.modal-header{position:relative;padding:16px 18px;border-bottom:1px solid var(--border)}
 </style>
 </head>
 <body>
@@ -89,6 +81,8 @@ footer{padding:20px;text-align:center;font-size:.8rem;color:var(--muted);border-
 </div>
 <div class="tabs" id="tabs"></div>
 </header>
+
+<div id="tiendaScreen" class="screen active">
 <div class="grid" id="productos">Cargando...</div>
 <div class="features">
 <div class="feature"><div>⚡</div><div><b>Entrega Inmediata</b><br><span>Por WhatsApp</span></div></div>
@@ -97,113 +91,85 @@ footer{padding:20px;text-align:center;font-size:.8rem;color:var(--muted);border-
 <div class="feature"><div>✅</div><div><b>+200 Clientes</b><br><span>En Perú</span></div></div>
 </div>
 <footer>© 2026 For Three Bot | WhatsApp: +51 936 994 155</footer>
-
-<div id="productScreen" class="screen" style="display:none">
-<header><div class="topbar"><button onclick="showTienda()" style="background:0;border:0;color:var(--text);font-size:1.2rem">←</button><div class="logo">Detalle</div><span></span></div></header>
-<div class="product-wrap" id="productDetail"></div>
 </div>
 
-<div id="currencyModal" class="modal"><div class="modal-box" style="padding:16px">
-<h3>Elige tu moneda</h3>
-<div id="currencyList" style="margin-top:12px"></div>
-<button onclick="closeCurrency()" style="width:100%;margin-top:12px;padding:12px;background:var(--border);border:0;border-radius:12px;color:var(--text);font-weight:700;cursor:pointer">Cerrar</button>
-</div></div>
+<div id="productScreen" class="screen">
+<header><div class="topbar"><div class="logo">Detalle</div><span></span></div></header>
+<div class="product-wrap" id="productDetail"></div>
+</div>
 
 <div id="pagoModal" class="modal"><div class="modal-box">
 <div class="modal-header"><h3>Checkout</h3><button class="x" onclick="cerrarPago()">×</button></div>
 <div class="amount" id="montoTotal">S/ 0.00</div>
-<div class="tc-info" id="tcInfo">TC del día: Cargando...</div>
 <div class="payment-tabs">
 <button class="payment-tab active" onclick="selectPayment('diamantes',event)">💎 Diamantes</button>
-<button class="payment-tab mp" onclick="selectPayment('mercadopago',event)">💙 Mercado Pago</button>
+<button class="payment-tab mp" onclick="selectPayment('mp',event)">💙 MP</button>
 </div>
-<div id="diamantesContent" class="payment-content">
-<div class="copy-box"><span><b>Usuario:</b> <span id="userDiam">tuusuario</span></span><button class="copy-btn" onclick="copyText('tuusuario')">Copiar</button></div>
-<p class="info-text">Envía diamantes a mi usuario. Luego manda captura por WhatsApp.</p>
-</div>
-<div id="mercadopagoContent" class="payment-content" style="display:none">
-<div class="qr-box"><img id="mpQR" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=MercadoPago" alt="QR MP"></div>
-<div class="copy-box"><span><b>Alias/CVU:</b> <span id="aliasMP">tu.alias.mp</span></span><button class="copy-btn mp" onclick="copyText('tu.alias.mp')">Copiar</button></div>
-<p class="info-text">Escanea el QR o paga al alias. Luego manda captura.</p>
-</div>
-<button id="wspBtn" class="btn-wsp">💬 Enviar Comprobante por WhatsApp</button>
+<div id="diamantesContent"><div class="copy-box"><span>Usuario: <b id="userDiam">tuusuario</b></span><button class="copy-btn" onclick="copyText(USUARIO_DIAMANTES)">Copiar</button></div></div>
+<div id="mpContent" style="display:none"><div class="qr-box"><img id="mpQR" src=""></div><div class="copy-box"><span>Alias: <b id="aliasMP">tu.alias.mp</b></span><button class="copy-btn mp" onclick="copyText(ALIAS_MERCADOPAGO)">Copiar</button></div></div>
+<button class="btn-wsp" id="wspBtn">💬 Enviar Comprobante</button>
 </div></div>
 
 <a class="wsp-float" href="https://wa.me/51936994155" target="_blank">💬</a>
-<div id="toast" class="toast"></div>
 
 <script>
-// ================== ZONA EDITABLE 👇 CAMBIA SOLO ESTO ==================
+// ================== ZONA EDITABLE ==================
 const NOMBRE_TIENDA = "For Three Bot";
 const NUMERO_WHATSAPP = "51936994155";
 const USUARIO_DIAMANTES = "tuusuario";
 const ALIAS_MERCADOPAGO = "tu.alias.mp";
-const TC_MANUAL = 3.70;
+const TC = 3.70;
 
-// v47.8: Bots=6, Hosting=3, Cuentas=4, Servicios=4, Packs=8
-const CATEGORIAS = {
-  bots: {nom:"Bots",data:[
-    {id:1,nom:"Bot Para Grupos WhatsApp",precio:5,imgs:["https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Bot completo para grupos 24/7.",features:["Descargas YT, TikTok","Juegos: PPT, Trivia","IA ChatGPT","Panel Admin"]},
-    {id:2,nom:"Bot Personalizado VIP",precio:25,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Bot con tu marca y comandos.",features:["Nombre propio","Comandos custom","Hosting 1GB","Soporte VIP"]},
-    {id:3,nom:"Bot Antidelete",precio:8,imgs:["https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Guarda todo lo que borran.",features:["Antidelete 24/7","Ver estados","Auto sticker","Backup"]},
-    {id:4,nom:"Bot NSFW +18",precio:12,imgs:["https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Comandos +18 exclusivos.",features:["Pack IA","Videos NSFW","Stickers +18","Privado"]},
-    {id:5,nom:"Bot Economía",precio:15,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Sistema de dinero virtual.",features:["Monedas","Casino","Tienda","Rangos"]},
-    {id:6,nom:"Bot Todo en 1",precio:30,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Tiene todos los bots juntos.",features:["+200 Comandos","IA + Juegos","Admin","Premium"]}
+const CATEGORIAS = {bots: {nom:"Bots",data:[
+    {id:1,nom:"Bot Para Grupos WhatsApp",precio:5,imgs:["https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Bot completo para gestionar grupos 24/7 sin parar. Automatiza todo.",features:["Descargas YT, TikTok","Juegos: PPT, Trivia","IA ChatGPT","Panel Admin"]},
+    {id:2,nom:"Bot Personalizado VIP",precio:25,imgs:["https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Bot hecho 100% a tu gusto con tu nombre y logo.",features:["Nombre propio","Comandos custom","Hosting 1GB","Soporte VIP"]},
+    {id:3,nom:"Bot Antidelete",precio:8,imgs:["https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Nunca más pierdas mensajes. Guarda todo lo que borran.",features:["Antidelete 24/7","Ver estados","Auto sticker","Backup"]},
+    {id:4,nom:"Bot NSFW +18",precio:12,imgs:["https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Comandos +18 exclusivos para grupos privados.",features:["Pack IA","Videos NSFW","Stickers +18","Privado"]},
+    {id:5,nom:"Bot Economía",precio:15,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Pon a ganar monedas a tus miembros con juegos.",features:["Monedas","Casino","Tienda","Rangos"]},
+    {id:6,nom:"Bot Todo en 1",precio:30,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"El bot más completo. Tiene todos los demás juntos.",features:["+200 Comandos","IA + Juegos","Admin","Premium"]}
   ]},
   hosting: {nom:"Hosting",data:[
-    {id:7,nom:"Hosting 1GB RAM",precio:10,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Para 1 bot pequeño.",features:["1GB RAM","10GB SSD","Panel","Backups"]},
-    {id:8,nom:"Hosting 4GB RAM",precio:25,imgs:["https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Para 3-4 bots.",features:["4GB RAM","40GB SSD","Panel Full","Prioritario"]},
-    {id:9,nom:"Hosting Ilimitado",precio:120,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Sin límites.",features:["16GB RAM","500GB SSD","Bots Ilimitados","VIP"]}
+    {id:7,nom:"Hosting 1GB RAM",precio:10,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"Ideal para mantener 1 bot encendido 24/7 sin lag.",features:["1GB RAM","10GB SSD","Panel","Backups"]},
+    {id:8,nom:"Hosting 4GB RAM",precio:25,imgs:["https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Para 3 a 4 bots a la vez con velocidad.",features:["4GB RAM","40GB SSD","Panel Full","Prioritario"]},
+    {id:9,nom:"Hosting Ilimitado",precio:120,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600"],desc:"El más potente. Sin límites de bots ni recursos.",features:["16GB RAM","500GB SSD","Bots Ilimitados","VIP"]}
   ]},
   cuentas: {nom:"Cuentas",data:[
-    {id:10,nom:"Netflix Premium 1M",precio:15,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Cuenta Netflix 1 mes.",features:["4K UltraHD","4 Pantallas","Garantía","Entrega Ya"]},
-    {id:11,nom:"Spotify Premium 1M",precio:8,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Spotify sin anuncios.",features:["Sin Ads","Offline","Calidad Alta","1 Mes"]},
-    {id:12,nom:"Disney+ 1M",precio:12,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Disney+ Marvel Star Wars.",features:["4K","4 Perfiles","Estrenos","Garantía"]},
-    {id:13,nom:"Crunchyroll 1M",precio:10,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Anime sin cortes.",features:["1080p","Simulcast","Sin Ads","1 Mes"]}
+    {id:10,nom:"Netflix Premium 1M",precio:15,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Ve todas las series y películas en 4K por 1 mes.",features:["4K UltraHD","4 Pantallas","Garantía","Entrega Ya"]},
+    {id:11,nom:"Spotify Premium 1M",precio:8,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Música sin anuncios y para escuchar sin internet.",features:["Sin Ads","Offline","Calidad Alta","1 Mes"]},
+    {id:12,nom:"Disney+ 1M",precio:12,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Marvel, Star Wars y todo Disney por 30 días.",features:["4K","4 Perfiles","Estrenos","Garantía"]},
+    {id:13,nom:"Crunchyroll 1M",precio:10,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Mira anime en estreno y sin cortes.",features:["1080p","Simulcast","Sin Ads","1 Mes"]}
   ]},
   servicios: {nom:"Servicios",data:[
-    {id:14,nom:"Crear Bot Desde 0",precio:50,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Te hago tu bot único.",features:["Diseño Custom","Comandos","Entrega 24h","Soporte"]},
-    {id:15,nom:"Configurar Bot",precio:20,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Configuro tu bot.",features:["Instalación","Comandos","Hosting","1 Mes Soporte"]},
-    {id:16,nom:"Reparar Bot",precio:15,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Arreglo tu bot caído.",features:["Diagnóstico","Fix 100%","24h","Garantía"]},
-    {id:17,nom:"Panel Pterodactyl",precio:30,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Instalo tu panel.",features:["Pterodactyl","Wings","Dominio","SSL"]}
+    {id:14,nom:"Crear Bot Desde 0",precio:50,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Te programo un bot único desde cero para tu idea.",features:["Diseño Custom","Comandos","Entrega 24h","Soporte"]},
+    {id:15,nom:"Configurar Bot",precio:20,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Te instalo y dejo funcionando cualquier bot.",features:["Instalación","Comandos","Hosting","1 Mes Soporte"]},
+    {id:16,nom:"Reparar Bot",precio:15,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Si tu bot se cayó o tiene errores, te lo arreglo.",features:["Diagnóstico","Fix 100%","24h","Garantía"]},
+    {id:17,nom:"Panel Pterodactyl",precio:30,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Te instalo tu propio panel para vender hosting.",features:["Pterodactyl","Wings","Dominio","SSL"]}
   ]},
   packs: {nom:"Packs",data:[
-    {id:18,nom:"Pack Inicio Bot",precio:35,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Bot + Hosting 1GB.",features:["Bot Grupos","Hosting 1GB","1 Mes","Soporte"]},
-    {id:19,nom:"Pack Emprendedor",precio:65,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Bot VIP + Hosting 2GB.",features:["Bot VIP","Hosting 2GB","Logo","Web"]},
-    {id:20,nom:"Pack Agencia",precio:150,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Para revender bots.",features:["10 Bots","Hosting 8GB","Web Pro","Mentoría"]},
-    {id:21,nom:"Pack Streaming Full",precio:55,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Todas las cuentas 1M.",features:["Netflix+Spotify+Disney+Crunchy","Ahorra 70%","Garantía"]},
-    {id:22,nom:"Pack Gaming Pro",precio:45,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Cuentas gaming premium.",features:["FF Elite","COD CP","Roblox","Fortnite"]},
-    {id:23,nom:"Pack Servicios",precio:120,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Todo lo que necesitas.",features:["Web+Logo+Bot","Hosting 4GB","Soporte","Garantía"]},
-    {id:24,nom:"Pack VIP",precio:200,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Acceso total ilimitado.",features:["Todos los bots","VPS 8GB","Web Pro","Mentoría 24/7"]},
-    {id:25,nom:"Pack Reseller",precio:300,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Para vender al por mayor.",features:["50 Bots","Servidor Dedicado","Panel","Soporte VIP"]}
+    {id:18,nom:"Pack Inicio Bot",precio:35,imgs:["https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600","https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600"],desc:"Lo básico para empezar: Bot + Hosting 1GB por 1 mes.",features:["Bot Grupos","Hosting 1GB","1 Mes","Soporte"]},
+    {id:19,nom:"Pack Emprendedor",precio:65,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Para iniciar tu negocio: Bot VIP + Hosting 2GB + Web.",features:["Bot VIP","Hosting 2GB","Logo","Web"]},
+    {id:20,nom:"Pack Agencia",precio:150,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Para revender: 10 Bots + Hosting 8GB + Web Pro.",features:["10 Bots","Hosting 8GB","Web Pro","Mentoría"]},
+    {id:21,nom:"Pack Streaming Full",precio:55,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Todas las cuentas streaming por 1 mes. Ahorra 70%.",features:["Netflix+Spotify+Disney+Crunchy","Ahorra 70%","Garantía"]},
+    {id:22,nom:"Pack Gaming Pro",precio:45,imgs:["https://images.unsplash.com.photo-1485827404703-89b55fcc595e?q=80&w=600","https://images.unsplash.com.photo-1555255707-4c4792736b81?q=80&w=600","https://images.unsplash.com.photo-1620712943543-bcc4688e7485?q=80&w=600"],desc:"Cuentas gaming premium para todos los juegos.",features:["FF Elite","COD CP","Roblox","Fortnite"]},
+    {id:23,nom:"Pack Servicios",precio:120,imgs:["https://images.unsplash.com.photo-1517694712202-14dd9538aa97?q=80&w=600","https://images.unsplash.com.photo-1558494949-ef010cbdcc31?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Todo para tu marca: Web+Logo+Bot+Hosting 4GB.",features:["Web+Logo+Bot","Hosting 4GB","Soporte","Garantía"]},
+    {id:24,nom:"Pack VIP",precio:200,imgs:["https://images.unsplash.com.photo-1555066931-4365d14bab8c?q=80&w=600","https://images.unsplash.com.photo-1544197150-b99a580bb7a8?q=80&w=600","https://images.unsplash.com.photo-1563986768609-322da13575f3?q=80&w=600"],desc:"Acceso total: Todos los bots + VPS 8GB + Mentoría.",features:["Todos los bots","VPS 8GB","Web Pro","Mentoría 24/7"]},
+    {id:25,nom:"Pack Reseller",precio:300,imgs:["https://images.unsplash.com.photo-1614064641938-3bbee52942c7?q=80&w=600","https://images.unsplash.com.photo-1622979135225-d2ba269cf1ac?q=80&w=600","https://images.unsplash.com.photo-1677442136019-21780ecad995?q=80&w=600"],desc:"Para vender al mayor: 50 Bots + Servidor Dedicado.",features:["50 Bots","Servidor Dedicado","Panel","Soporte VIP"]}
   ]}
 };
-// ================== NO TOCAR ABAJO ==================
-let currentTC=TC_MANUAL;let currentCurrency=localStorage.getItem('currency')||'PEN';
-const currencies={PEN:{sym:'S/',rate:1},USD:{sym:'$',rate:1/TC_MANUAL},ARS:{sym:'$',rate:1/TC_MANUAL*1000},CLP:{sym:'$',rate:1/TC_MANUAL*950},BOB:{sym:'Bs',rate:1/TC_MANUAL*7}};
-
-async function getTipoCambio(){try{const r=await fetch('https://api.exchangerate-api.com/v4/latest/USD');const j=await r.json();currentTC=j.rates.PEN}catch(e){currentTC=TC_MANUAL}currencies.USD.rate=1/currentTC;currencies.ARS.rate=1/currentTC*1000;currencies.CLP.rate=1/currentTC*950;currencies.BOB.rate=1/currentTC*7;updateCurrencyBtn();renderTabs();renderProductos();startCarousels()}
-function formatPrice(p){const c=currencies[currentCurrency];return`${c.sym} ${(p*c.rate).toFixed(2)}`}
-function updateCurrencyBtn(){document.getElementById('currencyBtn').textContent=`🌎 ${currentCurrency}`}
-function openCurrency(){const l=document.getElementById('currencyList');l.innerHTML=Object.keys(currencies).map(k=>`<div class="currency-item ${k===currentCurrency?'active':''}" onclick="selectCurrency('${k}')"><span>${k}</span><span>${currencies[k].sym}</span></div>`).join('');document.getElementById('currencyModal').classList.add('active')}
-function closeCurrency(){document.getElementById('currencyModal').classList.remove('active')}
-function selectCurrency(k){currentCurrency=k;localStorage.setItem('currency',k);updateCurrencyBtn();renderProductos();closeCurrency();toast(`Moneda: ${k}`);setTimeout(startCarousels,100)}
-document.addEventListener('DOMContentLoaded',async()=>{await getTipoCambio();loadTheme();document.querySelector('.logo').textContent=NOMBRE_TIENDA;document.querySelector('footer').innerHTML=`© 2026 ${NOMBRE_TIENDA} | WhatsApp: +${NUMERO_WHATSAPP}`;document.getElementById('userDiam').textContent=USUARIO_DIAMANTES;document.getElementById('aliasMP').textContent=ALIAS_MERCADOPAGO;document.getElementById('mpQR').src=`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${ALIAS_MERCADOPAGO}`;document.querySelector('.wsp-float').href=`https://wa.me/${NUMERO_WHATSAPP}`;document.getElementById('tcInfo').textContent=`TC del día: S/ ${currentTC.toFixed(2)}`});
-function toggleTheme(){const r=document.documentElement;const t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);localStorage.setItem('theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
-function loadTheme(){const t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
-function renderTabs(){const t=document.getElementById('tabs');t.innerHTML=Object.keys(CATEGORIAS).map((k,i)=>`<div class="tab ${i===0?'active':''}" onclick="selectTab('${k}',this)">${CATEGORIAS[k].nom}</div>`).join('');selectTab(Object.keys(CATEGORIAS)[0],t.querySelector('.tab'))}
-function selectTab(k,el){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderProductos(k)}
-function renderProductos(cat=Object.keys(CATEGORIAS)[0]){const g=document.getElementById('productos');const d=CATEGORIAS[cat].data;g.innerHTML=d.map(p=>`<div class="card" onclick="openProduct(${p.id})"><div class="card-img"><div class="carousel-track" id="c-${p.id}">${p.imgs.map(u=>`<div class="carousel-slide" style="background-image:url('${u}')"></div>`).join('')}</div><div class="tag">Nuevo</div></div><div class="card-body"><div class="card-cat">${CATEGORIAS[cat].nom}</div><div class="card-title">${p.nom}</div><div class="card-price">${formatPrice(p.precio)}</div><div class="card-price-sub">~$${p.precio} USD</div><button class="btn-contratar" onclick="event.stopPropagation();openProduct(${p.id})">Contratar</button></div></div>`).join('')}
-function startCarousels(){Object.values(CATEGORIAS).forEach(c=>c.data.forEach(p=>{let i=0;const t=document.getElementById(`c-${p.id}`);if(t){setInterval(()=>{i=(i+1)%p.imgs.length;t.style.transform=`translateX(-${i*100}%)`},4000)}}))}
-function openProduct(id){const p=findProduct(id);if(!p)return;document.getElementById('productDetail').innerHTML=`<div class="product-img" style="background-image:url('${p.imgs[0]}')"></div><div class="product-title">${p.nom}</div><div class="product-price">${formatPrice(p.precio)}</div><div class="product-price-sub">~$${p.precio} USD</div><div class="product-desc">${p.desc}</div><ul class="product-list">${p.features.map(f=>`<li><b>✓</b> ${f}</li>`).join('')}</ul><button class="btn-comprar" onclick="openPago(${p.precio},'${p.nom}')">💎 Comprar Ahora</button><button class="btn-volver-prod" onclick="showTienda()">← Volver</button>`;document.querySelector('.grid').parentElement.style.display='none';document.querySelector('.features').style.display='none';document.querySelector('footer').style.display='none';document.getElementById('productScreen').style.display='block';window.scrollTo(0,0)}
-function showTienda(){document.getElementById('productScreen').style.display='none';document.querySelector('.grid').parentElement.style.display='block';document.querySelector('.features').style.display='grid';document.querySelector('footer').style.display='block';window.scrollTo(0,0)}
-function findProduct(id){for(const k in CATEGORIAS){const f=CATEGORIAS[k].data.find(p=>p.id===id);if(f)return f}return null}
-function openPago(p,n){document.getElementById('montoTotal').textContent=formatPrice(p);document.getElementById('wspBtn').onclick=()=>enviarWsp(p,n);document.getElementById('pagoModal').classList.add('active')}
+// ================== JS ==================
+let currentCurrency='PEN',precio=0,prodNom='';const currencies={PEN:1,USD:1/TC};
+function fmt(p){return`S/ ${(p*currencies[currentCurrency]).toFixed(2)}`}
+function renderTabs(){document.getElementById('tabs').innerHTML=Object.keys(CATEGORIAS).map((k,i)=>`<div class="tab ${i?0:'active'}" onclick="selTab('${k}',this)">${CATEGORIAS[k].nom}</div>`).join('');selTab('bots',document.querySelector('.tab'))}
+function selTab(k,el){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');const g=document.getElementById('productos');g.innerHTML=CATEGORIAS[k].data.map(p=>`<div class="card" onclick="openProduct(${p.id})"><div class="card-img"><div class="carousel-track" id="c${p.id}">${p.imgs.map(u=>`<div class="carousel-slide" style="background-image:url('${u}')"></div>`).join('')}</div><div class="tag">Nuevo</div></div><div class="card-body"><div class="card-cat">${CATEGORIAS[k].nom}</div><div class="card-title">${p.nom}</div><div class="card-price">${fmt(p.precio)}</div><div class="card-price-sub">~$${p.precio} USD</div><button class="btn-contratar" onclick="event.stopPropagation();openProduct(${p.id})">Información</button></div></div>`).join('');setInterval(()=>{Object.values(CATEGORIAS).forEach(c=>c.data.forEach(p=>{let i=0;const t=document.getElementById(`c${p.id}`);if(t){i=(i+1)%p.imgs.length;t.style.transform=`translateX(-${i*100}%)`}}))},4000)}
+function findProduct(id){for(const k in CATEGORIAS){const f=CATEGORIAS[k].data.find(p=>p.id===id);if(f)return f}}
+function openProduct(id){const p=findProduct(id);document.getElementById('productDetail').innerHTML=`<div class="product-img" style="background-image:url('${p.imgs[0]}')"></div><div class="product-title">${p.nom}</div><div class="product-price">${fmt(p.precio)}</div><div class="product-price-sub">~$${p.precio} USD</div><div class="product-desc-title">¿Para qué sirve?</div><div class="product-desc">${p.desc}</div><ul class="product-list">${p.features.map(f=>`<li><b>✓</b> ${f}</li>`).join('')}</ul><button class="btn-comprar" onclick="buy(${p.precio},'${p.nom}')">💎 Comprar Ahora</button><button class="btn-volver-prod" onclick="showTienda()">← Volver a la tienda</button>`;document.getElementById('tiendaScreen').classList.remove('active');document.getElementById('productScreen').classList.add('active');window.scrollTo(0,0)}
+function showTienda(){document.getElementById('productScreen').classList.remove('active');document.getElementById('tiendaScreen').classList.add('active')}
+function buy(p,n){precio=p;prodNom=n;document.getElementById('montoTotal').textContent=fmt(p);document.getElementById('userDiam').textContent=USUARIO_DIAMANTES;document.getElementById('aliasMP').textContent=ALIAS_MERCADOPAGO;document.getElementById('mpQR').src=`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${ALIAS_MERCADOPAGO}`;document.getElementById('pagoModal').classList.add('active')}
+function selectPayment(t,e){document.querySelectorAll('.payment-tab').forEach(x=>x.classList.remove('active'));e.target.classList.add('active');document.getElementById('diamantesContent').style.display=t==='diamantes'?'block':'none';document.getElementById('mpContent').style.display=t==='mp'?'block':'none'}
+function copyText(t){navigator.clipboard.writeText(t);alert('Copiado')}
 function cerrarPago(){document.getElementById('pagoModal').classList.remove('active')}
-function selectPayment(t,e){document.querySelectorAll('.payment-tab').forEach(x=>x.classList.remove('active'));e.target.classList.add('active');document.getElementById('diamantesContent').style.display=t==='diamantes'?'block':'none';document.getElementById('mercadopagoContent').style.display=t==='mercadopago'?'block':'none'}
-function copyText(t){navigator.clipboard.writeText(t);toast('Copiado!')}
-function enviarWsp(p,n){const m=`Hola! Quiero comprar: ${n}%0A%0ATotal: ${formatPrice(p)} ~$${p} USD%0A%0AMétodo: ${document.querySelector('.payment-tab.active').textContent.trim()}%0A%0A[Adjunto captura]`;window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${m}`,'_blank');cerrarPago()}
-function toast(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2000)}
-</script>
-</body>
-</html>
+document.getElementById('wspBtn').onclick=()=>{window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=Hola, pagué por ${prodNom} ${fmt(precio)}`,'_blank');cerrarPago()}
+function toggleTheme(){const r=document.documentElement;const t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
+function openCurrency(){currentCurrency=currentCurrency==='PEN'?'USD':'PEN';document.getElementById('currencyBtn').textContent=currentCurrency;renderTabs()}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelector('.logo').textContent=NOMBRE_TIENDA;document.querySelector('.wsp-float').href=`https://wa.me/${NUMERO_WHATSAPP}`;renderTabs()})
+</script></body></html>
