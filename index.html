@@ -1,240 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nubecita Dzn Online ☁️ | Tienda Oficial</title>
-<style>
-:root{
-  --oscuro:#005954;
-  --medio:#338b85;
-  --boton:#5dc1b9;
-  --claro:#9ce0db;
-  --blanco:#d5ffff;
-  --rojo:#FF4D4D;
-  --whatsapp:#25D366
-}
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif}
-body{color:var(--blanco);text-align:center;min-height:100vh;padding:0;background: var(--oscuro);padding-bottom:80px;}
-.box{max-width:500px;margin:20px auto;background:var(--medio);border:1px solid var(--claro);border-radius:16px;padding:25px}
-.verificado{background:rgba(93,193,185,0.15);border:1px solid var(--boton);border-radius:12px;padding:15px;margin:15px 20px;text-align:center}
-.verificado b{color:var(--blanco);font-size:16px}
-.verificado p{color:var(--claro);font-size:13px;margin-top:5px}
-.oferta-box{background:rgba(93,193,185,0.15);border:1px solid var(--boton);border-radius:12px;padding:12px;margin-bottom:15px;text-align:center}
-.oferta-box b{color:var(--blanco);font-size:14px}
-.oferta-box p{color:var(--claro);font-size:12px;margin-top:4px}
-header{padding:30px 20px;border-bottom:2px solid var(--boton);background:var(--medio)}
-h1{color:var(--blanco);font-size:34px;letter-spacing:2px;text-shadow:0 0 12px var(--boton)}
-.slogan{color:var(--claro);margin-top:5px;font-size:14px}
-.container{max-width:500px;margin:auto;padding:20px}
-.titulo-seccion{font-size:18px;font-weight:bold;color:var(--blanco);margin:20px 0 10px;text-align:left;border-left:3px solid var(--boton);padding-left:10px}
-.card{background:var(--medio);border:1px solid var(--claro);border-radius:12px;padding:15px;margin:12px 0;text-align:left;transition:.2s;position:relative;cursor:pointer}
-.card:hover{transform:scale(1.02);box-shadow:0 0 15px var(--boton)}
-.nombre{font-weight:bold;font-size:16px;display:flex;align-items:center;gap:8px;color:var(--blanco)}
-.precio{color:var(--blanco);font-size:18px;font-weight:bold;margin:6px 0}
-.badge-img{height:20px;width:auto;border-radius:4px;vertical-align:middle}
-.btn{display:block;background:var(--boton);color:var(--oscuro);padding:12px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;margin-top:8px;text-align:center;transition:.2s}
-.btn:hover{background:var(--claro)}
-.btn-verde{background:var(--whatsapp);color:#fff}
-.btn-morado{background:var(--claro);color:var(--oscuro)}
-.btn-outline{background:transparent;border:1px solid var(--claro);color:var(--claro)}
-.footer{color:var(--claro);font-size:12px;padding:20px;background:var(--medio)}
-.sub{color:var(--claro);font-size:14px;margin-bottom:15px}
-img.producto-img, img.comandos-img{width:100%;border-radius:12px;margin:15px 0;border:1px solid var(--medio)}
-.precio-big{font-size:32px;color:var(--blanco);font-weight:bold;margin:15px 0}
-.lista{text-align:left;background:var(--oscuro);border-radius:10px;padding:12px;margin:15px 0;font-size:14px;line-height:1.6;color:var(--blanco)}
-.metodo{background:var(--medio);border:1px solid var(--claro);border-radius:10px;padding:15px;margin:12px 0;text-align:left}
-.metodo b{color:var(--blanco);font-size:16px}
-.dato{font-size:15px;margin:6px 0;color:var(--blanco);letter-spacing:1px;user-select: all;}
-.aviso{background:rgba(93,193,185,0.15);border-left:3px solid var(--boton);padding:10px;border-radius:6px;font-size:13px;margin:15px 0;text-align:left;color:var(--claro)}
-.volver{display:block;color:var(--claro);font-size:13px;margin-top:10px;text-decoration:none}
-.top-btns{display:flex;gap:8px;margin-bottom:15px}
-.garantia{font-size:12px;color:var(--claro);margin-top:10px;text-align:center}
-.garantia b{color:var(--blanco)}
-.whatsapp-float{position:fixed;bottom:20px;right:20px;background:var(--whatsapp);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 0 15px var(--whatsapp);z-index:999;text-decoration:none;animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)}70%{box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nubecita Dzn | Catálogo</title>
+  <style>
+    body {
+      background: #0e1a1a;
+      color: #e0ffe0;
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #7fffd4;
+    }
+    .categoria {
+      background: #122;
+      border: 1px solid #1f3;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .cat-titulo {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #bff;
+    }
+    .badge-img {
+      width: 20px;          /* Tamaño del GIF */
+      height: 20px;
+      object-fit: contain;  /* No se deforma */
+      border-radius: 50%;   /* Redonda */
+      margin-right: 8px;    /* Espacio al texto */
+      vertical-align: middle;
+    }
+    .producto {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed #234;
+    }
+    .producto:last-child {
+      border-bottom: 0;
+    }
+    .precio {
+      color: #7fffd4;
+      font-weight: 700;
+    }
+    .btn-wsp {
+      display: block;
+      text-align: center;
+      background: #25D366;
+      color: #000;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-<header><h1>Nubecita Dzn Online ☁️</h1><p class="slogan">Lo Mejor De Lo Mejor ☁️</p></header>
+  <h1>Nubecita Dzn ☁️</h1>
+  <div id="catalogo"></div>
+  <a class="btn-wsp" href="https://wa.me/5491153317678" target="_blank">Pedir por WhatsApp</a>
 
-<div class="verificado">
-  <b>✅ Vendedor Verificado De Argentina | +50 Productos Vendidos </b>
-  <p>Caligraficos: 6 | Plantillas: 8 | Renovaciones: 3 | Bots Mensuales: 4 | Bots Permanentes: 4</p>
-</div>
+  <script>
+    const datos = {
+      whatsapp: "5491153317678",
+      mpAlias: "nubecita.dzn.mp",
+      cbu: "0003100000",
+      nombre: "Cristhofer Rojas",
+      img: "https://evogb.win/fBJ2A", // <-- TU GIF NUBE TRANSPARENTE ☁️
+      comandosImg: "https://files.evogb.win/eMe9xu.jpg",
+      grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
 
-<div class="container" id="app"></div>
+      categorias: [
+        { 
+          id: "CALI", 
+          nombre: "Caligraficos", 
+          productos: [
+            { nombre: "5 caligraficos", precio: 2000 },
+            { nombre: "10 caligraficos", precio: 4000 },
+            { nombre: "20 caligraficos", precio: 8000 },
+          ]
+        },
+        { 
+          id: "PLANT", 
+          nombre: "Plantillas", 
+          productos: [
+            { nombre: "Plantilla Fyre + Audiolibro", precio: 2500 },
+            { nombre: "Pack 5 Plantillas", precio: 6000 },
+          ]
+        }
+      ]
+    };
 
-<footer class="footer">© 2026 Nubecita Dzn Online ☁️ | Buenos Aires, Argentina<br>💳 Mercado Pago / Prex / Diamantes / WhatsApp: +54 9 11 5331-7678</footer>
+    const cont = document.getElementById('catalogo');
+    datos.categorias.forEach(cat => {
+      cont.innerHTML += `
+        <div class="categoria">
+          <div class="cat-titulo">
+            <img class="badge-img" src="${datos.img}" alt="nube">
+            ${cat.nombre}
+          </div>
+          ${cat.productos.map(p => `
+            <div class="producto">
+              <span>${p.nombre}</span>
+              <span class="precio">$${p.precio}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    });
+  </script>
 
-<a href="https://wa.me/5491153317678" target="_blank" class="whatsapp-float">☁️</a>
-
-<script>
-const datos = {
-  whatsapp: "5491153317678",
-  mpAlias: "nubecita.dzn.mp",
-  cbu: "0003100000",
-  nombre: "Cristhofer Rojas",
-  img: "https://files.evogb.win/BLG4n2.jpg", // Foto por defecto
-  comandosImg: "https://files.evogb.win/eMe9xu.jpg",
-  grupoWhatsApp: "https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk",
-
-  productos: {
-    "CALI": {
-      nombre: "Caligraficos",
-      precioBase: 6000,
-      sub: "Bot WhatsApp | Elige 1 de 6 Estilos de Fuente",
-      tipos: {
-        "Sim": {nombre: "Cali Simple", desc: "Un Diseño Lindo Pero Simple", img: "https://files.evogb.win/Fte8Kn.jpg"},
-        "Obj": {nombre: "Cali + Obj", desc: "Un Diseño Básico Con Un Objeto De Tu Preferencia", img: "https://files.evogb.win/dKpc14.jpg"},
-        "Tem": {nombre: "Cali Temático", desc: "Diseño Con Temática De Lo Que Gustes"},
-        "Cur": {nombre: "Cali Curvo", desc: "Calígrafo Con Un Diseño En Curva"},
-        "Let": {nombre: "Cali Letra", desc: "Diseño De 1 Letra Favorita Tuya"},
-        "Pix": {nombre: "Cali Pixel", desc: "Diseño Pixelado Pero Bonito"},
-      }
-    },
-    "PLANT": {
-      nombre: "Plantillas",
-      precioBase: 7000,
-      sub: "Bot WhatsApp | Elige 1 de 8 Plantillas",
-      tipos: {
-        "PRO": {nombre: "Pro", desc: "Plantilla estilo profesional clean"},
-        "GAMER": {nombre: "Gamer", desc: "Plantilla estilo videojuego neón"},
-        "MINIMAL": {nombre: "Minimal", desc: "Plantilla estilo minimalista blanco"},
-        "DARK": {nombre: "Dark", desc: "Plantilla estilo oscuro neon verde"},
-        "PIXEL": {nombre: "Pixel", desc: "Plantilla estilo pixel art retro"},
-        "LUXE": {nombre: "Luxe", desc: "Plantilla estilo lujo dorado"},
-        "ANIME": {nombre: "Anime", desc: "Plantilla estilo anime kawaii"},
-        "TECH": {nombre: "Tech", desc: "Plantilla estilo tecnología cyber"},
-      }
-    },
-    "RENO": {
-      nombre: "Renovaciones",
-      precioBase: 8000,
-      sub: "Bot WhatsApp | Elige 1 de 3 Renovaciones",
-      tipos: {
-        "V1": {nombre: "Renovación V1", desc: "Estilo renovado básico pro"},
-        "V2": {nombre: "Renovación V2", desc: "Estilo renovado con efectos"},
-        "V3": {nombre: "Renovación V3", desc: "Estilo renovado premium"},
-      }
-    },
-    "MENS": {
-      nombre: "Bots Mensuales",
-      precioBase: 9000,
-      sub: "Bot WhatsApp | Elige 1 de 4 Bots Mensuales",
-      tipos: {
-        "BASIC": {nombre: "Mensual Basic", desc: "Plan mensual básico 30 días"},
-        "PLUS": {nombre: "Mensual Plus", desc: "Plan mensual con más comandos"},
-        "PRO": {nombre: "Mensual Pro", desc: "Plan mensual profesional full"},
-        "ELITE": {nombre: "Mensual Elite", desc: "Plan mensual elite vip"},
-      }
-    },
-    "PERM": {
-      nombre: "Bots Permanentes",
-      precioBase: 15000,
-      sub: "Bot WhatsApp | Elige 1 de 4 Bots Permanentes",
-      tipos: {
-        "BASIC": {nombre: "Permanente Basic", desc: "Bot permanente básico vitalicio"},
-        "PLUS": {nombre: "Permanente Plus", desc: "Bot permanente con más comandos"},
-        "PRO": {nombre: "Permanente Pro", desc: "Bot permanente profesional full"},
-        "ELITE": {nombre: "Permanente Elite", desc: "Bot permanente elite vip"},
-      }
-    }
-  }
-};
-
-const app = document.getElementById('app');
-const params = new URLSearchParams(window.location.search);
-const page = params.get('page');
-const id = params.get('id');
-const tipo = params.get('tipo');
-
-function formatARS(n){return n.toLocaleString('es-AR')}
-
-function renderCardTipo(t, key, prodId){
-  return `<div class="card" onclick="window.location.href='?page=producto&id=${prodId}&tipo=${key}'">
-    <div class="nombre">${t.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-    <div class="precio">${t.desc}</div>
-    <a class="btn" href="?page=producto&id=${prodId}&tipo=${key}" onclick="event.stopPropagation()">Elegir ${t.nombre}</a>
-  </div>`;
-}
-
-function renderCatalogo(){
-  let html = `<div class="oferta-box">
-      <b>🔥 BOT PARA GRUPOS</b>
-      <p>Caligraficos: 6 | Plantillas: 8 | Renovaciones: 3 | Bots Mensuales: 4 | Bots Permanentes: 4</p>
-    </div>`;
-  html += `<div class="top-btns">
-      <a class="btn btn-morado" href="?page=comandos">🚀 Probar Bot</a>
-    </div>`;
-
-  html += `<div class="titulo-seccion">☁️ Elige tu Bot</div>`;
-
-  for(const key in datos.productos){
-    const p = datos.productos[key];
-    const cantEstilos = Object.keys(p.tipos).length;
-    html += `<div class="card" onclick="window.location.href='?page=tipos&id=${key}'">
-      <div class="nombre">${p.nombre} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></div>
-      <div class="precio">$ ${formatARS(p.precioBase)} ARS</div>
-      <p class="sub">${cantEstilos} Estilos Disponibles</p>
-      <a class="btn" href="?page=tipos&id=${key}" onclick="event.stopPropagation()">Ver Estilos</a>
-    </div>`;
-  }
-  app.innerHTML = html;
-}
-
-function renderTipos(){
-  const p = datos.productos[id];
-  if(!p){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
-
-  const cantEstilos = Object.keys(p.tipos).length;
-  let html = `<div class="box">
-    <h1>${p.nombre} ☁️</h1>
-    <p class="sub">Elige 1 de los ${cantEstilos} estilos. Precio: $ ${formatARS(p.precioBase)} ARS</p>
-  </div>`;
-
-  for(const key in p.tipos){
-    html += renderCardTipo(p.tipos[key], key, id);
-  }
-  html += `<a class="volver" href="?">← Volver a Tienda</a>`;
-  app.innerHTML = html;
-}
-
-function renderComandos(){
-  app.innerHTML = `<div class="box">
-    <h1>Comandos Nubecita Dzn ☁️ <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1>
-    <p class="sub">Prueba todos los comandos aquí</p>
-    <img src="${datos.comandosImg}" class="comandos-img" alt="Lista de Comandos">
-    <a class="btn btn-morado" href="${datos.grupoWhatsApp}" target="_blank">🚀 Probar Ahora</a>
-    <a class="volver" href="?">← Volver a Tienda</a>
-  </div>`;
-}
-
-function renderProducto(){
-  const p = datos.productos[id];
-  const t = p.tipos[tipo]; // <-- FIX: AGARRA SOLO EL ESTILO ELEGIDO
-  if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
-
-  const nombreCompleto = `${p.nombre} ${t.nombre}`;
-  const imgFinal = t.img || datos.img; // <-- AHORA SÍ LEE LA FOTO DEL ESTILO
-
-  app.innerHTML = `<div class="box"><h1>${nombreCompleto} <img src="${datos.img}" class="badge-img" alt="Nubecita Dzn Online ☁️"></h1><p class="sub">${p.sub}</p><img src="${imgFinal}" class="producto-img" alt="Demo"><h2 class="precio-big">$ ${formatARS(p.precioBase)} ARS</h2><a class="btn" href="?page=pago&id=${id}&tipo=${tipo}">Comprar Ahora</a><p class="garantia"><b>✅ Garantía Nubecita Dzn:</b> Si en 24h no te gusta, te devuelvo tu dinero por MP.</p><a class="btn btn-outline" href="https://wa.me/${datos.whatsapp}?text=Hola%20duda%20${encodeURIComponent(nombreCompleto)}" target="_blank">Tengo una Duda</a><a class="volver" href="?page=tipos&id=${id}">← Elegir otro Estilo</a></div>`;
-}
-
-function renderPago(){
-  const p = datos.productos[id];
-  const t = p.tipos[tipo]; // <-- FIX TAMBIEN ACA
-  if(!p ||!t){ app.innerHTML = `<div class="box"><h1>Producto no encontrado</h1><a class="volver" href="?">← Volver</a></div>`; return; }
-  const nombreCompleto = `${p.nombre} ${t.nombre}`;
-  const mensaje = encodeURIComponent(`Bro ya te transferí ✅\n\nMonto: ${nombreCompleto} $ ${formatARS(p.precioBase)} ARS\nAcá está mi captura 📸`);
-  app.innerHTML = `<div class="box"><h1>Métodos de Pago Argentina</h1><div class="producto" style="color:var(--blanco);font-weight:bold;font-size:16px;margin-bottom:20px">${nombreCompleto} $ ${formatARS(p.precioBase)} ARS</div><div class="metodo"><b>1. Mercado Pago</b><div class="dato">Alias: ${datos.mpAlias}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>2. Transferencia Bancaria</b><div class="dato">CBU: ${datos.cbu}</div><div class="dato">A nombre de: ${datos.nombre}</div></div><div class="metodo"><b>3. Prex / Diamantes</b><div class="dato">Consultar por WhatsApp</div></div><div class="aviso">⚠️ Transferí el monto exacto, toma captura y dale al botón.</div><a class="btn btn-verde" href="https://wa.me/${datos.whatsapp}?text=${mensaje}" target="_blank">✅ Ya Pagué</a><a class="volver" href="?page=producto&id=${id}&tipo=${tipo}">← Volver</a></div>`;
-}
-
-if(page === 'producto') renderProducto();
-else if(page === 'pago') renderPago();
-else if(page === 'comandos') renderComandos();
-else if(page === 'tipos') renderTipos();
-else renderCatalogo();
-</script>
 </body>
 </html>
