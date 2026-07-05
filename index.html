@@ -12,18 +12,22 @@ body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-seri
 .header{text-align:center;padding:25px 0}
 .header h1{font-size:2.2em;color:var(--rosa); font-weight:700;}
 .header p{font-size:0.9em;color:var(--texto);margin-top:8px}
-.header p b{color:var(--rosa)}
 .card{background:var(--blanco); border-radius:20px;padding:20px; margin-bottom:20px;box-shadow:0 5px 15px rgba(255,77,158,0.1); position:relative;}
 .card::after{content:'🎀'; position:absolute; top:-10px; right:15px; font-size:24px;}
 .card h2{color:var(--rosa);text-align:center;margin-bottom:18px; font-size:1.4em; font-weight:700;}
 .item{margin-bottom:15px;}
 .item-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:500;font-size:0.95em}
 .precio{color:var(--rosa);font-weight:700;font-size:1.1em}
-.btn{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:10px 0;border-radius:12px;text-decoration:none;text-align:center;font-weight:700;font-size:0.9em;}
+.btn{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:10px 0;border-radius:12px;text-decoration:none;text-align:center;font-weight:700;font-size:0.9em; cursor:pointer;}
 .btn:hover{transform:scale(1.02)}
 .notas{font-size:0.85em;line-height:1.8;color:var(--texto)}
 .notas li{margin-bottom:8px;list-style:'✨  '}
-#pagos{scroll-margin-top:20px;}
+
+/* SECCION PAGOS OCULTA */
+#pagos{display:none; animation: fadeIn 0.4s;}
+#pagos.activo{display:block;}
+@keyframes fadeIn { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:translateY(0)} }
+
 .metodos{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:15px 0}
 .metodo{background:var(--blanco); border:1px solid var(--rosa-claro);padding:8px 15px;border-radius:20px;font-weight:600;color:var(--rosa); font-size:0.85em;}
 .btn-wsp{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:14px 0;border-radius:15px;text-decoration:none;font-weight:700;margin-top:15px;text-align:center; font-size:1em;}
@@ -34,47 +38,48 @@ body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-seri
 <div class="container">
     <div class="header">
         <h1>Nubecita Dzn</h1>
-        <p>Diseños hechos con amor para ti 💕<br>Soy <b>Nubecita</b> y creo magia en cada detalle</p>
+        <p>Diseños hechos con amor para ti 💕<br>Soy <b>Nubecita</b></p>
     </div>
 
     <div class="card"><h2>Caligráficos</h2>
         <div class="item"><div class="item-info"><span>Cali Simple</span><span class="precio">S/ 700</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Cali + Objeto</span><span class="precio">S/ 1000</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Cali Temático</span><span class="precio">S/ 1500</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
     </div>
 
     <div class="card"><h2>Plantillas</h2>
         <div class="item"><div class="item-info"><span>Carrusel</span><span class="precio">S/ 2500</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Plantilla Staff</span><span class="precio">S/ 3500</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
     </div>
 
     <div class="card"><h2>Bots</h2>
         <div class="item"><div class="item-info"><span>1 Bot Mensual</span><span class="precio">S/ 1500</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>1 Bot Permanente</span><span class="precio">S/ 2500</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
     </div>
 
     <div class="card"><h2>Renovaciones</h2>
         <div class="item"><div class="item-info"><span>Mini</span><span class="precio">$4000</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Grande</span><span class="precio">$6000</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Dzn</span><span class="precio">$5000</span></div>
-            <a href="#pagos" class="btn">ENCARGAR</a></div>
+            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
     </div>
 
     <div class="card"><h2>Notas Importantes</h2>
         <ul class="notas"><li>No trabajo con apuro</li><li>No empiezo sin pago completo</li><li>No hago reembolsos</li><li>Muestro avances del trabajo</li><li>Solo hasta 2 cambios por producto</li></ul>
     </div>
 
+    <!-- SECCION PAGOS -->
     <div class="footer" id="pagos">
-        <h2 style="color:var(--rosa); font-size:1.4em; margin-bottom:15px">Métodos de Pago</h2>
+        <h2 style="color:var(--rosa); font-size:1.4em; margin-bottom:15px">Métodos de Pago 💖</h2>
         <div class="metodos"><div class="metodo">💙 Mercado Pago</div><div class="metodo">💳 Prex</div><div class="metodo">🅿️ PayPal</div><div class="metodo">💎 Diamantes</div></div>
         <p style="font-size:0.85em; margin-bottom:10px">"Escríbeme para coordinar tu pedido"</p>
         <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir%20un%20servicio%20💖" target="_blank" class="btn-wsp">Hablar por WhatsApp</a>
@@ -83,11 +88,14 @@ body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-seri
 </div>
 
 <script>
-  // ARREGLO DEL BUG: Al recargar borra el #pagos de la URL
+  function mostrarPagos(){
+    document.getElementById('pagos').classList.add('activo');
+    document.getElementById('pagos').scrollIntoView({behavior: 'smooth'});
+  }
+
+  // Al recargar, se oculta pagos otra vez
   window.addEventListener('load', () => {
-    if (window.location.hash === '#pagos') {
-      history.replaceState('', document.title, window.location.pathname);
-    }
+    document.getElementById('pagos').classList.remove('activo');
   });
 </script>
 </body>
