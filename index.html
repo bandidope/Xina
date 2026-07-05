@@ -2,105 +2,153 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nubecita Dzn - Servicios de Diseño</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<title>Nubecita Dzn - Servicios</title>
 <style>
-:root{--bg:#FFE6F0;--rosa:#FF4D9E;--rosa-claro:#FF8ACB;--texto:#5A3E46;--blanco:#FFFFFF;}
-*{margin:0;padding:0;box-sizing:border-box; scroll-behavior: smooth;}
-body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-serif; padding:15px;}
-.container{max-width:500px;margin:auto;}
-.header{text-align:center;padding:25px 0}
-.header h1{font-size:2.2em;color:var(--rosa); font-weight:700;}
-.card{background:var(--blanco); border-radius:20px;padding:20px; margin-bottom:20px;box-shadow:0 5px 15px rgba(255,77,158,0.1); position:relative;}
-.card::after{content:'🎀'; position:absolute; top:-10px; right:15px; font-size:24px;}
-.card h2{color:var(--rosa);text-align:center;margin-bottom:18px; font-size:1.4em; font-weight:700;}
-.item{margin-bottom:15px;}
-.item-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:500;font-size:0.95em}
-.precio{color:var(--rosa);font-weight:700;font-size:1.1em}
-.btn{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:10px 0;border-radius:12px;text-decoration:none;text-align:center;font-weight:700;font-size:0.9em; cursor:pointer;}
-.notas{font-size:0.85em;line-height:1.8;color:var(--texto)}
-.notas li{margin-bottom:8px;list-style:'✨  '}
+:root{--rosa:#FF4D9E; --rosa-claro:#FF8ACB; --negro:#0a0a0a; --gris:#1a1a1a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; padding:20px; overflow-x:hidden; position:relative;}
 
-/* SECCION PAGOS */
-#pagos{display:none; animation: fadeIn 0.4s;}
-#pagos.activo{display:block;}
-@keyframes fadeIn { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:translateY(0)} }
+/* BRILLOS CAYENDO */
+.sparkle{position:fixed; top:-10px; width:2px; height:2px; background:var(--rosa-claro); border-radius:50%; opacity:0; animation:fall linear infinite; box-shadow:0 0 6px var(--rosa-claro);}
+@keyframes fall{0%{transform:translateY(0); opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateY(100vh); opacity:0;}}
 
-.pago-box{background:var(--bg); border-radius:15px; padding:15px; margin-bottom:12px; text-align:left;}
-.pago-titulo{font-weight:700; color:var(--rosa); font-size:1em; margin-bottom:8px;}
-.pago-dato{background:var(--blanco); padding:10px; border-radius:10px; font-weight:600; font-size:0.9em; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;}
-.btn-copiar{background:var(--rosa-claro); color:var(--blanco); border:none; padding:5px 10px; border-radius:8px; font-size:0.75em; font-weight:700; cursor:pointer;}
-.btn-wsp{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:14px 0;border-radius:15px;text-decoration:none;font-weight:700;margin-top:15px;text-align:center; font-size:1em;}
+.container{max-width:600px; margin:auto; position:relative; z-index:2;}
+.header{text-align:center; margin-bottom:25px;}
+.header h1{font-size:2em; color:var(--rosa); text-shadow:0 0 10px var(--rosa);}
+.header p{color:#ccc; font-size:0.9em;}
+
+.card{background:var(--gris); border:1px solid var(--rosa); border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 0 15px rgba(255,77,158,0.2);}
+.card h2{text-align:center; color:var(--rosa); font-size:1.2em; margin-bottom:12px; border-bottom:1px solid var(--rosa); padding-bottom:8px;}
+.item{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #333; font-size:0.9em;}
+.item:last-child{border:none;}
+.precio{color:var(--rosa-claro); font-weight:bold;}
+.btn{display:block; width:100%; background:linear-gradient(90deg,var(--rosa),var(--rosa-claro)); color:var(--negro); padding:10px; text-align:center; text-decoration:none; border-radius:8px; margin-top:10px; font-weight:bold; border:none; cursor:pointer;}
+.btn:hover{box-shadow:0 0 15px var(--rosa);}
+.aclaraciones{font-size:0.8em; line-height:1.6; color:#ccc;}
+.aclaraciones p{margin:4px 0;}
+.pago-dato{background:#000; padding:10px; border-radius:8px; margin-bottom:8px; border:1px dashed var(--rosa);}
+.pago-titulo{color:var(--rosa); font-weight:bold; margin-bottom:4px;}
+#pagos{display:none;}
+#pagos.activo{display:block; animation:fade 0.3s;}
+@keyframes fade{from{opacity:0} to{opacity:1}}
+.footer{text-align:center; font-size:0.85em; margin-top:20px; color:var(--rosa);}
 </style>
 </head>
 <body>
+
+<div id="sparkles"></div>
+
 <div class="container">
     <div class="header">
-        <h1>Nubecita Dzn</h1>
-        <p>Diseños hechos con amor para ti 💕</p>
+        <h1>Servicios de Diseño</h1>
+        <p>Hola! Soy <b style="color:var(--rosa)">Nubecita Dzn</b></p>
     </div>
 
-    <div class="card"><h2>Caligráficos</h2>
-        <div class="item"><div class="item-info"><span>Cali Simple</span><span class="precio">S/ 700</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
+    <div class="card"><h2>CALIGRAFICOS</h2>
+        <div class="item"><span>Cali Simple</span><span class="precio">700</span></div>
+        <div class="item"><span>Cali + obj</span><span class="precio">1000</span></div>
+        <div class="item"><span>Cali tematico</span><span class="precio">1500</span></div>
+        <div class="item"><span>Cali curvo</span><span class="precio">1200</span></div>
+        <div class="item"><span>Cali pixel</span><span class="precio">1400</span></div>
+        <div class="item"><span>Cali letra</span><span class="precio">600</span></div>
     </div>
 
-    <div class="card"><h2>Renovaciones</h2>
-        <div class="item"><div class="item-info"><span>Mini</span><span class="precio">$4000</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
+    <div class="card"><h2>PLANTILLAS</h2>
+        <div class="item"><span>Carrusel</span><span class="precio">2500</span></div>
+        <div class="item"><span>P. bienvenida</span><span class="precio">1300</span></div>
+        <div class="item"><span>P. staff</span><span class="precio">3500</span></div>
+        <div class="item"><span>Destacadas x5</span><span class="precio">2000</span></div>
+        <div class="item"><span>P. Precios</span><span class="precio">1600</span></div>
+        <div class="item"><span>P. Estamos Presentes</span><span class="precio">1500</span></div>
+        <div class="item"><span>Marca de agua</span><span class="precio">1000</span></div>
+        <div class="item"><span>P. miembro</span><span class="precio">1200</span></div>
+        <div class="item"><span>P. new post</span><span class="precio">2000</span></div>
+        <div class="item"><span>P. catalogo</span><span class="precio">2000</span></div>
     </div>
 
-    <div class="card"><h2>Notas Importantes</h2>
-        <ul class="notas"><li>No trabajo con apuro</li><li>No empiezo sin pago completo</li></ul>
+    <div class="card"><h2>RENOVACIONES</h2>
+        <div class="item"><span>Mini</span><span class="precio">4000</span></div>
+        <div class="item"><span>Grande</span><span class="precio">6000</span></div>
+        <div class="item"><span>Dzn</span><span class="precio">5000</span></div>
+        <button onclick="mostrarPagos()" class="btn">ENCARGAR</button>
     </div>
 
-    <!-- SECCION PAGOS -->
+    <div class="card"><h2>BOTS MENSUALES</h2>
+        <div class="item"><span>1 bot</span><span class="precio">1500</span></div>
+        <div class="item"><span>3 bots</span><span class="precio">3500</span></div>
+        <div class="item"><span>5 bots</span><span class="precio">6000</span></div>
+        <div class="item"><span>7 bots</span><span class="precio">8500</span></div>
+        <button onclick="mostrarPagos()" class="btn">ENCARGAR</button>
+    </div>
+
+    <div class="card"><h2>BOTS PERMANENTES</h2>
+        <div class="item"><span>1 bot</span><span class="precio">2500</span></div>
+        <div class="item"><span>3 bots</span><span class="precio">4500</span></div>
+        <div class="item"><span>5 bots</span><span class="precio">7000</span></div>
+        <div class="item"><span>7 bots</span><span class="precio">9500</span></div>
+        <button onclick="mostrarPagos()" class="btn">ENCARGAR</button>
+    </div>
+
+    <div class="card"><h2>ACLARACIONES</h2>
+        <div class="aclaraciones">
+            <p>- No trabajo con apuro</p>
+            <p>- No empiezo sin pago completo</p>
+            <p>- No hago reembolsos</p>
+            <p>- Muestro trabajos al privado</p>
+            <p>- Mando avances</p>
+            <p>- Solo 2 cambios por producto</p>
+        </div>
+    </div>
+
+    <!-- SECCION PAGOS CON DATOS -->
     <div class="card" id="pagos">
-        <h2 style="color:var(--rosa); font-size:1.4em; margin-bottom:15px">Métodos de Pago 💖</h2>
-        <p style="font-size:0.85em; margin-bottom:15px">Haz el pago y me envías el comprobante</p>
+        <h2>METODOS DE PAGO</h2>
+        <p style="font-size:0.8em; text-align:center; margin-bottom:10px; color:#ccc;">Paga por cualquiera de estos medios 💖</p>
         
-        <div class="pago-box">
+        <div class="pago-dato">
             <div class="pago-titulo">💙 Mercado Pago</div>
-            <div class="pago-dato">
-                <span>Alias: NUBECITA.DZN.MP</span>
-                <button class="btn-copiar" onclick="copiar('NUBECITA.DZN.MP')">Copiar</button>
-            </div>
+            <div>Alias: NUBECITA.DZN.MP</div>
         </div>
 
-        <div class="pago-box">
+        <div class="pago-dato">
             <div class="pago-titulo">💳 Prex</div>
-            <div class="pago-dato">
-                <span>CBU: 000123456789</span>
-                <button class="btn-copiar" onclick="copiar('000123456789')">Copiar</button>
-            </div>
+            <div>CBU: 000123456789</div>
         </div>
 
-        <div class="pago-box">
-            <div class="pago-titulo">🅿️ PayPal</div>
-            <div class="pago-dato">
-                <span>paypal.me/nubecitadzn</span>
-                <button class="btn-copiar" onclick="copiar('paypal.me/nubecitadzn')">Copiar</button>
-            </div>
+        <div class="pago-dato">
+            <div class="pago-titulo">🅿️ Paypal</div>
+            <div>paypal.me/nubecitadzn</div>
         </div>
 
-        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20ya%20realice%20el%20pago%20💖" target="_blank" class="btn-wsp">Enviar Comprobante por WhatsApp</a>
+        <div class="pago-dato">
+            <div class="pago-titulo">💎 Diamantes</div>
+            <div>ID: 123456789</div>
+        </div>
+
+        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20ya%20realice%20el%20pago%20💖" target="_blank" class="btn">Enviar Comprobante por WhatsApp</a>
+    </div>
+
+    <div class="footer">
+        IG: @nubecita.dzn | Wsp: +54 9 11 5331-7678
     </div>
 </div>
 
 <script>
-  function mostrarPagos(){
+function crearSparkle(){
+    const s = document.createElement('div');
+    s.classList.add('sparkle');
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDuration = Math.random() * 3 + 2 + 's';
+    s.style.animationDelay = Math.random() * 5 + 's';
+    document.getElementById('sparkles').appendChild(s);
+    setTimeout(()=>s.remove(), 8000);
+}
+setInterval(crearSparkle, 150);
+
+function mostrarPagos(){
     document.getElementById('pagos').classList.add('activo');
     document.getElementById('pagos').scrollIntoView({behavior: 'smooth'});
-  }
-
-  function copiar(texto){
-    navigator.clipboard.writeText(texto);
-    alert('Copiado: ' + texto);
-  }
-
-  window.addEventListener('load', () => {
-    document.getElementById('pagos').classList.remove('activo');
-  });
+}
 </script>
 </body>
 </html>
