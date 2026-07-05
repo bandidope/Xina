@@ -8,59 +8,32 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{
     background: linear-gradient(180deg, #03051a 0%, #0a0f3a 50%, #050822 100%);
-    color:#e0f0ff; font-family:'Poppins',sans-serif; padding:20px; overflow-x:hidden;
+    color:#e0f0ff; font-family:'Poppins',sans-serif; padding:20px;
 }
+/* SOLO 30 ESTRELLAS EN VEZ DE 100 */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;background-image:radial-gradient(white 1px,transparent 1px);background-size:100px 100px;opacity:0.4}
 
-/* ESTRELLAS BRILLANDO */
-.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
-.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 3s infinite}
-@keyframes twinkle{0%,100%{opacity:0.2}50%{opacity:1}}
-
-/* NUBES CAYENDO */
-.cloud{position:absolute;color:rgba(142,207,255,0.1);font-size:60px;animation:float 20s linear infinite}
-@keyframes float{0%{transform:translateY(-100px) translateX(0)}100%{transform:translateY(120vh) translateX(50px)}}
-
-.container{max-width:1100px;margin:auto;position:relative;z-index:2}
-.header{text-align:center;padding:40px 0;animation:fadeIn 1.5s}
-.header h1{font-family:'Playfair Display';font-size:3.5em;color:#fff;text-shadow:0 0 20px #8ecfff,0 0 40px #8ecfff;animation:glow 2s ease-in-out infinite alternate}
-.header p{font-size:1.1em;color:#cde8ff;margin-top:10px}
-
+.container{max-width:1100px;margin:auto}
+.header{text-align:center;padding:40px 0}
+.header h1{font-family:'Playfair Display';font-size:3.5em;color:#fff;text-shadow:0 0 15px #8ecfff}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .card{
-    background:rgba(10,20,50,0.6);border:1px solid rgba(142,207,255,0.3);
-    border-radius:20px;padding:25px;backdrop-filter:blur(10px);
-    box-shadow:0 0 30px rgba(142,207,255,0.1);
-    transition:0.4s; animation:fadeInUp 1s;
+    background:rgba(10,20,50,0.8);border:1px solid rgba(142,207,255,0.3);
+    border-radius:20px;padding:25px; /* QUITÉ EL BLUR */
+    transition:0.3s;
 }
-.card:hover{transform:translateY(-8px);border-color:#8ecfff;box-shadow:0 0 40px rgba(142,207,255,0.4)}
+.card:hover{transform:translateY(-5px);border-color:#8ecfff}
 .card h2{font-family:'Playfair Display';color:#8ecfff;text-align:center;margin-bottom:20px;font-size:1.5em}
-
 .item{display:flex;justify-content:space-between;margin-bottom:12px;padding-bottom:8px;border-bottom:1px dashed rgba(142,207,255,0.2)}
-.precio{color:#fff;font-weight:500;text-shadow:0 0 10px #8ecfff}
+.precio{color:#fff;font-weight:500}
 .notas{font-size:0.9em;line-height:1.8;color:#cde8ff}
 .notas li{margin-bottom:8px;list-style:'☁️  '}
-
 .footer{text-align:center;margin-top:40px;padding:30px;border-top:1px solid rgba(142,207,255,0.3)}
-.btn-wsp{
-    display:inline-block;background:linear-gradient(90deg,#25D366,#1ebe5b);color:#fff;
-    padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;margin-top:15px;
-    box-shadow:0 0 20px rgba(37,211,102,0.5);transition:0.3s;
-}
-.btn-wsp:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(37,211,102,0.8)}
-
-@keyframes glow{from{text-shadow:0 0 20px #8ecfff}to{text-shadow:0 0 30px #8ecfff,0 0 50px #8ecfff}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.btn-wsp{display:inline-block;background:#25D366;color:#fff;padding:12px 25px;border-radius:50px;text-decoration:none;font-weight:700;margin-top:15px}
 </style>
 </head>
 <body>
-
-<!-- ESTRELLAS -->
 <div class="stars"></div>
-<!-- NUBES -->
-<div class="cloud" style="left:10%;animation-delay:0s">☁️</div>
-<div class="cloud" style="left:80%;animation-delay:5s">☁️</div>
-<div class="cloud" style="left:50%;animation-delay:10s">☁️</div>
 
 <div class="container">
     <div class="header">
@@ -70,8 +43,7 @@ body{
     </div>
 
     <div class="grid">
-        <div class="card">
-            <h2>CALIGRÁFICOS</h2>
+        <div class="card"><h2>CALIGRÁFICOS</h2>
             <div class="item"><span>Cali Simple</span><span class="precio">700</span></div>
             <div class="item"><span>Cali + obj</span><span class="precio">1000</span></div>
             <div class="item"><span>Cali temático</span><span class="precio">1500</span></div>
@@ -80,8 +52,7 @@ body{
             <div class="item"><span>Cali letra</span><span class="precio">600</span></div>
         </div>
 
-        <div class="card">
-            <h2>PLANTILLAS</h2>
+        <div class="card"><h2>PLANTILLAS</h2>
             <div class="item"><span>Carrusel</span><span class="precio">2500</span></div>
             <div class="item"><span>P. bienvenida</span><span class="precio">1300</span></div>
             <div class="item"><span>P. staff</span><span class="precio">3500</span></div>
@@ -90,31 +61,27 @@ body{
             <div class="item"><span>P. Estamos Presentes</span><span class="precio">1500</span></div>
         </div>
 
-        <div class="card">
-            <h2>RENOVACIONES</h2>
+        <div class="card"><h2>RENOVACIONES</h2>
             <div class="item"><span>Mini</span><span class="precio">4000</span></div>
             <div class="item"><span>Grande</span><span class="precio">6000</span></div>
             <div class="item"><span>Dzn</span><span class="precio">5000</span></div>
         </div>
 
-        <div class="card">
-            <h2>BOTS MENSUALES</h2>
+        <div class="card"><h2>BOTS MENSUALES</h2>
             <div class="item"><span>1 bot</span><span class="precio">1500</span></div>
             <div class="item"><span>3 bots</span><span class="precio">3500</span></div>
             <div class="item"><span>5 bots</span><span class="precio">6000</span></div>
             <div class="item"><span>7 bots</span><span class="precio">8500</span></div>
         </div>
 
-        <div class="card">
-            <h2>BOTS PERMANENTES</h2>
+        <div class="card"><h2>BOTS PERMANENTES</h2>
             <div class="item"><span>1 bot</span><span class="precio">2500</span></div>
             <div class="item"><span>3 bots</span><span class="precio">4500</span></div>
             <div class="item"><span>5 bots</span><span class="precio">7000</span></div>
             <div class="item"><span>7 bots</span><span class="precio">9500</span></div>
         </div>
 
-        <div class="card">
-            <h2>ACLARACIONES</h2>
+        <div class="card"><h2>ACLARACIONES</h2>
             <ul class="notas">
                 <li>No trabajo con apuro</li>
                 <li>No empiezo sin pago completo</li>
@@ -128,23 +95,9 @@ body{
     <div class="footer">
         <h2>MÉTODOS DE PAGO</h2>
         <p>Mercado Pago | Diamantes | Consulten moneda</p>
-        <p style="margin-top:20px">Cada nube es única, como tu idea. ¡Armemos algo increíble juntas!</p>
         <a href="https://wa.me/5491153317678" target="_blank" class="btn-wsp">Pedidos por WhatsApp</a>
         <p style="margin-top:15px">IG: @nubecita.dzn</p>
     </div>
 </div>
-
-<script>
-// Generar estrellas aleatorias
-const starsContainer = document.querySelector('.stars');
-for(let i=0; i<100; i++){
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random()*100 + '%';
-    star.style.top = Math.random()*100 + '%';
-    star.style.animationDelay = Math.random()*3 + 's';
-    starsContainer.appendChild(star);
-}
-</script>
 </body>
 </html>
