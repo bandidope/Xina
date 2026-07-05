@@ -3,105 +3,98 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nubecita Dzn - Servicios de Diseño</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-    --dark:#0a000f;
-    --mid:#1a001f; 
-    --light:#D46A9A;
-    --aqua:#F4A6CD;
-    --white:#FFFFFF;
-    --rosa-nube:#FFB3D9;
+    --bg:#050005;
+    --card:#1a0015;
+    --neon:#FF2E9A;
+    --neon2:#FF9EDB;
+    --text:#FFFFFF;
 }
 *{margin:0;padding:0;box-sizing:border-box; scroll-behavior: smooth;}
 body{
-    background: linear-gradient(180deg, var(--dark) 0%, var(--mid) 100%);
-    color:var(--white); font-family:'Poppins',sans-serif; padding:20px;
-    overflow-x:hidden; position:relative;
+    background:var(--bg);
+    color:var(--text); font-family:'Poppins',sans-serif; padding:20px;
+    background-image: 
+        linear-gradient(rgba(255,46,154,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,46,154,0.05) 1px, transparent 1px);
+    background-size:40px 40px;
+    overflow-x:hidden;
 }
 
-/* ESTRELLAS ROSAS BRILLANDO */
-.estrella{
-    position:fixed; background:var(--rosa-nube); border-radius:50%;
-    animation:brillar 3s ease-in-out infinite; pointer-events:none; z-index:0;
-    box-shadow:0 0 10px var(--rosa-nube);
+/* LINEA NEON MOVIENDOSE */
+body::before{
+    content:''; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at 50% 50%, rgba(255,46,154,0.1), transparent 70%);
+    animation:pulso 4s ease-in-out infinite; pointer-events:none; z-index:0;
 }
-@keyframes brillar{
-    0%,100%{opacity:0.3; transform:scale(1)}
-    50%{opacity:1; transform:scale(1.5)}
-}
-
-/* NUBES ROSAS CAYENDO */
-.nube{
-    position:fixed; color:var(--rosa-nube); font-size:80px; opacity:0.12;
-    animation:caer 30s linear infinite; pointer-events:none; z-index:0;
-    text-shadow:0 0 40px var(--rosa-nube);
-}
-@keyframes caer{
-    0%{transform:translateY(-100px) translateX(0) rotate(0deg)}
-    100%{transform:translateY(120vh) translateX(150px) rotate(360deg)}
-}
+@keyframes pulso{0%,100%{opacity:0.3}50%{opacity:0.8}}
 
 .container{max-width:1100px;margin:auto; position:relative; z-index:2}
-.header{text-align:center;padding:40px 0}
-.header h1{font-family:'Playfair Display';font-size:3.2em;color:var(--white);text-shadow:0 0 20px var(--light), 0 0 40px var(--rosa-nube); animation:pulso 3s infinite}
-@keyframes pulso{0%,100%{text-shadow:0 0 20px var(--light)}50%{text-shadow:0 0 40px var(--rosa-nube)}}
-.header p{font-size:1.1em;color:var(--aqua);margin-top:10px;font-weight:500}
+.header{text-align:center;padding:50px 0}
+.header h1{
+    font-family:'Orbitron';font-size:3em;color:var(--neon); 
+    text-shadow:0 0 5px var(--neon), 0 0 20px var(--neon), 0 0 40px var(--neon);
+    letter-spacing:3px;
+}
+.header p{font-size:1.1em;color:var(--neon2);margin-top:15px;font-weight:600}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
 .card{
-    background:rgba(26,0,31,0.75);border:2px solid var(--light);
-    border-radius:20px;padding:25px;transition:0.3s; backdrop-filter:blur(8px);
+    background:rgba(26,0,21,0.6);border:2px solid var(--neon);
+    border-radius:15px;padding:25px;transition:0.3s; backdrop-filter:blur(10px);
+    position:relative; overflow:hidden;
 }
-.card:hover{transform:translateY(-8px);border-color:var(--rosa-nube);box-shadow:0 0 35px var(--rosa-nube)}
-.card h2{font-family:'Playfair Display';color:var(--white);text-align:center;margin-bottom:20px;font-size:1.6em;text-shadow:0 0 10px var(--light)}
-.item{margin-bottom:15px;padding-bottom:12px;border-bottom:1px dashed var(--light)}
-.item-info{display:flex;justify-content:space-between;margin-bottom:8px;font-weight:500}
-.precio{color:var(--rosa-nube);font-weight:800;font-size:1.2em;text-shadow:0 0 10px var(--rosa-nube)}
+.card::before{
+    content:''; position:absolute; top:-2px; left:-2px; right:-2px; bottom:-2px;
+    background:linear-gradient(45deg,var(--neon),var(--neon2),var(--neon));
+    border-radius:15px; z-index:-1; opacity:0; transition:0.3s;
+}
+.card:hover::before{opacity:1}
+.card:hover{transform:translateY(-8px); box-shadow:0 0 30px var(--neon)}
+.card h2{
+    font-family:'Orbitron';color:var(--neon);text-align:center;margin-bottom:20px;
+    font-size:1.4em; letter-spacing:2px;
+}
+.item{margin-bottom:15px;padding-bottom:12px;border-bottom:1px solid rgba(255,46,154,0.3)}
+.item-info{display:flex;justify-content:space-between;margin-bottom:10px;font-weight:600}
+.precio{color:var(--neon2);font-weight:800;font-size:1.3em;text-shadow:0 0 10px var(--neon)}
 .btn-comprar{
-    display:block;width:100%;background:linear-gradient(90deg,var(--light),var(--rosa-nube));color:var(--dark);
-    padding:10px 0;border-radius:10px;text-decoration:none;text-align:center;
-    font-weight:800;font-size:0.95em;transition:0.3s;border:none;cursor:pointer;
+    display:block;width:100%;background:transparent; color:var(--neon);
+    padding:10px 0;border-radius:8px;text-decoration:none;text-align:center;
+    font-weight:800;font-size:0.9em;transition:0.3s; border:2px solid var(--neon);
+    font-family:'Orbitron'; letter-spacing:1px;
 }
-.btn-comprar:hover{background:linear-gradient(90deg,var(--rosa-nube),var(--light));transform:scale(1.03);box-shadow:0 0 20px var(--rosa-nube)}
-.notas{font-size:0.9em;line-height:1.8;color:var(--aqua)}
-.notas li{margin-bottom:8px;list-style:'☁️  '}
-.footer{text-align:center;margin-top:40px;padding:30px;border-top:2px solid var(--light)}
+.btn-comprar:hover{background:var(--neon);color:var(--bg);box-shadow:0 0 20px var(--neon)}
+.notas{font-size:0.9em;line-height:1.8;color:var(--neon2)}
+.notas li{margin-bottom:8px;list-style:'>  '}
+.footer{text-align:center;margin-top:50px;padding:30px;border-top:2px solid var(--neon)}
 #pagos{scroll-margin-top:20px;}
 .metodos{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:20px 0}
 .metodo{
-    background:rgba(212,106,154,0.2);border:1px solid var(--light);
-    padding:10px 20px;border-radius:12px;font-weight:700;color:var(--white)
+    background:rgba(255,46,154,0.1);border:2px solid var(--neon);
+    padding:12px 20px;border-radius:10px;font-weight:700;color:var(--neon2);
+    transition:0.3s;
 }
-.btn-wsp{display:inline-block;background:linear-gradient(90deg,var(--light),var(--rosa-nube));color:var(--dark);padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:800;margin-top:15px;transition:0.3s;font-size:1.1em}
-.btn-wsp:hover{background:linear-gradient(90deg,var(--rosa-nube),var(--light));transform:scale(1.05);box-shadow:0 0 25px var(--rosa-nube)}
+.metodo:hover{background:var(--neon); color:var(--bg); box-shadow:0 0 15px var(--neon)}
+.btn-wsp{
+    display:inline-block;background:var(--neon);color:var(--bg);padding:15px 35px;
+    border-radius:10px;text-decoration:none;font-weight:900;margin-top:15px;
+    transition:0.3s;font-size:1em; font-family:'Orbitron'; letter-spacing:1px;
+}
+.btn-wsp:hover{background:var(--neon2);transform:scale(1.05);box-shadow:0 0 30px var(--neon)}
 </style>
 </head>
 <body>
-
-<!-- ESTRELLAS ROSAS -->
-<div class="estrella" style="top:10%; left:15%; width:3px; height:3px; animation-delay:0s"></div>
-<div class="estrella" style="top:25%; left:80%; width:4px; height:4px; animation-delay:1s"></div>
-<div class="estrella" style="top:50%; left:10%; width:2px; height:2px; animation-delay:2s"></div>
-<div class="estrella" style="top:70%; left:90%; width:3px; height:3px; animation-delay:0.5s"></div>
-<div class="estrella" style="top:30%; left:50%; width:3px; height:3px; animation-delay:1.5s"></div>
-<div class="estrella" style="top:85%; left:30%; width:2px; height:2px; animation-delay:2.5s"></div>
-
-<!-- NUBES ROSAS -->
-<div class="nube" style="left:10%; animation-delay:0s">☁️</div>
-<div class="nube" style="left:70%; animation-delay:10s">☁️</div>
-<div class="nube" style="left:40%; animation-delay:20s">☁️</div>
-<div class="nube" style="left:85%; animation-delay:5s">☁️</div>
-
 <div class="container">
     <div class="header">
-        <h1>Servicios de Diseño</h1>
-        <p>¡Hola! Soy <b style="color:var(--rosa-nube)">Nubecita Dzn</b><br>
-        Entre nubes y creatividad, doy vida a tus ideas ✨</p>
+        <h1>NUBECITA DZN</h1>
+        <p>SISTEMA DE DISEÑO // CREATIVIDAD CARGADA</p>
     </div>
 
     <div class="grid">
-        <div class="card"><h2>CALIGRÁFICOS</h2>
+        <div class="card"><h2>CALIGRAFICOS</h2>
             <div class="item">
                 <div class="item-info"><span>Cali Simple</span><span class="precio">700</span></div>
                 <a href="#pagos" class="btn-comprar">COMPRAR</a>
@@ -138,7 +131,7 @@ body{
             </div>
         </div>
 
-        <div class="card"><h2>ACLARACIONES</h2>
+        <div class="card"><h2>PROTOCOLO</h2>
             <ul class="notas">
                 <li>No trabajo con apuro</li>
                 <li>No empiezo sin pago completo</li>
@@ -150,16 +143,15 @@ body{
     </div>
 
     <div class="footer" id="pagos">
-        <h2>MÉTODOS DE PAGO ACEPTADOS</h2>
+        <h2 style="font-family:Orbitron; color:var(--neon)">METODOS DE PAGO</h2>
         <div class="metodos">
-            <div class="metodo">💙 Mercado Pago</div>
-            <div class="metodo">💳 Prex</div>
-            <div class="metodo">🅿️ PayPal</div>
-            <div class="metodo">💎 Diamantes</div>
+            <div class="metodo">💙 MERCADO PAGO</div>
+            <div class="metodo">💳 PREX</div>
+            <div class="metodo">🅿️ PAYPAL</div>
+            <div class="metodo">💎 DIAMANTES</div>
         </div>
-        <p style="color:var(--aqua);margin-bottom:15px">*Elige tu método y escríbeme para coordinar el pago*</p>
-        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir%20un%20servicio" target="_blank" class="btn-wsp">Hablar por WhatsApp</a>
-        <p style="margin-top:15px">IG: @nubecita.dzn</p>
+        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir%20un%20servicio" target="_blank" class="btn-wsp">CONECTAR WHATSAPP</a>
+        <p style="margin-top:20px; color:var(--neon2)">IG: @nubecita.dzn</p>
     </div>
 </div>
 </body>
