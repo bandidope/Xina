@@ -19,24 +19,37 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
 
 .card{background:var(--gris); border:1px solid var(--rosa); border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 0 15px rgba(255,77,158,0.2);}
 .card h2{text-align:center; color:var(--rosa); font-size:1.2em; margin-bottom:12px; border-bottom:1px solid var(--rosa); padding-bottom:8px;}
-.item{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #333; font-size:0.9em;}
+.item{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed #333; font-size:0.9em;}
 .item:last-child{border:none;}
 .precio{color:var(--rosa-claro); font-weight:bold;}
-.btn{display:block; width:100%; background:linear-gradient(90deg,var(--rosa),var(--rosa-claro)); color:var(--negro); padding:10px; text-align:center; text-decoration:none; border-radius:8px; margin-top:10px; font-weight:bold; border:none; cursor:pointer;}
-.btn:hover{box-shadow:0 0 15px var(--rosa);}
+.btn-mini{background:linear-gradient(90deg,var(--rosa),var(--rosa-claro)); color:var(--negro); padding:5px 12px; text-decoration:none; border-radius:6px; font-weight:bold; font-size:0.8em; border:none; cursor:pointer;}
+.btn-mini:hover{box-shadow:0 0 10px var(--rosa);}
+.btn{display:block; width:100%; background:linear-gradient(90deg,var(--rosa),var(--rosa-claro)); color:var(--negro); padding:12px; text-align:center; text-decoration:none; border-radius:8px; margin-top:10px; font-weight:bold; border:none; cursor:pointer; font-size:1em;}
 .aclaraciones{font-size:0.8em; line-height:1.6; color:#ccc;}
-.aclaraciones p{margin:4px 0;}
-.pago-dato{background:#000; padding:10px; border-radius:8px; margin-bottom:8px; border:1px dashed var(--rosa);}
-.pago-titulo{color:var(--rosa); font-weight:bold; margin-bottom:4px;}
+
+/* PAGOS */
+.pago-dato{background:#000; padding:10px; border-radius:8px; margin-bottom:8px; border:1px dashed var(--rosa); display:flex; justify-content:space-between; align-items:center;}
+.pago-info{text-align:left;}
+.pago-titulo{color:var(--rosa); font-weight:bold; margin-bottom:4px; font-size:0.9em;}
+.pago-valor{font-size:0.85em;}
+.btn-copiar{background:var(--rosa-claro); color:var(--negro); border:none; padding:6px 10px; border-radius:6px; font-size:0.75em; font-weight:bold; cursor:pointer;}
+.btn-copiar:active{transform:scale(0.95);}
+
 #pagos{display:none;}
 #pagos.activo{display:block; animation:fade 0.3s;}
 @keyframes fade{from{opacity:0} to{opacity:1}}
 .footer{text-align:center; font-size:0.85em; margin-top:20px; color:var(--rosa);}
+
+/* ALERTA COPIADO */
+.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--rosa); color:var(--negro); padding:10px 20px; border-radius:8px; font-weight:bold; display:none; z-index:999;}
+.toast.show{display:block; animation:toast 2s;}
+@keyframes toast{0%{opacity:0; bottom:10px;} 20%{opacity:1; bottom:20px;} 80%{opacity:1;} 100%{opacity:0;}}
 </style>
 </head>
 <body>
 
 <div id="sparkles"></div>
+<div id="toast" class="toast">Copiado! ✓</div>
 
 <div class="container">
     <div class="header">
@@ -45,48 +58,38 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
     </div>
 
     <div class="card"><h2>CALIGRAFICOS</h2>
-        <div class="item"><span>Cali Simple</span><span class="precio">700</span></div>
-        <div class="item"><span>Cali + obj</span><span class="precio">1000</span></div>
-        <div class="item"><span>Cali tematico</span><span class="precio">1500</span></div>
-        <div class="item"><span>Cali curvo</span><span class="precio">1200</span></div>
-        <div class="item"><span>Cali pixel</span><span class="precio">1400</span></div>
-        <div class="item"><span>Cali letra</span><span class="precio">600</span></div>
+        <div class="item"><span>Cali Simple</span><span class="precio">700 <button onclick="encargar('Cali Simple - 700')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Cali + obj</span><span class="precio">1000 <button onclick="encargar('Cali + obj - 1000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Cali tematico</span><span class="precio">1500 <button onclick="encargar('Cali tematico - 1500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Cali curvo</span><span class="precio">1200 <button onclick="encargar('Cali curvo - 1200')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Cali pixel</span><span class="precio">1400 <button onclick="encargar('Cali pixel - 1400')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Cali letra</span><span class="precio">600 <button onclick="encargar('Cali letra - 600')" class="btn-mini">ENCARGAR</button></span></div>
     </div>
 
     <div class="card"><h2>PLANTILLAS</h2>
-        <div class="item"><span>Carrusel</span><span class="precio">2500</span></div>
-        <div class="item"><span>P. bienvenida</span><span class="precio">1300</span></div>
-        <div class="item"><span>P. staff</span><span class="precio">3500</span></div>
-        <div class="item"><span>Destacadas x5</span><span class="precio">2000</span></div>
-        <div class="item"><span>P. Precios</span><span class="precio">1600</span></div>
-        <div class="item"><span>P. Estamos Presentes</span><span class="precio">1500</span></div>
-        <div class="item"><span>Marca de agua</span><span class="precio">1000</span></div>
-        <div class="item"><span>P. miembro</span><span class="precio">1200</span></div>
-        <div class="item"><span>P. new post</span><span class="precio">2000</span></div>
-        <div class="item"><span>P. catalogo</span><span class="precio">2000</span></div>
+        <div class="item"><span>Carrusel</span><span class="precio">2500 <button onclick="encargar('Carrusel - 2500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. staff</span><span class="precio">3500 <button onclick="encargar('P. staff - 3500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Destacadas x5</span><span class="precio">2000 <button onclick="encargar('Destacadas x5 - 2000')" class="btn-mini">ENCARGAR</button></span></div>
     </div>
 
     <div class="card"><h2>RENOVACIONES</h2>
-        <div class="item"><span>Mini</span><span class="precio">4000</span></div>
-        <div class="item"><span>Grande</span><span class="precio">6000</span></div>
-        <div class="item"><span>Dzn</span><span class="precio">5000</span></div>
-        <button onclick="mostrarPagos()" class="btn">ENCARGAR</button>
+        <div class="item"><span>Mini</span><span class="precio">4000 <button onclick="encargar('Renovacion Mini - 4000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Grande</span><span class="precio">6000 <button onclick="encargar('Renovacion Grande - 6000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Dzn</span><span class="precio">5000 <button onclick="encargar('Renovacion Dzn - 5000')" class="btn-mini">ENCARGAR</button></span></div>
     </div>
 
     <div class="card"><h2>BOTS MENSUALES</h2>
-        <div class="item"><span>1 bot</span><span class="precio">1500</span></div>
-        <div class="item"><span>3 bots</span><span class="precio">3500</span></div>
-        <div class="item"><span>5 bots</span><span class="precio">6000</span></div>
-        <div class="item"><span>7 bots</span><span class="precio">8500</span></div>
-        <button onclick="mostrarPagos()" class="btn">ENCARGAR</button>
+        <div class="item"><span>1 bot</span><span class="precio">1500 <button onclick="encargar('Bot Mensual 1 - 1500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>3 bots</span><span class="precio">3500 <button onclick="encargar('Bot Mensual 3 - 3500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>5 bots</span><span class="precio">6000 <button onclick="encargar('Bot Mensual 5 - 6000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>7 bots</span><span class="precio">8500 <button onclick="encargar('Bot Mensual 7 - 8500')" class="btn-mini">ENCARGAR</button></span></div>
     </div>
 
     <div class="card"><h2>BOTS PERMANENTES</h2>
-        <div class="item"><span>1 bot</span><span class="precio">2500</span></div>
-        <div class="item"><span>3 bots</span><span class="precio">4500</span></div>
-        <div class="item"><span>5 bots</span><span class="precio">7000</span></div>
-        <div class="item"><span>7 bots</span><span class="precio">9500</span></div>
-        <button onclick="mostrarPagos()" class="btn">ENCARGAR</button>
+        <div class="item"><span>1 bot</span><span class="precio">2500 <button onclick="encargar('Bot Permanente 1 - 2500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>3 bots</span><span class="precio">4500 <button onclick="encargar('Bot Permanente 3 - 4500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>5 bots</span><span class="precio">7000 <button onclick="encargar('Bot Permanente 5 - 7000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>7 bots</span><span class="precio">9500 <button onclick="encargar('Bot Permanente 7 - 9500')" class="btn-mini">ENCARGAR</button></span></div>
     </div>
 
     <div class="card"><h2>ACLARACIONES</h2>
@@ -100,32 +103,44 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
         </div>
     </div>
 
-    <!-- SECCION PAGOS CON DATOS -->
+    <!-- SECCION PAGOS CON BOTON COPIAR -->
     <div class="card" id="pagos">
         <h2>METODOS DE PAGO</h2>
-        <p style="font-size:0.8em; text-align:center; margin-bottom:10px; color:#ccc;">Paga por cualquiera de estos medios 💖</p>
+        <p style="font-size:0.8em; text-align:center; margin-bottom:10px; color:#ccc;">Copia tus datos y paga 💖</p>
         
         <div class="pago-dato">
-            <div class="pago-titulo">💙 Mercado Pago</div>
-            <div>Alias: NUBECITA.DZN.MP</div>
+            <div class="pago-info">
+                <div class="pago-titulo">💙 Mercado Pago</div>
+                <div class="pago-valor" id="mp">NUBECITA.DZN.MP</div>
+            </div>
+            <button class="btn-copiar" onclick="copiar('NUBECITA.DZN.MP')">Copiar</button>
         </div>
 
         <div class="pago-dato">
-            <div class="pago-titulo">💳 Prex</div>
-            <div>CBU: 000123456789</div>
+            <div class="pago-info">
+                <div class="pago-titulo">💳 Prex</div>
+                <div class="pago-valor" id="prex">000123456789</div>
+            </div>
+            <button class="btn-copiar" onclick="copiar('000123456789')">Copiar</button>
         </div>
 
         <div class="pago-dato">
-            <div class="pago-titulo">🅿️ Paypal</div>
-            <div>paypal.me/nubecitadzn</div>
+            <div class="pago-info">
+                <div class="pago-titulo">🅿️ Paypal</div>
+                <div class="pago-valor" id="paypal">paypal.me/nubecitadzn</div>
+            </div>
+            <button class="btn-copiar" onclick="copiar('paypal.me/nubecitadzn')">Copiar</button>
         </div>
 
         <div class="pago-dato">
-            <div class="pago-titulo">💎 Diamantes</div>
-            <div>ID: 123456789</div>
+            <div class="pago-info">
+                <div class="pago-titulo">💎 Diamantes</div>
+                <div class="pago-valor" id="diamantes">123456789</div>
+            </div>
+            <button class="btn-copiar" onclick="copiar('123456789')">Copiar</button>
         </div>
 
-        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20ya%20realice%20el%20pago%20💖" target="_blank" class="btn">Enviar Comprobante por WhatsApp</a>
+        <a id="btn-wsp" href="#" target="_blank" class="btn">Enviar Encargo por WhatsApp</a>
     </div>
 
     <div class="footer">
@@ -134,6 +149,9 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
 </div>
 
 <script>
+let productoSeleccionado = '';
+
+// BRILLOS
 function crearSparkle(){
     const s = document.createElement('div');
     s.classList.add('sparkle');
@@ -145,9 +163,25 @@ function crearSparkle(){
 }
 setInterval(crearSparkle, 150);
 
-function mostrarPagos(){
+// FUNCION ENCARGAR
+function encargar(producto){
+    productoSeleccionado = producto;
     document.getElementById('pagos').classList.add('activo');
     document.getElementById('pagos').scrollIntoView({behavior: 'smooth'});
+    let mensaje = `Hola Nubecita Dzn 💖%0AQuiero encargar: ${producto}%0AYa realice el pago`;
+    document.getElementById('btn-wsp').href = `https://wa.me/5491153317678?text=${mensaje}`;
+}
+
+// FUNCION COPIAR
+function copiar(texto){
+    navigator.clipboard.writeText(texto);
+    mostrarToast();
+}
+
+function mostrarToast(){
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(()=> toast.classList.remove('show'), 2000);
 }
 </script>
 </body>
