@@ -2,124 +2,115 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nubecita Dzn - Servicios</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<title>Nubecita Dzn ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--rosa:#FF8ACB; --rosa-claro:#FFC1E3; --rosa-oscuro:#FF4D9E; --blanco:#FFF0F5; --texto:#5A3E46;}
+:root{--rosa:#FFB6E6; --rosa-claro:#FFD6F5; --rosa-fuerte:#FF69B4; --blanco:#FFF9FB; --texto:#8A4A6B;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins', sans-serif; background:linear-gradient(180deg, var(--blanco), #FFE6F0); color:var(--texto); padding:20px; overflow-x:hidden; position:relative;}
+body{font-family:'Quicksand', sans-serif; background:linear-gradient(135deg, #FFEAF5 0%, #FFF0F8 50%, #FFEAF5 100%); color:var(--texto); padding:20px; overflow-x:hidden; position:relative;}
 
-/* BRILLOS ROSITAS CAYENDO */
-.sparkle{position:fixed; top:-10px; width:3px; height:3px; background:var(--rosa); border-radius:50%; opacity:0; animation:fall linear infinite; box-shadow:0 0 8px var(--rosa);}
-@keyframes fall{0%{transform:translateY(0) scale(0); opacity:0;} 10%{opacity:1; transform:scale(1);} 90%{opacity:1;} 100%{transform:translateY(100vh) scale(0); opacity:0;}}
+/* CORAZONCITOS Y BRILLOS */
+.float{position:fixed; top:-20px; font-size:14px; opacity:0; animation:floatDown linear infinite; z-index:1;}
+@keyframes floatDown{0%{transform:translateY(0) rotate(0deg); opacity:0;} 10%{opacity:0.6;} 90%{opacity:0.6;} 100%{transform:translateY(100vh) rotate(360deg); opacity:0;}}
 
-.container{max-width:600px; margin:auto; position:relative; z-index:2;}
-.header{text-align:center; margin-bottom:25px;}
-.header h1{font-size:2.2em; color:var(--rosa-oscuro); text-shadow:0 0 15px var(--rosa-claro);}
-.header p{color:var(--texto); font-size:0.95em;}
+.container{max-width:580px; margin:auto; position:relative; z-index:2;}
+.header{text-align:center; margin-bottom:30px; padding:20px; background:rgba(255,255,255,0.6); border-radius:25px; backdrop-filter:blur(10px); border:2px solid var(--rosa-claro);}
+.header h1{font-family:'Dancing Script', cursive; font-size:2.8em; color:var(--rosa-fuerte); text-shadow:0 3px 10px rgba(255,105,180,0.3);}
+.header p{color:var(--texto); font-size:1em; margin-top:5px;}
 
-.card{background:#fff; border:2px solid var(--rosa-claro); border-radius:20px; padding:18px; margin-bottom:18px; box-shadow:0 8px 20px rgba(255,138,203,0.15); position:relative;}
-.card::before{content:'🎀'; position:absolute; top:-12px; right:15px; font-size:22px;}
-.card h2{text-align:center; color:var(--rosa-oscuro); font-size:1.3em; margin-bottom:15px; border-bottom:2px dashed var(--rosa-claro); padding-bottom:8px;}
-.item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px dotted var(--rosa-claro); font-size:0.9em;}
+.card{background:rgba(255,255,255,0.85); border:2px solid var(--rosa); border-radius:25px; padding:20px; margin-bottom:20px; box-shadow:0 10px 25px rgba(255,182,230,0.25); backdrop-filter:blur(8px); position:relative; overflow:hidden;}
+.card::before{content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--rosa),var(--rosa-fuerte),var(--rosa));}
+.card h2{font-family:'Dancing Script', cursive; text-align:center; color:var(--rosa-fuerte); font-size:1.6em; margin-bottom:18px;}
+.item{display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px dashed var(--rosa-claro); font-size:0.95em;}
 .item:last-child{border:none;}
-.precio{color:var(--rosa-oscuro); font-weight:700;}
-.btn-mini{background:linear-gradient(90deg,var(--rosa),var(--rosa-oscuro)); color:#fff; padding:6px 14px; text-decoration:none; border-radius:20px; font-weight:700; font-size:0.8em; border:none; cursor:pointer; box-shadow:0 3px 8px rgba(255,77,158,0.3);}
-.btn-mini:hover{transform:scale(1.05);}
-.btn{display:block; width:100%; background:linear-gradient(90deg,var(--rosa),var(--rosa-oscuro)); color:#fff; padding:14px; text-align:center; text-decoration:none; border-radius:15px; margin-top:12px; font-weight:700; border:none; cursor:pointer; font-size:1em; box-shadow:0 4px 12px rgba(255,77,158,0.3);}
-.aclaraciones{font-size:0.85em; line-height:1.7; color:var(--texto);}
-.aclaraciones p{margin:5px 0;}
+.precio{color:var(--rosa-fuerte); font-weight:700; font-size:1.05em;}
+.btn-mini{background:linear-gradient(135deg,var(--rosa),var(--rosa-fuerte)); color:#fff; padding:7px 16px; border-radius:25px; font-weight:700; font-size:0.8em; border:none; cursor:pointer; box-shadow:0 4px 12px rgba(255,105,180,0.4); transition:all 0.2s;}
+.btn-mini:hover{transform:translateY(-2px); box-shadow:0 6px 16px rgba(255,105,180,0.5);}
+.btn{display:block; width:100%; background:linear-gradient(135deg,var(--rosa),var(--rosa-fuerte)); color:#fff; padding:15px; text-align:center; text-decoration:none; border-radius:20px; margin-top:15px; font-weight:700; border:none; cursor:pointer; font-size:1em; box-shadow:0 6px 18px rgba(255,105,180,0.4);}
+.aclaraciones{font-size:0.9em; line-height:1.8;}
+.aclaraciones p{margin:6px 0;}
 
 /* PAGOS */
-.pago-dato{background:var(--blanco); padding:12px; border-radius:15px; margin-bottom:10px; border:2px dashed var(--rosa); display:flex; justify-content:space-between; align-items:center;}
-.pago-info{text-align:left;}
-.pago-titulo{color:var(--rosa-oscuro); font-weight:700; margin-bottom:4px; font-size:0.95em;}
+.pago-dato{background:linear-gradient(135deg,var(--rosa-claro),#fff); padding:14px; border-radius:18px; margin-bottom:12px; border:2px solid var(--rosa); display:flex; justify-content:space-between; align-items:center;}
+.pago-titulo{color:var(--rosa-fuerte); font-weight:700; font-size:1em;}
 .pago-valor{font-size:0.9em; color:var(--texto);}
-.btn-copiar{background:var(--rosa-claro); color:var(--rosa-oscuro); border:none; padding:7px 12px; border-radius:12px; font-size:0.8em; font-weight:700; cursor:pointer;}
-.btn-copiar:active{transform:scale(0.95);}
+.btn-copiar{background:#fff; color:var(--rosa-fuerte); border:2px solid var(--rosa); padding:8px 14px; border-radius:15px; font-size:0.8em; font-weight:700; cursor:pointer;}
+.btn-copiar:hover{background:var(--rosa); color:#fff;}
 
 #pagos{display:none;}
-#pagos.activo{display:block; animation:fade 0.4s;}
-@keyframes fade{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
-.footer{text-align:center; font-size:0.9em; margin-top:20px; color:var(--rosa-oscuro);}
+#pagos.activo{display:block; animation:fade 0.5s;}
+@keyframes fade{from{opacity:0; transform:translateY(15px) scale(0.98)} to{opacity:1; transform:translateY(0) scale(1)}}
+.footer{text-align:center; font-size:0.95em; margin-top:25px; color:var(--rosa-fuerte); font-weight:600;}
 
-/* ALERTA COPIADO */
-.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--rosa-oscuro); color:#fff; padding:12px 22px; border-radius:20px; font-weight:700; display:none; z-index:999; box-shadow:0 5px 15px rgba(255,77,158,0.4);}
-.toast.show{display:block; animation:toast 2s;}
-@keyframes toast{0%{opacity:0; bottom:10px;} 20%{opacity:1; bottom:20px;} 80%{opacity:1;} 100%{opacity:0;}}
+/* TOAST */
+.toast{position:fixed; bottom:25px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--rosa),var(--rosa-fuerte)); color:#fff; padding:14px 24px; border-radius:25px; font-weight:700; display:none; z-index:999; box-shadow:0 8px 20px rgba(255,105,180,0.5);}
+.toast.show{display:block; animation:toast 2.2s;}
+@keyframes toast{0%{opacity:0; bottom:15px;} 20%{opacity:1; bottom:25px;} 80%{opacity:1;} 100%{opacity:0;}}
 </style>
 </head>
 <body>
 
-<div id="sparkles"></div>
-<div id="toast" class="toast">Copiado! ✨</div>
+<div id="floats"></div>
+<div id="toast" class="toast">¡Copiado! 💖</div>
 
 <div class="container">
     <div class="header">
         <h1>Nubecita Dzn</h1>
-        <p>Diseños hechos con amor para ti 💕</p>
+        <p>Diseños hechos con amor y brillitos ✨</p>
     </div>
 
-    <div class="card"><h2>CALIGRAFICOS</h2>
-        <div class="item"><span>Cali Simple</span><span class="precio">700 <button onclick="encargar('Cali Simple - 700')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Cali + obj</span><span class="precio">1000 <button onclick="encargar('Cali + obj - 1000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Cali tematico</span><span class="precio">1500 <button onclick="encargar('Cali tematico - 1500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Cali curvo</span><span class="precio">1200 <button onclick="encargar('Cali curvo - 1200')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Cali pixel</span><span class="precio">1400 <button onclick="encargar('Cali pixel - 1400')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Cali letra</span><span class="precio">600 <button onclick="encargar('Cali letra - 600')" class="btn-mini">ENCARGAR</button></span></div>
+    <div class="card"><h2>Caligráficos</h2>
+        <div class="item"><span>Cali Simple</span><span class="precio">$700 <button onclick="encargar('Cali Simple - $700')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Cali + obj</span><span class="precio">$1000 <button onclick="encargar('Cali + obj - $1000')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Cali tematico</span><span class="precio">$1500 <button onclick="encargar('Cali tematico - $1500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Cali curvo</span><span class="precio">$1200 <button onclick="encargar('Cali curvo - $1200')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Cali pixel</span><span class="precio">$1400 <button onclick="encargar('Cali pixel - $1400')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Cali letra</span><span class="precio">$600 <button onclick="encargar('Cali letra - $600')" class="btn-mini">Encargar</button></span></div>
     </div>
 
-    <div class="card"><h2>PLANTILLAS</h2>
-        <div class="item"><span>Carrusel</span><span class="precio">2500 <button onclick="encargar('Carrusel - 2500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. bienvenida</span><span class="precio">1300 <button onclick="encargar('P. bienvenida - 1300')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. staff</span><span class="precio">3500 <button onclick="encargar('P. staff - 3500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Destacadas x5</span><span class="precio">2000 <button onclick="encargar('Destacadas x5 - 2000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. Precios</span><span class="precio">1600 <button onclick="encargar('P. Precios - 1600')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. Estamos Presentes</span><span class="precio">1500 <button onclick="encargar('P. Estamos Presentes - 1500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Marca de agua</span><span class="precio">1000 <button onclick="encargar('Marca de agua - 1000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. miembro</span><span class="precio">1200 <button onclick="encargar('P. miembro - 1200')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. new post</span><span class="precio">2000 <button onclick="encargar('P. new post - 2000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>P. catalogo</span><span class="precio">2000 <button onclick="encargar('P. catalogo - 2000')" class="btn-mini">ENCARGAR</button></span></div>
+    <div class="card"><h2>Plantillas</h2>
+        <div class="item"><span>Carrusel</span><span class="precio">$2500 <button onclick="encargar('Carrusel - $2500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>P. staff</span><span class="precio">$3500 <button onclick="encargar('P. staff - $3500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Destacadas x5</span><span class="precio">$2000 <button onclick="encargar('Destacadas x5 - $2000')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>P. catalogo</span><span class="precio">$2000 <button onclick="encargar('P. catalogo - $2000')" class="btn-mini">Encargar</button></span></div>
     </div>
 
-    <div class="card"><h2>RENOVACIONES</h2>
-        <div class="item"><span>Mini</span><span class="precio">4000 <button onclick="encargar('Renovacion Mini - 4000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Grande</span><span class="precio">6000 <button onclick="encargar('Renovacion Grande - 6000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>Dzn</span><span class="precio">5000 <button onclick="encargar('Renovacion Dzn - 5000')" class="btn-mini">ENCARGAR</button></span></div>
+    <div class="card"><h2>Renovaciones</h2>
+        <div class="item"><span>Mini</span><span class="precio">$4000 <button onclick="encargar('Renovacion Mini - $4000')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Grande</span><span class="precio">$6000 <button onclick="encargar('Renovacion Grande - $6000')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>Dzn</span><span class="precio">$5000 <button onclick="encargar('Renovacion Dzn - $5000')" class="btn-mini">Encargar</button></span></div>
     </div>
 
-    <div class="card"><h2>BOTS MENSUALES</h2>
-        <div class="item"><span>1 bot</span><span class="precio">1500 <button onclick="encargar('Bot Mensual 1 - 1500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>3 bots</span><span class="precio">3500 <button onclick="encargar('Bot Mensual 3 - 3500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>5 bots</span><span class="precio">6000 <button onclick="encargar('Bot Mensual 5 - 6000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>7 bots</span><span class="precio">8500 <button onclick="encargar('Bot Mensual 7 - 8500')" class="btn-mini">ENCARGAR</button></span></div>
+    <div class="card"><h2>Bots Mensuales</h2>
+        <div class="item"><span>1 bot</span><span class="precio">$1500 <button onclick="encargar('Bot Mensual 1 - $1500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>3 bots</span><span class="precio">$3500 <button onclick="encargar('Bot Mensual 3 - $3500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>5 bots</span><span class="precio">$6000 <button onclick="encargar('Bot Mensual 5 - $6000')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>7 bots</span><span class="precio">$8500 <button onclick="encargar('Bot Mensual 7 - $8500')" class="btn-mini">Encargar</button></span></div>
     </div>
 
-    <div class="card"><h2>BOTS PERMANENTES</h2>
-        <div class="item"><span>1 bot</span><span class="precio">2500 <button onclick="encargar('Bot Permanente 1 - 2500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>3 bots</span><span class="precio">4500 <button onclick="encargar('Bot Permanente 3 - 4500')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>5 bots</span><span class="precio">7000 <button onclick="encargar('Bot Permanente 5 - 7000')" class="btn-mini">ENCARGAR</button></span></div>
-        <div class="item"><span>7 bots</span><span class="precio">9500 <button onclick="encargar('Bot Permanente 7 - 9500')" class="btn-mini">ENCARGAR</button></span></div>
+    <div class="card"><h2>Bots Permanentes</h2>
+        <div class="item"><span>1 bot</span><span class="precio">$2500 <button onclick="encargar('Bot Permanente 1 - $2500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>3 bots</span><span class="precio">$4500 <button onclick="encargar('Bot Permanente 3 - $4500')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>5 bots</span><span class="precio">$7000 <button onclick="encargar('Bot Permanente 5 - $7000')" class="btn-mini">Encargar</button></span></div>
+        <div class="item"><span>7 bots</span><span class="precio">$9500 <button onclick="encargar('Bot Permanente 7 - $9500')" class="btn-mini">Encargar</button></span></div>
     </div>
 
-    <div class="card"><h2>ACLARACIONES</h2>
+    <div class="card"><h2>Aclaraciones 💌</h2>
         <div class="aclaraciones">
-            <p>✨ No trabajo con apuro</p>
-            <p>✨ No empiezo sin pago completo</p>
-            <p>✨ No hago reembolsos</p>
-            <p>✨ Muestro trabajos al privado</p>
-            <p>✨ Mando avances</p>
-            <p>✨ Solo 2 cambios por producto</p>
+            <p>🌸 No trabajo con apuro</p>
+            <p>🌸 No empiezo sin pago completo</p>
+            <p>🌸 No hago reembolsos</p>
+            <p>🌸 Muestro trabajos al privado</p>
+            <p>🌸 Mando avances</p>
+            <p>🌸 Solo 2 cambios por producto</p>
         </div>
     </div>
 
-    <!-- SECCION PAGOS -->
     <div class="card" id="pagos">
-        <h2>MÉTODOS DE PAGO 💖</h2>
-        <p style="font-size:0.85em; text-align:center; margin-bottom:12px;">Copia tu medio de pago favorito</p>
+        <h2>Métodos de Pago</h2>
         
         <div class="pago-dato">
-            <div class="pago-info">
+            <div>
                 <div class="pago-titulo">💙 Mercado Pago</div>
                 <div class="pago-valor">NUBECITA.DZN.MP</div>
             </div>
@@ -127,7 +118,7 @@ body{font-family:'Poppins', sans-serif; background:linear-gradient(180deg, var(-
         </div>
 
         <div class="pago-dato">
-            <div class="pago-info">
+            <div>
                 <div class="pago-titulo">💳 Prex</div>
                 <div class="pago-valor">000123456789</div>
             </div>
@@ -135,7 +126,7 @@ body{font-family:'Poppins', sans-serif; background:linear-gradient(180deg, var(-
         </div>
 
         <div class="pago-dato">
-            <div class="pago-info">
+            <div>
                 <div class="pago-titulo">🅿️ Paypal</div>
                 <div class="pago-valor">paypal.me/nubecitadzn</div>
             </div>
@@ -143,7 +134,7 @@ body{font-family:'Poppins', sans-serif; background:linear-gradient(180deg, var(-
         </div>
 
         <div class="pago-dato">
-            <div class="pago-info">
+            <div>
                 <div class="pago-titulo">💎 Diamantes</div>
                 <div class="pago-valor">123456789</div>
             </div>
@@ -159,23 +150,22 @@ body{font-family:'Poppins', sans-serif; background:linear-gradient(180deg, var(-
 </div>
 
 <script>
-let productoSeleccionado = '';
-
-// BRILLOS
-function crearSparkle(){
-    const s = document.createElement('div');
-    s.classList.add('sparkle');
-    s.style.left = Math.random() * 100 + 'vw';
-    s.style.animationDuration = Math.random() * 3 + 2 + 's';
-    s.style.animationDelay = Math.random() * 5 + 's';
-    document.getElementById('sparkles').appendChild(s);
-    setTimeout(()=>s.remove(), 8000);
+// CORAZONCITOS Y ESTRELLAS FLOTANDO
+const emojis = ['💖','✨','🌸','💕','🎀'];
+function crearFloat(){
+    const e = document.createElement('div');
+    e.classList.add('float');
+    e.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.left = Math.random() * 100 + 'vw';
+    e.style.animationDuration = Math.random() * 4 + 3 + 's';
+    e.style.animationDelay = Math.random() * 5 + 's';
+    document.getElementById('floats').appendChild(e);
+    setTimeout(()=>e.remove(), 8000);
 }
-setInterval(crearSparkle, 150);
+setInterval(crearFloat, 300);
 
 // ENCARGAR
 function encargar(producto){
-    productoSeleccionado = producto;
     document.getElementById('pagos').classList.add('activo');
     document.getElementById('pagos').scrollIntoView({behavior: 'smooth'});
     let mensaje = `Hola Nubecita Dzn 💖%0AQuiero encargar: ${producto}%0AYa realice el pago`;
@@ -187,7 +177,7 @@ function copiar(texto){
     navigator.clipboard.writeText(texto);
     const toast = document.getElementById('toast');
     toast.classList.add('show');
-    setTimeout(()=> toast.classList.remove('show'), 2000);
+    setTimeout(()=> toast.classList.remove('show'), 2200);
 }
 </script>
 </body>
