@@ -11,56 +11,39 @@ body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-seri
 .container{max-width:500px;margin:auto;}
 .header{text-align:center;padding:25px 0}
 .header h1{font-size:2.2em;color:var(--rosa); font-weight:700;}
-.header p{font-size:0.9em;color:var(--texto);margin-top:8px}
 .card{background:var(--blanco); border-radius:20px;padding:20px; margin-bottom:20px;box-shadow:0 5px 15px rgba(255,77,158,0.1); position:relative;}
 .card::after{content:'🎀'; position:absolute; top:-10px; right:15px; font-size:24px;}
 .card h2{color:var(--rosa);text-align:center;margin-bottom:18px; font-size:1.4em; font-weight:700;}
 .item{margin-bottom:15px;}
 .item-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:500;font-size:0.95em}
 .precio{color:var(--rosa);font-weight:700;font-size:1.1em}
-.btn{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:10px 0;border-radius:12px;text-decoration:none;text-align:center;font-weight:700;font-size:0.9em; cursor:pointer;}
-.btn:hover{transform:scale(1.02)}
+.btn{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),--rosa-claro));color:var(--blanco);padding:10px 0;border-radius:12px;text-decoration:none;text-align:center;font-weight:700;font-size:0.9em; cursor:pointer;}
 .notas{font-size:0.85em;line-height:1.8;color:var(--texto)}
 .notas li{margin-bottom:8px;list-style:'✨  '}
 
-/* SECCION PAGOS OCULTA */
+/* SECCION PAGOS */
 #pagos{display:none; animation: fadeIn 0.4s;}
 #pagos.activo{display:block;}
 @keyframes fadeIn { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:translateY(0)} }
 
-.metodos{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:15px 0}
-.metodo{background:var(--blanco); border:1px solid var(--rosa-claro);padding:8px 15px;border-radius:20px;font-weight:600;color:var(--rosa); font-size:0.85em;}
-.btn-wsp{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),var(--rosa-claro));color:var(--blanco);padding:14px 0;border-radius:15px;text-decoration:none;font-weight:700;margin-top:15px;text-align:center; font-size:1em;}
-.footer{text-align:center;margin-top:30px;padding-bottom:30px}
+.pago-box{background:var(--bg); border-radius:15px; padding:15px; margin-bottom:12px; text-align:left;}
+.pago-titulo{font-weight:700; color:var(--rosa); font-size:1em; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;}
+.pago-dato{background:var(--blanco); padding:10px; border-radius:10px; font-weight:600; font-size:0.9em; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;}
+.btn-copiar{background:var(--rosa-claro); color:var(--blanco); border:none; padding:5px 10px; border-radius:8px; font-size:0.75em; font-weight:700; cursor:pointer;}
+.btn-wsp{display:block;width:100%;background:linear-gradient(90deg,var(--rosa),--rosa-claro));color:var(--blanco);padding:14px 0;border-radius:15px;text-decoration:none;font-weight:700;margin-top:15px;text-align:center; font-size:1em;}
 </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
         <h1>Nubecita Dzn</h1>
-        <p>Diseños hechos con amor para ti 💕<br>Soy <b>Nubecita</b></p>
+        <p>Diseños hechos con amor para ti 💕</p>
     </div>
 
     <div class="card"><h2>Caligráficos</h2>
         <div class="item"><div class="item-info"><span>Cali Simple</span><span class="precio">S/ 700</span></div>
             <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Cali + Objeto</span><span class="precio">S/ 1000</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
-        <div class="item"><div class="item-info"><span>Cali Temático</span><span class="precio">S/ 1500</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
-    </div>
-
-    <div class="card"><h2>Plantillas</h2>
-        <div class="item"><div class="item-info"><span>Carrusel</span><span class="precio">S/ 2500</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
-        <div class="item"><div class="item-info"><span>Plantilla Staff</span><span class="precio">S/ 3500</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
-    </div>
-
-    <div class="card"><h2>Bots</h2>
-        <div class="item"><div class="item-info"><span>1 Bot Mensual</span><span class="precio">S/ 1500</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
-        <div class="item"><div class="item-info"><span>1 Bot Permanente</span><span class="precio">S/ 2500</span></div>
             <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
     </div>
 
@@ -69,20 +52,55 @@ body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-seri
             <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
         <div class="item"><div class="item-info"><span>Grande</span><span class="precio">$6000</span></div>
             <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
-        <div class="item"><div class="item-info"><span>Dzn</span><span class="precio">$5000</span></div>
-            <a onclick="mostrarPagos()" class="btn">ENCARGAR</a></div>
     </div>
 
     <div class="card"><h2>Notas Importantes</h2>
-        <ul class="notas"><li>No trabajo con apuro</li><li>No empiezo sin pago completo</li><li>No hago reembolsos</li><li>Muestro avances del trabajo</li><li>Solo hasta 2 cambios por producto</li></ul>
+        <ul class="notas"><li>No trabajo con apuro</li><li>No empiezo sin pago completo</li><li>No hago reembolsos</li></ul>
     </div>
 
-    <!-- SECCION PAGOS -->
-    <div class="footer" id="pagos">
+    <!-- SECCION PAGOS CON TUS DATOS -->
+    <div class="card" id="pagos">
         <h2 style="color:var(--rosa); font-size:1.4em; margin-bottom:15px">Métodos de Pago 💖</h2>
-        <div class="metodos"><div class="metodo">💙 Mercado Pago</div><div class="metodo">💳 Prex</div><div class="metodo">🅿️ PayPal</div><div class="metodo">💎 Diamantes</div></div>
-        <p style="font-size:0.85em; margin-bottom:10px">"Escríbeme para coordinar tu pedido"</p>
-        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir%20un%20servicio%20💖" target="_blank" class="btn-wsp">Hablar por WhatsApp</a>
+        <p style="font-size:0.85em; margin-bottom:15px">Haz el pago y me envías el comprobante por WhatsApp</p>
+        
+        <!-- AQUI PONES TUS DATOS -->
+        <div class="pago-box">
+            <div class="pago-titulo">💙 Mercado Pago</div>
+            <div class="pago-dato">
+                <span>CVU: 0000003100001234567890</span>
+                <button class="btn-copiar" onclick="copiar('0003100001234567890')">Copiar</button>
+            </div>
+            <div class="pago-dato">
+                <span>Alias: NUBECITA.DZN.MP</span>
+                <button class="btn-copiar" onclick="copiar('NUBECITA.DZN.MP')">Copiar</button>
+            </div>
+        </div>
+
+        <div class="pago-box">
+            <div class="pago-titulo">💳 Prex</div>
+            <div class="pago-dato">
+                <span>CBU: 0001234567890123456</span>
+                <button class="btn-copiar" onclick="copiar('0000001234567890123456')">Copiar</button>
+            </div>
+        </div>
+
+        <div class="pago-box">
+            <div class="pago-titulo">🅿️ PayPal</div>
+            <div class="pago-dato">
+                <span>paypal.me/nubecitadzn</span>
+                <button class="btn-copiar" onclick="copiar('paypal.me/nubecitadzn')">Copiar</button>
+            </div>
+        </div>
+
+        <div class="pago-box">
+            <div class="pago-titulo">💎 Diamantes</div>
+            <div class="pago-dato">
+                <span>ID: 123456789</span>
+                <button class="btn-copiar" onclick="copiar('123456789')">Copiar</button>
+            </div>
+        </div>
+
+        <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20ya%20realice%20el%20pago%20💖" target="_blank" class="btn-wsp">Enviar Comprobante por WhatsApp</a>
         <p style="margin-top:15px; color:var(--rosa); font-size:0.9em">IG: @nubecita.dzn</p>
     </div>
 </div>
@@ -93,7 +111,11 @@ body{background:var(--bg);color:var(--texto); font-family:'Montserrat',sans-seri
     document.getElementById('pagos').scrollIntoView({behavior: 'smooth'});
   }
 
-  // Al recargar, se oculta pagos otra vez
+  function copiar(texto){
+    navigator.clipboard.writeText(texto);
+    alert('Copiado: ' + texto);
+  }
+
   window.addEventListener('load', () => {
     document.getElementById('pagos').classList.remove('activo');
   });
