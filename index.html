@@ -6,11 +6,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-    --dark:#8B4A6B;
-    --mid:#C86B9E; 
-    --light:#F4A6CD;
-    --aqua:#FFD6E8;
-    --white:#FFF0F7;
+    --dark:#5A2F45;  /* Más oscuro */
+    --mid:#8B4A6B; 
+    --light:#D46A9A; /* Rosa fuerte para botones */
+    --aqua:#F4A6CD;  /* Para textos */
+    --white:#FFFFFF; /* Blanco puro para que resalte */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -21,22 +21,22 @@ body{
 }
 .container{max-width:1100px;margin:auto}
 .header{text-align:center;padding:40px 0}
-.header h1{font-family:'Playfair Display';font-size:3.2em;color:var(--white);text-shadow:0 0 15px var(--light)}
-.header p{font-size:1.1em;color:var(--aqua);margin-top:10px}
+.header h1{font-family:'Playfair Display';font-size:3.2em;color:var(--white);text-shadow:0 0 20px var(--light)}
+.header p{font-size:1.1em;color:var(--aqua);margin-top:10px;font-weight:500}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .card{
-    background:rgba(139,74,107,0.7);border:2px solid var(--light);
+    background:rgba(90,47,69,0.85);border:2px solid var(--light);
     border-radius:20px;padding:25px;transition:0.3s;
 }
 .card:hover{transform:translateY(-5px);border-color:var(--aqua);box-shadow:0 0 25px var(--light)}
-.card h2{font-family:'Playfair Display';color:var(--aqua);text-align:center;margin-bottom:20px;font-size:1.5em}
+.card h2{font-family:'Playfair Display';color:var(--white);text-align:center;margin-bottom:20px;font-size:1.6em;text-shadow:0 0 10px var(--light)}
 .item{margin-bottom:15px;padding-bottom:12px;border-bottom:1px dashed var(--light)}
-.item-info{display:flex;justify-content:space-between;margin-bottom:8px}
-.precio{color:var(--white);font-weight:700;font-size:1.1em}
+.item-info{display:flex;justify-content:space-between;margin-bottom:8px;font-weight:500}
+.precio{color:var(--white);font-weight:700;font-size:1.2em}
 .btn-comprar{
     display:block;width:100%;background:var(--light);color:var(--dark);
-    padding:8px 0;border-radius:10px;text-decoration:none;text-align:center;
-    font-weight:700;font-size:0.9em;transition:0.3s;border:none;cursor:pointer;
+    padding:10px 0;border-radius:10px;text-decoration:none;text-align:center;
+    font-weight:800;font-size:0.95em;transition:0.3s;border:none;cursor:pointer;
 }
 .btn-comprar:hover{background:var(--aqua);transform:scale(1.03)}
 .notas{font-size:0.9em;line-height:1.8;color:var(--aqua)}
@@ -44,10 +44,10 @@ body{
 .footer{text-align:center;margin-top:40px;padding:30px;border-top:2px solid var(--light)}
 .metodos{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:20px 0}
 .metodo{
-    background:rgba(244,166,205,0.2);border:1px solid var(--light);
-    padding:10px 20px;border-radius:12px;font-weight:600;color:var(--aqua)
+    background:rgba(212,106,154,0.3);border:1px solid var(--light);
+    padding:10px 20px;border-radius:12px;font-weight:700;color:var(--white)
 }
-.btn-wsp{display:inline-block;background:var(--light);color:var(--dark);padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;margin-top:15px;transition:0.3s}
+.btn-wsp{display:inline-block;background:var(--light);color:var(--dark);padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:800;margin-top:15px;transition:0.3s;font-size:1.1em}
 .btn-wsp:hover{background:var(--aqua);transform:scale(1.05)}
 </style>
 </head>
@@ -55,7 +55,7 @@ body{
 <div class="container">
     <div class="header">
         <h1>Servicios de Diseño</h1>
-        <p>¡Hola! Soy <b style="color:var(--aqua)">Nubecita Dzn</b><br>
+        <p>¡Hola! Soy <b style="color:var(--white)">Nubecita Dzn</b><br>
         Entre nubes y creatividad, doy vida a tus ideas ✨</p>
     </div>
 
@@ -69,10 +69,6 @@ body{
                 <div class="item-info"><span>Cali + obj</span><span class="precio">1000</span></div>
                 <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Cali%20+%20obj%20-%201000" target="_blank" class="btn-comprar">COMPRAR</a>
             </div>
-            <div class="item">
-                <div class="item-info"><span>Cali temático</span><span class="precio">1500</span></div>
-                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Cali%20tematico%20-%201500" target="_blank" class="btn-comprar">COMPRAR</a>
-            </div>
         </div>
 
         <div class="card"><h2>PLANTILLAS</h2>
@@ -80,20 +76,12 @@ body{
                 <div class="item-info"><span>Carrusel</span><span class="precio">2500</span></div>
                 <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Carrusel%20-%202500" target="_blank" class="btn-comprar">COMPRAR</a>
             </div>
-            <div class="item">
-                <div class="item-info"><span>P. staff</span><span class="precio">3500</span></div>
-                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Plantilla%20staff%20-%203500" target="_blank" class="btn-comprar">COMPRAR</a>
-            </div>
         </div>
 
         <div class="card"><h2>BOTS</h2>
             <div class="item">
                 <div class="item-info"><span>1 Bot Mensual</span><span class="precio">1500</span></div>
                 <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%201%20Bot%20Mensual%20-%201500" target="_blank" class="btn-comprar">COMPRAR</a>
-            </div>
-            <div class="item">
-                <div class="item-info"><span>1 Bot Permanente</span><span class="precio">2500</span></div>
-                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%201%20Bot%20Permanente%20-%202500" target="_blank" class="btn-comprar">COMPRAR</a>
             </div>
         </div>
 
@@ -116,7 +104,6 @@ body{
             <div class="metodo">🅿️ PayPal</div>
             <div class="metodo">💎 Diamantes</div>
         </div>
-        <p style="color:var(--aqua);margin-bottom:15px">*Consulten moneda y cotización al momento de pagar*</p>
         <a href="https://wa.me/5491153317678" target="_blank" class="btn-wsp">Pedir por WhatsApp</a>
         <p style="margin-top:15px">IG: @nubecita.dzn</p>
     </div>
