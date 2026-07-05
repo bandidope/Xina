@@ -3,45 +3,48 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nubecita Dzn - Servicios</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--rosa:#FF4D9E; --rosa-claro:#FF8ACB; --negro:#0a0a0a; --gris:#1a1a1a;}
+:root{--rosa:#FF8ACB; --rosa-claro:#FFC1E3; --rosa-oscuro:#FF4D9E; --blanco:#FFF0F5; --texto:#5A3E46;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; padding:20px; overflow-x:hidden; position:relative;}
+body{font-family:'Poppins', sans-serif; background:linear-gradient(180deg, var(--blanco), #FFE6F0); color:var(--texto); padding:20px; overflow-x:hidden; position:relative;}
 
-/* BRILLOS CAYENDO */
-.sparkle{position:fixed; top:-10px; width:2px; height:2px; background:var(--rosa-claro); border-radius:50%; opacity:0; animation:fall linear infinite; box-shadow:0 0 6px var(--rosa-claro);}
-@keyframes fall{0%{transform:translateY(0); opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateY(100vh); opacity:0;}}
+/* BRILLOS ROSITAS CAYENDO */
+.sparkle{position:fixed; top:-10px; width:3px; height:3px; background:var(--rosa); border-radius:50%; opacity:0; animation:fall linear infinite; box-shadow:0 0 8px var(--rosa);}
+@keyframes fall{0%{transform:translateY(0) scale(0); opacity:0;} 10%{opacity:1; transform:scale(1);} 90%{opacity:1;} 100%{transform:translateY(100vh) scale(0); opacity:0;}}
 
 .container{max-width:600px; margin:auto; position:relative; z-index:2;}
 .header{text-align:center; margin-bottom:25px;}
-.header h1{font-size:2em; color:var(--rosa); text-shadow:0 0 10px var(--rosa);}
-.header p{color:#ccc; font-size:0.9em;}
+.header h1{font-size:2.2em; color:var(--rosa-oscuro); text-shadow:0 0 15px var(--rosa-claro);}
+.header p{color:var(--texto); font-size:0.95em;}
 
-.card{background:var(--gris); border:1px solid var(--rosa); border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 0 15px rgba(255,77,158,0.2);}
-.card h2{text-align:center; color:var(--rosa); font-size:1.2em; margin-bottom:12px; border-bottom:1px solid var(--rosa); padding-bottom:8px;}
-.item{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed #333; font-size:0.9em;}
+.card{background:#fff; border:2px solid var(--rosa-claro); border-radius:20px; padding:18px; margin-bottom:18px; box-shadow:0 8px 20px rgba(255,138,203,0.15); position:relative;}
+.card::before{content:'🎀'; position:absolute; top:-12px; right:15px; font-size:22px;}
+.card h2{text-align:center; color:var(--rosa-oscuro); font-size:1.3em; margin-bottom:15px; border-bottom:2px dashed var(--rosa-claro); padding-bottom:8px;}
+.item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px dotted var(--rosa-claro); font-size:0.9em;}
 .item:last-child{border:none;}
-.precio{color:var(--rosa-claro); font-weight:bold;}
-.btn-mini{background:linear-gradient(90deg,var(--rosa),var(--rosa-claro)); color:var(--negro); padding:5px 12px; text-decoration:none; border-radius:6px; font-weight:bold; font-size:0.8em; border:none; cursor:pointer;}
-.btn-mini:hover{box-shadow:0 0 10px var(--rosa);}
-.btn{display:block; width:100%; background:linear-gradient(90deg,var(--rosa),var(--rosa-claro)); color:var(--negro); padding:12px; text-align:center; text-decoration:none; border-radius:8px; margin-top:10px; font-weight:bold; border:none; cursor:pointer; font-size:1em;}
-.aclaraciones{font-size:0.8em; line-height:1.6; color:#ccc;}
+.precio{color:var(--rosa-oscuro); font-weight:700;}
+.btn-mini{background:linear-gradient(90deg,var(--rosa),var(--rosa-oscuro)); color:#fff; padding:6px 14px; text-decoration:none; border-radius:20px; font-weight:700; font-size:0.8em; border:none; cursor:pointer; box-shadow:0 3px 8px rgba(255,77,158,0.3);}
+.btn-mini:hover{transform:scale(1.05);}
+.btn{display:block; width:100%; background:linear-gradient(90deg,var(--rosa),var(--rosa-oscuro)); color:#fff; padding:14px; text-align:center; text-decoration:none; border-radius:15px; margin-top:12px; font-weight:700; border:none; cursor:pointer; font-size:1em; box-shadow:0 4px 12px rgba(255,77,158,0.3);}
+.aclaraciones{font-size:0.85em; line-height:1.7; color:var(--texto);}
+.aclaraciones p{margin:5px 0;}
 
 /* PAGOS */
-.pago-dato{background:#000; padding:10px; border-radius:8px; margin-bottom:8px; border:1px dashed var(--rosa); display:flex; justify-content:space-between; align-items:center;}
+.pago-dato{background:var(--blanco); padding:12px; border-radius:15px; margin-bottom:10px; border:2px dashed var(--rosa); display:flex; justify-content:space-between; align-items:center;}
 .pago-info{text-align:left;}
-.pago-titulo{color:var(--rosa); font-weight:bold; margin-bottom:4px; font-size:0.9em;}
-.pago-valor{font-size:0.85em;}
-.btn-copiar{background:var(--rosa-claro); color:var(--negro); border:none; padding:6px 10px; border-radius:6px; font-size:0.75em; font-weight:bold; cursor:pointer;}
+.pago-titulo{color:var(--rosa-oscuro); font-weight:700; margin-bottom:4px; font-size:0.95em;}
+.pago-valor{font-size:0.9em; color:var(--texto);}
+.btn-copiar{background:var(--rosa-claro); color:var(--rosa-oscuro); border:none; padding:7px 12px; border-radius:12px; font-size:0.8em; font-weight:700; cursor:pointer;}
 .btn-copiar:active{transform:scale(0.95);}
 
 #pagos{display:none;}
-#pagos.activo{display:block; animation:fade 0.3s;}
-@keyframes fade{from{opacity:0} to{opacity:1}}
-.footer{text-align:center; font-size:0.85em; margin-top:20px; color:var(--rosa);}
+#pagos.activo{display:block; animation:fade 0.4s;}
+@keyframes fade{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
+.footer{text-align:center; font-size:0.9em; margin-top:20px; color:var(--rosa-oscuro);}
 
 /* ALERTA COPIADO */
-.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--rosa); color:var(--negro); padding:10px 20px; border-radius:8px; font-weight:bold; display:none; z-index:999;}
+.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--rosa-oscuro); color:#fff; padding:12px 22px; border-radius:20px; font-weight:700; display:none; z-index:999; box-shadow:0 5px 15px rgba(255,77,158,0.4);}
 .toast.show{display:block; animation:toast 2s;}
 @keyframes toast{0%{opacity:0; bottom:10px;} 20%{opacity:1; bottom:20px;} 80%{opacity:1;} 100%{opacity:0;}}
 </style>
@@ -49,12 +52,12 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
 <body>
 
 <div id="sparkles"></div>
-<div id="toast" class="toast">Copiado! ✓</div>
+<div id="toast" class="toast">Copiado! ✨</div>
 
 <div class="container">
     <div class="header">
-        <h1>Servicios de Diseño</h1>
-        <p>Hola! Soy <b style="color:var(--rosa)">Nubecita Dzn</b></p>
+        <h1>Nubecita Dzn</h1>
+        <p>Diseños hechos con amor para ti 💕</p>
     </div>
 
     <div class="card"><h2>CALIGRAFICOS</h2>
@@ -68,8 +71,15 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
 
     <div class="card"><h2>PLANTILLAS</h2>
         <div class="item"><span>Carrusel</span><span class="precio">2500 <button onclick="encargar('Carrusel - 2500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. bienvenida</span><span class="precio">1300 <button onclick="encargar('P. bienvenida - 1300')" class="btn-mini">ENCARGAR</button></span></div>
         <div class="item"><span>P. staff</span><span class="precio">3500 <button onclick="encargar('P. staff - 3500')" class="btn-mini">ENCARGAR</button></span></div>
         <div class="item"><span>Destacadas x5</span><span class="precio">2000 <button onclick="encargar('Destacadas x5 - 2000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. Precios</span><span class="precio">1600 <button onclick="encargar('P. Precios - 1600')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. Estamos Presentes</span><span class="precio">1500 <button onclick="encargar('P. Estamos Presentes - 1500')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>Marca de agua</span><span class="precio">1000 <button onclick="encargar('Marca de agua - 1000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. miembro</span><span class="precio">1200 <button onclick="encargar('P. miembro - 1200')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. new post</span><span class="precio">2000 <button onclick="encargar('P. new post - 2000')" class="btn-mini">ENCARGAR</button></span></div>
+        <div class="item"><span>P. catalogo</span><span class="precio">2000 <button onclick="encargar('P. catalogo - 2000')" class="btn-mini">ENCARGAR</button></span></div>
     </div>
 
     <div class="card"><h2>RENOVACIONES</h2>
@@ -94,24 +104,24 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
 
     <div class="card"><h2>ACLARACIONES</h2>
         <div class="aclaraciones">
-            <p>- No trabajo con apuro</p>
-            <p>- No empiezo sin pago completo</p>
-            <p>- No hago reembolsos</p>
-            <p>- Muestro trabajos al privado</p>
-            <p>- Mando avances</p>
-            <p>- Solo 2 cambios por producto</p>
+            <p>✨ No trabajo con apuro</p>
+            <p>✨ No empiezo sin pago completo</p>
+            <p>✨ No hago reembolsos</p>
+            <p>✨ Muestro trabajos al privado</p>
+            <p>✨ Mando avances</p>
+            <p>✨ Solo 2 cambios por producto</p>
         </div>
     </div>
 
-    <!-- SECCION PAGOS CON BOTON COPIAR -->
+    <!-- SECCION PAGOS -->
     <div class="card" id="pagos">
-        <h2>METODOS DE PAGO</h2>
-        <p style="font-size:0.8em; text-align:center; margin-bottom:10px; color:#ccc;">Copia tus datos y paga 💖</p>
+        <h2>MÉTODOS DE PAGO 💖</h2>
+        <p style="font-size:0.85em; text-align:center; margin-bottom:12px;">Copia tu medio de pago favorito</p>
         
         <div class="pago-dato">
             <div class="pago-info">
                 <div class="pago-titulo">💙 Mercado Pago</div>
-                <div class="pago-valor" id="mp">NUBECITA.DZN.MP</div>
+                <div class="pago-valor">NUBECITA.DZN.MP</div>
             </div>
             <button class="btn-copiar" onclick="copiar('NUBECITA.DZN.MP')">Copiar</button>
         </div>
@@ -119,7 +129,7 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
         <div class="pago-dato">
             <div class="pago-info">
                 <div class="pago-titulo">💳 Prex</div>
-                <div class="pago-valor" id="prex">000123456789</div>
+                <div class="pago-valor">000123456789</div>
             </div>
             <button class="btn-copiar" onclick="copiar('000123456789')">Copiar</button>
         </div>
@@ -127,7 +137,7 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
         <div class="pago-dato">
             <div class="pago-info">
                 <div class="pago-titulo">🅿️ Paypal</div>
-                <div class="pago-valor" id="paypal">paypal.me/nubecitadzn</div>
+                <div class="pago-valor">paypal.me/nubecitadzn</div>
             </div>
             <button class="btn-copiar" onclick="copiar('paypal.me/nubecitadzn')">Copiar</button>
         </div>
@@ -135,12 +145,12 @@ body{font-family:'Arial', sans-serif; background:var(--negro); color:#fff; paddi
         <div class="pago-dato">
             <div class="pago-info">
                 <div class="pago-titulo">💎 Diamantes</div>
-                <div class="pago-valor" id="diamantes">123456789</div>
+                <div class="pago-valor">123456789</div>
             </div>
             <button class="btn-copiar" onclick="copiar('123456789')">Copiar</button>
         </div>
 
-        <a id="btn-wsp" href="#" target="_blank" class="btn">Enviar Encargo por WhatsApp</a>
+        <a id="btn-wsp" href="#" target="_blank" class="btn">Enviar Encargo por WhatsApp 💌</a>
     </div>
 
     <div class="footer">
@@ -163,7 +173,7 @@ function crearSparkle(){
 }
 setInterval(crearSparkle, 150);
 
-// FUNCION ENCARGAR
+// ENCARGAR
 function encargar(producto){
     productoSeleccionado = producto;
     document.getElementById('pagos').classList.add('activo');
@@ -172,13 +182,9 @@ function encargar(producto){
     document.getElementById('btn-wsp').href = `https://wa.me/5491153317678?text=${mensaje}`;
 }
 
-// FUNCION COPIAR
+// COPIAR
 function copiar(texto){
     navigator.clipboard.writeText(texto);
-    mostrarToast();
-}
-
-function mostrarToast(){
     const toast = document.getElementById('toast');
     toast.classList.add('show');
     setTimeout(()=> toast.classList.remove('show'), 2000);
