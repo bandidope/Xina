@@ -3,82 +3,98 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nubecita Dzn - Servicios de Diseño</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+:root{
+    --dark:#005954;
+    --mid:#338b85;
+    --light:#5dc1b9;
+    --aqua:#9ce0db;
+    --white:#d5ffff;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-    background: linear-gradient(180deg, #03051a 0%, #0a0f3a 50%, #050822 100%);
-    color:#e0f0ff; font-family:'Poppins',sans-serif; padding:20px;
+    background: linear-gradient(180deg, var(--dark) 0%, var(--mid) 100%);
+    color:var(--white); font-family:'Poppins',sans-serif; padding:20px;
+    background-image:radial-gradient(var(--aqua) 1px, transparent 1px);
+    background-size:80px 80px;
 }
-/* SOLO 30 ESTRELLAS EN VEZ DE 100 */
-.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;background-image:radial-gradient(white 1px,transparent 1px);background-size:100px 100px;opacity:0.4}
-
 .container{max-width:1100px;margin:auto}
 .header{text-align:center;padding:40px 0}
-.header h1{font-family:'Playfair Display';font-size:3.5em;color:#fff;text-shadow:0 0 15px #8ecfff}
+.header h1{font-family:'Playfair Display';font-size:3.2em;color:var(--white);text-shadow:0 0 15px var(--light)}
+.header p{font-size:1.1em;color:var(--aqua);margin-top:10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .card{
-    background:rgba(10,20,50,0.8);border:1px solid rgba(142,207,255,0.3);
-    border-radius:20px;padding:25px; /* QUITÉ EL BLUR */
-    transition:0.3s;
+    background:rgba(0,89,84,0.7);border:2px solid var(--light);
+    border-radius:20px;padding:25px;transition:0.3s;
 }
-.card:hover{transform:translateY(-5px);border-color:#8ecfff}
-.card h2{font-family:'Playfair Display';color:#8ecfff;text-align:center;margin-bottom:20px;font-size:1.5em}
-.item{display:flex;justify-content:space-between;margin-bottom:12px;padding-bottom:8px;border-bottom:1px dashed rgba(142,207,255,0.2)}
-.precio{color:#fff;font-weight:500}
-.notas{font-size:0.9em;line-height:1.8;color:#cde8ff}
+.card:hover{transform:translateY(-5px);border-color:var(--aqua);box-shadow:0 0 25px var(--light)}
+.card h2{font-family:'Playfair Display';color:var(--aqua);text-align:center;margin-bottom:20px;font-size:1.5em}
+.item{margin-bottom:15px;padding-bottom:12px;border-bottom:1px dashed var(--light)}
+.item-info{display:flex;justify-content:space-between;margin-bottom:8px}
+.precio{color:var(--white);font-weight:700;font-size:1.1em}
+.btn-comprar{
+    display:block;width:100%;background:var(--light);color:var(--dark);
+    padding:8px 0;border-radius:10px;text-decoration:none;text-align:center;
+    font-weight:700;font-size:0.9em;transition:0.3s;border:none;cursor:pointer;
+}
+.btn-comprar:hover{background:var(--aqua);transform:scale(1.03)}
+.notas{font-size:0.9em;line-height:1.8;color:var(--aqua)}
 .notas li{margin-bottom:8px;list-style:'☁️  '}
-.footer{text-align:center;margin-top:40px;padding:30px;border-top:1px solid rgba(142,207,255,0.3)}
-.btn-wsp{display:inline-block;background:#25D366;color:#fff;padding:12px 25px;border-radius:50px;text-decoration:none;font-weight:700;margin-top:15px}
+.footer{text-align:center;margin-top:40px;padding:30px;border-top:2px solid var(--light)}
+.metodos{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:20px 0}
+.metodo{
+    background:rgba(93,193,185,0.2);border:1px solid var(--light);
+    padding:10px 20px;border-radius:12px;font-weight:600;color:var(--aqua)
+}
+.btn-wsp{display:inline-block;background:var(--light);color:var(--dark);padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;margin-top:15px;transition:0.3s}
+.btn-wsp:hover{background:var(--aqua);transform:scale(1.05)}
 </style>
 </head>
 <body>
-<div class="stars"></div>
-
 <div class="container">
     <div class="header">
         <h1>Servicios de Diseño</h1>
-        <p>¡Hola! Soy <b style="color:#8ecfff">Nubecita Dzn</b><br>
+        <p>¡Hola! Soy <b style="color:var(--aqua)">Nubecita Dzn</b><br>
         Entre nubes y creatividad, doy vida a tus ideas ✨</p>
     </div>
 
     <div class="grid">
         <div class="card"><h2>CALIGRÁFICOS</h2>
-            <div class="item"><span>Cali Simple</span><span class="precio">700</span></div>
-            <div class="item"><span>Cali + obj</span><span class="precio">1000</span></div>
-            <div class="item"><span>Cali temático</span><span class="precio">1500</span></div>
-            <div class="item"><span>Cali curvo</span><span class="precio">1200</span></div>
-            <div class="item"><span>Cali pixel</span><span class="precio">1400</span></div>
-            <div class="item"><span>Cali letra</span><span class="precio">600</span></div>
+            <div class="item">
+                <div class="item-info"><span>Cali Simple</span><span class="precio">700</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Cali%20Simple%20-%20700" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
+            <div class="item">
+                <div class="item-info"><span>Cali + obj</span><span class="precio">1000</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Cali%20+%20obj%20-%201000" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
+            <div class="item">
+                <div class="item-info"><span>Cali temático</span><span class="precio">1500</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Cali%20tematico%20-%201500" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
         </div>
 
         <div class="card"><h2>PLANTILLAS</h2>
-            <div class="item"><span>Carrusel</span><span class="precio">2500</span></div>
-            <div class="item"><span>P. bienvenida</span><span class="precio">1300</span></div>
-            <div class="item"><span>P. staff</span><span class="precio">3500</span></div>
-            <div class="item"><span>Destacadas x5</span><span class="precio">2000</span></div>
-            <div class="item"><span>P. Precios</span><span class="precio">1600</span></div>
-            <div class="item"><span>P. Estamos Presentes</span><span class="precio">1500</span></div>
+            <div class="item">
+                <div class="item-info"><span>Carrusel</span><span class="precio">2500</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Carrusel%20-%202500" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
+            <div class="item">
+                <div class="item-info"><span>P. staff</span><span class="precio">3500</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%20Plantilla%20staff%20-%203500" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
         </div>
 
-        <div class="card"><h2>RENOVACIONES</h2>
-            <div class="item"><span>Mini</span><span class="precio">4000</span></div>
-            <div class="item"><span>Grande</span><span class="precio">6000</span></div>
-            <div class="item"><span>Dzn</span><span class="precio">5000</span></div>
-        </div>
-
-        <div class="card"><h2>BOTS MENSUALES</h2>
-            <div class="item"><span>1 bot</span><span class="precio">1500</span></div>
-            <div class="item"><span>3 bots</span><span class="precio">3500</span></div>
-            <div class="item"><span>5 bots</span><span class="precio">6000</span></div>
-            <div class="item"><span>7 bots</span><span class="precio">8500</span></div>
-        </div>
-
-        <div class="card"><h2>BOTS PERMANENTES</h2>
-            <div class="item"><span>1 bot</span><span class="precio">2500</span></div>
-            <div class="item"><span>3 bots</span><span class="precio">4500</span></div>
-            <div class="item"><span>5 bots</span><span class="precio">7000</span></div>
-            <div class="item"><span>7 bots</span><span class="precio">9500</span></div>
+        <div class="card"><h2>BOTS</h2>
+            <div class="item">
+                <div class="item-info"><span>1 Bot Mensual</span><span class="precio">1500</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%201%20Bot%20Mensual%20-%201500" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
+            <div class="item">
+                <div class="item-info"><span>1 Bot Permanente</span><span class="precio">2500</span></div>
+                <a href="https://wa.me/5491153317678?text=Hola%20Nubecita%20Dzn%20quiero%20pedir:%201%20Bot%20Permanente%20-%202500" target="_blank" class="btn-comprar">COMPRAR</a>
+            </div>
         </div>
 
         <div class="card"><h2>ACLARACIONES</h2>
@@ -93,9 +109,15 @@ body{
     </div>
 
     <div class="footer">
-        <h2>MÉTODOS DE PAGO</h2>
-        <p>Mercado Pago | Diamantes | Consulten moneda</p>
-        <a href="https://wa.me/5491153317678" target="_blank" class="btn-wsp">Pedidos por WhatsApp</a>
+        <h2>MÉTODOS DE PAGO ACEPTADOS</h2>
+        <div class="metodos">
+            <div class="metodo">💙 Mercado Pago</div>
+            <div class="metodo">💳 Prex</div>
+            <div class="metodo">🅿️ PayPal</div>
+            <div class="metodo">💎 Diamantes</div>
+        </div>
+        <p style="color:var(--aqua);margin-bottom:15px">*Consulten moneda y cotización al momento de pagar*</p>
+        <a href="https://wa.me/5491153317678" target="_blank" class="btn-wsp">Pedir por WhatsApp</a>
         <p style="margin-top:15px">IG: @nubecita.dzn</p>
     </div>
 </div>
